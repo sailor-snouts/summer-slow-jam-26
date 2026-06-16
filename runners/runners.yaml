@@ -1,0 +1,30 @@
+# Self-hosted runner fleet for this machine.
+#
+# Add a runner: add a list item below, then run
+#   Install-Runners.ps1 -Name <name>
+# Change whether one starts at logon: edit its `autostart`, then run
+#   Install-Runners.ps1 -Name <name>
+# Start/stop one ad hoc:  Manage-Runners.ps1 <start|stop|restart|status> -Name <name>
+#
+# Keep installRoot SHORT: Unity ignores Windows LongPathsEnabled, so deep
+# package paths under <installRoot>\<folder>\_work\<repo>\<repo>\Library break
+# player builds once the total exceeds 260 chars.
+#
+# Format is a small fixed shape (top-level scalars + a labels array + a runners
+# list) — keep to it; this isn't parsed by a full YAML engine.
+
+installRoot: C:\r
+labels: [windows, unity]
+
+runners:
+  - name: unity-starter-template          # GitHub runner registration name
+    folder: ust                            # short on-disk dir under installRoot
+    type: repo                             # repo | org
+    target: roboparker/unity-starter-template
+    autostart: true                        # launch automatically at your logon?
+
+  - name: sailor-snouts
+    folder: ss
+    type: org
+    target: sailor-snouts
+    autostart: false

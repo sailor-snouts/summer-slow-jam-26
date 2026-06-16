@@ -1,0 +1,22 @@
+{
+    "name": "JamTemplate.Core",
+    "rootNamespace": "JamTemplate.Core",
+    "references": [
+        "JamTemplate.Audio",
+        "JamTemplate.Game",
+        "JamTemplate.SceneManagement",
+        "JamTemplate.Menus",
+        "JamTemplate.Saving",
+        "JamTemplate.Settings",
+        "JamTemplate.SplashScreens"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

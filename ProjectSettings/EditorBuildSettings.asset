@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Splash.unity
+    guid: 0a5c1110000000000000000000000005
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Features/Core/Scenes/Title.unity
+    guid: 4b1ce2d05e70be74ea8b7799060467a6
+  - enabled: 1
+    path: Assets/Features/Core/Scenes/Settings.unity
+    guid: 2575819c5efb6a541a1b30392740d1cd
+  - enabled: 1
+    path: Assets/Features/Core/Scenes/Credits.unity
+    guid: a78e098d510d723468d0b03df9abb177
+  - enabled: 1
+    path: Assets/Features/Core/Scenes/Lose.unity
+    guid: 10e3e6fa285a47941896867c31564744
+  - enabled: 1
+    path: Assets/Features/Core/Scenes/Win.unity
+    guid: 6f5e5430fbae452488fc9c843b4376f1
+  - enabled: 1
+    path: Assets/Features/Core/Scenes/Pause.unity
+    guid: 5135725f08b32c3499c065be8c171294
+  - enabled: 1
+    path: Assets/Features/Core/Scenes/Saves.unity
+    guid: de68ea69cdcb588428f13510005f2c63
+  - enabled: 1
+    path: Assets/Features/Core/Scenes/HighScores.unity
+    guid: 811c073a9926c6442b46262abc1488c6
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

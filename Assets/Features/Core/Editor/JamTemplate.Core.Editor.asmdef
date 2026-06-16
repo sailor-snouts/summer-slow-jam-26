@@ -1,0 +1,34 @@
+{
+    "name": "JamTemplate.Core.Editor",
+    "rootNamespace": "JamTemplate.Core.Editor",
+    "references": [
+        "JamTemplate.Core",
+        "JamTemplate.Audio",
+        "JamTemplate.Game",
+        "JamTemplate.SceneManagement",
+        "JamTemplate.Menus",
+        "JamTemplate.Saving",
+        "JamTemplate.Settings",
+        "JamTemplate.Credits",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro",
+        "Unity.Cinemachine"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "3.0.0",
+            "define": "CINEMACHINE_3"
+        }
+    ],
+    "noEngineReferences": false
+}

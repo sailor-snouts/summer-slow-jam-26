@@ -1,0 +1,217 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # Cloud, license-free, every push/PR. The always-on tier.
+  static-checks:
+    name: Static checks (architecture, metas, build settings, format)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run project checks
+        shell: pwsh
+        run: ./.github/scripts/Check-UnityProject.ps1
+      - name: Verify C# whitespace formatting (.editorconfig)
+        run: |
+          dotnet format whitespace --folder Assets/Features --verify-no-changes
+          dotnet format whitespace --folder Assets/Tests --verify-no-changes
+
+  # --- Self-hosted Unity jobs --------------------------------------------------
+  # Unity 6 Personal licenses can't be activated headlessly (account-token
+  # licensing, no .ulf), so these run on a self-hosted runner that uses the
+  # machine's already-activated Unity. Set up the runner with runners/ (see
+  # runners/README.md). Manual-dispatch only: a personal machine reboots and
+  # isn't always online, and queued jobs with no runner would hang. The runner
+  # checks out into its own _work dir, so it never touches your dev clone.
+
+  # The runner machine's PowerShell execution policy would block the runner's
+  # generated step scripts, so each self-hosted job runs them via a custom shell
+  # with -ExecutionPolicy Bypass. (A custom shell skips GitHub's automatic
+  # exit-code handling, so blocking steps end with an explicit exit check.)
+
+  unity-tests:
+    name: EditMode tests (self-hosted)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: [self-hosted, windows, unity]
+    defaults:
+      run:
+        shell: 'powershell -NoProfile -ExecutionPolicy Bypass -File "{0}"'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          # Keep the Unity Library between runs (self-hosted, persistent _work) so
+          # imports stay warm — a clean checkout would force a full reimport.
+          clean: false
+      - name: Run EditMode tests
+        run: ./.github/scripts/Run-Unity.ps1 -Mode tests
+      - name: Upload Unity log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-log-tests
+          path: unity-tests.log
+          if-no-files-found: ignore
+
+  style-lint:
+    name: C# style + Roslyn analysis (self-hosted)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: [self-hosted, windows, unity]
+    defaults:
+      run:
+        shell: 'powershell -NoProfile -ExecutionPolicy Bypass -File "{0}"'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          # Keep the Unity Library between runs (self-hosted, persistent _work) so
+          # imports stay warm — a clean checkout would force a full reimport.
+          clean: false
+      - name: Generate C# projects with Unity
+        run: ./.github/scripts/Run-Unity.ps1 -Mode sln
+      # Unity 6 headless emits .csproj files but no solution, so assemble one
+      # (dotnet new sln writes .slnx on .NET 10); the .slnx persists for the
+      # analyzer step below.
+      - name: Naming and style rules (blocking)
+        run: |
+          Get-ChildItem CI.sln, CI.slnx -ErrorAction SilentlyContinue | Remove-Item
+          dotnet new sln -n CI | Out-Null
+          $sln = Get-ChildItem CI.sln, CI.slnx -ErrorAction SilentlyContinue | Select-Object -First 1
+          if (-not $sln) { throw "dotnet new sln created no solution file." }
+          $projects = Get-ChildItem -Filter *.csproj
+          if (-not $projects) { throw "Unity generated no .csproj files." }
+          $projects | ForEach-Object { dotnet sln $sln.Name add $_.FullName | Out-Null }
+          Write-Host "Added $($projects.Count) projects to $($sln.Name)."
+          dotnet format style $sln.Name --verify-no-changes --severity warn --include Assets/Features/ Assets/Tests/
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      # Report-only: surfaces Roslyn/UNT analyzer diagnostics without failing the
+      # run. Drop continue-on-error to make it blocking once it's confirmed clean.
+      - name: Roslyn analyzer rules (report-only)
+        continue-on-error: true
+        run: |
+          $sln = Get-ChildItem CI.sln, CI.slnx -ErrorAction SilentlyContinue | Select-Object -First 1
+          dotnet format analyzers $sln.Name --verify-no-changes --severity warn --include Assets/Features/ Assets/Tests/
+      - name: Upload Unity log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-log-sln
+          path: unity-sln.log
+          if-no-files-found: ignore
+
+  webgl-build:
+    name: WebGL build (self-hosted)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: [self-hosted, windows, unity]
+    defaults:
+      run:
+        shell: 'powershell -NoProfile -ExecutionPolicy Bypass -File "{0}"'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          # Keep the Unity Library between runs (self-hosted, persistent _work) so
+          # imports stay warm — a clean checkout would force a full reimport.
+          clean: false
+      - name: Build WebGL
+        run: ./.github/scripts/Run-Unity.ps1 -Mode webgl
+      - name: Upload Unity log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-log-webgl
+          path: unity-webgl.log
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        with:
+          name: webgl-build
+          path: build/WebGL
+
+  # WebGL build with the FMOD backend turned on. Manual-dispatch only and kept
+  # separate from webgl-build (which builds the default Unity-audio backend) so
+  # the FMOD path is verified without making FMOD a requirement of normal CI.
+  #
+  # The runner must already have the FMOD Unity package in its workspace: FMOD is
+  # a per-project opt-in and isn't committed to the template, and clean:false
+  # keeps untracked files between runs, so install it once into the runner's
+  # checkout (Assets/Plugins/FMOD) and it persists. If FMOD is missing the
+  # enable step fails fast with a clear message.
+  #
+  # enable-fmod edits the checked-out asmdefs; the final step reverts those edits
+  # (always, even on failure) so the persistent checkout doesn't drift into a
+  # half-enabled state that would break the next default build.
+  webgl-build-fmod:
+    name: WebGL build with FMOD (self-hosted)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: [self-hosted, windows, unity]
+    defaults:
+      run:
+        shell: 'powershell -NoProfile -ExecutionPolicy Bypass -File "{0}"'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          clean: false
+      - name: Enable FMOD
+        run: ./.github/scripts/Run-Unity.ps1 -Mode enable-fmod
+      - name: Build WebGL (FMOD)
+        run: ./.github/scripts/Run-Unity.ps1 -Mode webgl
+      - name: Revert FMOD enable edits
+        if: always()
+        # Discard the asmdef edits Enable made; the installed FMOD package is
+        # untracked and is left in place for the next run.
+        run: |
+          git checkout -- Assets/Features/Audio/JamTemplate.Audio.asmdef Assets/Features/Core/JamTemplate.Core.asmdef Assets/Features/Core/Editor/JamTemplate.Core.Editor.asmdef
+          exit 0
+      - name: Upload Unity log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-log-webgl-fmod
+          path: unity-webgl.log
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        with:
+          name: webgl-build-fmod
+          path: build/WebGL
+
+  # Cloud, license-free: take the WebGL artifact the self-hosted runner just
+  # built and push it to itch.io as a browser-playable build with butler. Runs
+  # automatically after a successful WebGL build on manual dispatch. Per-project
+  # config lives outside the workflow so the template retargets without edits:
+  #   - secret BUTLER_API_KEY  — an itch.io API key (itch.io ▸ Settings ▸ API keys)
+  #   - variable ITCH_TARGET   — the itch target "user/game" (e.g. roboparker/jamtemplate)
+  #   - variable ITCH_CHANNEL  — optional, defaults to html5
+  # If they're unset (a fresh fork that hasn't set up itch yet) the job skips
+  # with a notice instead of failing. See README ▸ "Deploy to itch.io".
+  deploy-itch:
+    name: Deploy WebGL to itch.io (cloud)
+    needs: webgl-build
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download WebGL build
+        uses: actions/download-artifact@v4
+        with:
+          name: webgl-build
+          path: build/WebGL
+      - name: Push to itch.io with butler
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+          ITCH_TARGET: ${{ vars.ITCH_TARGET }}
+          ITCH_CHANNEL: ${{ vars.ITCH_CHANNEL || 'html5' }}
+        run: |
+          if [ -z "$BUTLER_API_KEY" ] || [ -z "$ITCH_TARGET" ]; then
+            echo "::warning::Itch deploy skipped — set the BUTLER_API_KEY secret and ITCH_TARGET variable to enable it. See README ▸ Deploy to itch.io."
+            exit 0
+          fi
+          curl -sL -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+          unzip -q butler.zip
+          chmod +x butler
+          ./butler -V
+          ./butler push build/WebGL "$ITCH_TARGET:$ITCH_CHANNEL" --userversion "${GITHUB_RUN_NUMBER}"

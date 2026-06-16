@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e1545778a041f4eb84fa3b54b7b3c2, type: 3}
+  m_Name: Credits
+  m_EditorClassIdentifier: JamTemplate.Credits::JamTemplate.Credits.CreditsData
+  rolePrefab: {fileID: 8421986006683320743, guid: 07b54ab21c81d0743a263ee10c05c2a2, type: 3}
+  namesPrefab: {fileID: 7799451861512841692, guid: e8adaf3b7e83899488f5cabc25ba59fb, type: 3}
+  sections:
+  - role: Design
+    names: []
+  - role: Programming
+    names:
+    - Robert Parker
+  - role: Music & Sound
+    names: []

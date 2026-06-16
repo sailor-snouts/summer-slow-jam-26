@@ -1,0 +1,77 @@
+# Whitespace conventions for template code, enforced in CI by
+# `dotnet format whitespace --verify-no-changes` (see .github/workflows/ci.yml).
+# end_of_line is deliberately unset: Windows checkouts are CRLF, CI checkouts
+# are LF, and git owns that translation.
+
+root = true
+
+[*.cs]
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Using directives: System first (matches the codebase).
+dotnet_sort_system_directives_first = true
+
+# Naming, matching the codebase's conventions: types/methods/properties/events
+# PascalCase, interfaces IPascalCase, constants + static fields (incl. the
+# public static extension-point fields) PascalCase, everything else camelCase
+# (Unity-serialized public fields included). Enforced by `dotnet format style`
+# in the style-lint CI job.
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+dotnet_naming_style.camel_case.capitalization = camel_case
+dotnet_naming_style.interface_prefix.capitalization = pascal_case
+dotnet_naming_style.interface_prefix.required_prefix = I
+
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+dotnet_naming_symbols.interfaces.applicable_accessibilities = *
+dotnet_naming_rule.interfaces_are_prefixed.symbols = interfaces
+dotnet_naming_rule.interfaces_are_prefixed.style = interface_prefix
+dotnet_naming_rule.interfaces_are_prefixed.severity = warning
+
+dotnet_naming_symbols.types.applicable_kinds = class, struct, enum, delegate
+dotnet_naming_symbols.types.applicable_accessibilities = *
+dotnet_naming_rule.types_are_pascal.symbols = types
+dotnet_naming_rule.types_are_pascal.style = pascal_case
+dotnet_naming_rule.types_are_pascal.severity = warning
+
+dotnet_naming_symbols.members.applicable_kinds = method, property, event
+dotnet_naming_symbols.members.applicable_accessibilities = *
+dotnet_naming_rule.members_are_pascal.symbols = members
+dotnet_naming_rule.members_are_pascal.style = pascal_case
+dotnet_naming_rule.members_are_pascal.severity = warning
+
+dotnet_naming_symbols.constant_fields.applicable_kinds = field
+dotnet_naming_symbols.constant_fields.applicable_accessibilities = *
+dotnet_naming_symbols.constant_fields.required_modifiers = const
+dotnet_naming_rule.constants_are_pascal.symbols = constant_fields
+dotnet_naming_rule.constants_are_pascal.style = pascal_case
+dotnet_naming_rule.constants_are_pascal.severity = warning
+
+dotnet_naming_symbols.static_fields.applicable_kinds = field
+dotnet_naming_symbols.static_fields.applicable_accessibilities = *
+dotnet_naming_symbols.static_fields.required_modifiers = static
+dotnet_naming_rule.static_fields_are_pascal.symbols = static_fields
+dotnet_naming_rule.static_fields_are_pascal.style = pascal_case
+dotnet_naming_rule.static_fields_are_pascal.severity = warning
+
+dotnet_naming_symbols.other_fields.applicable_kinds = field
+dotnet_naming_symbols.other_fields.applicable_accessibilities = *
+dotnet_naming_rule.fields_are_camel.symbols = other_fields
+dotnet_naming_rule.fields_are_camel.style = camel_case
+dotnet_naming_rule.fields_are_camel.severity = warning
+
+dotnet_naming_symbols.locals_and_params.applicable_kinds = parameter, local
+dotnet_naming_symbols.locals_and_params.applicable_accessibilities = *
+dotnet_naming_rule.locals_are_camel.symbols = locals_and_params
+dotnet_naming_rule.locals_are_camel.style = camel_case
+dotnet_naming_rule.locals_are_camel.severity = warning
+
+# Third-party code is not ours to reformat.
+[Assets/Plugins/**.cs]
+generated_code = true
+
+[Assets/TextMesh Pro/**.cs]
+generated_code = true
