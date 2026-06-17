@@ -12,7 +12,8 @@
         "JamTemplate.Credits",
         "UnityEngine.UI",
         "Unity.TextMeshPro",
-        "Unity.Cinemachine"
+        "Unity.Cinemachine",
+        "JamTemplate.SplashScreens"
     ],
     "includePlatforms": [
         "Editor"
