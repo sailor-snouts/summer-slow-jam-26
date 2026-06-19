@@ -62,7 +62,7 @@ MonoBehaviour:
     - title: Name
       value: Erin Quennell
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -72,7 +72,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: IsPlayer
-      value: False
+      value: True
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
     - title: Name
       value: Bartender
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -119,7 +119,7 @@ MonoBehaviour:
     - title: Name
       value: isEthan
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Initial Value
       value: False
       type: 2
@@ -127,13 +127,13 @@ MonoBehaviour:
     - title: Description
       value: E is Ethan
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
   - id: 2
     fields:
     - title: Name
       value: isErin
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Initial Value
       value: False
       type: 2
@@ -141,7 +141,7 @@ MonoBehaviour:
     - title: Description
       value: E is Erin
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
   conversations:
   - id: 1
     fields:
@@ -262,7 +262,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -352,15 +352,16 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: Variable["isEthan"] = true
+      conditionsString: Actor["Ethan_Hermann_Jr."].IsPlayer == true and (Variable["isEthan"]
+        == true)
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 8.894203
-        y: 147.533
+        x: 8.894234
+        y: 145.17311
         width: 160
         height: 30
     - id: 3
@@ -378,7 +379,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -386,7 +387,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: How can I help?
+        value: How can I help you, [var=Actor]?
         type: 0
         typeString: 
       - title: Sequence
@@ -426,7 +427,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 158.1155
+        x: 158.70546
         y: 203.58745
         width: 160
         height: 30
@@ -483,8 +484,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 471.87997
-        y: 312.39487
+        x: 558.6057
+        y: 317.11462
         width: 160
         height: 30
     - id: 5
@@ -532,8 +533,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 50.55603
-        y: 313.89532
+        x: 52.9159
+        y: 312.1254
         width: 160
         height: 30
     - id: 6
@@ -587,8 +588,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 471.88004
-        y: 378.5761
+        x: 559.1957
+        y: 383.29587
         width: 160
         height: 30
     - id: 7
@@ -636,8 +637,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 472.52728
-        y: 444.7574
+        x: 559.253
+        y: 449.47714
         width: 160
         height: 30
     - id: 8
@@ -684,15 +685,16 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: Variable["isErin"] = true
+      conditionsString: Actor["Erin_Quennell"].IsPlayer == true and (Variable["isErin"]
+        == true)
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 330.3779
-        y: 144.05087
+        y: 144.64084
         width: 160
         height: 30
     - id: 10
@@ -737,6 +739,12 @@ MonoBehaviour:
         originDialogueID: 10
         destinationConversationID: 1
         destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 10
+        destinationConversationID: 1
+        destinationDialogueID: 12
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -794,15 +802,64 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Actor["Ethan_Hermann_Jr."].IsPlayer == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 262.34186
-        y: 362.26273
+        x: 140.80792
+        y: 408.28046
+        width: 160
+        height: 30
+    - id: 12
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Yep! Right in the back corner.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Actor["Erin_Quennell"].IsPlayer == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 363.2268
+        y: 401.79074
         width: 160
         height: 30
     entryGroups: []
