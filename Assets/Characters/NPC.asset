@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e370bded2b64d4fb1d82dff327c84a2, type: 3}
   m_Name: NPC
   m_EditorClassIdentifier: 
-  displayName: NPC
+  dialogueActor: Bartender
+  conversation: Bartender1
   profilePicture: {fileID: 4966732595609684114, guid: a06aecf570f460e4e8db002cc9dce11f, type: 3}
   brain: 2
   brawn: 2

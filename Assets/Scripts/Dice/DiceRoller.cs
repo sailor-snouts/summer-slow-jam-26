@@ -62,7 +62,9 @@ namespace Game
             for (int i = 0; i < count; i++)
                 values[i] = random.Next(1, sides + 1); // upper bound is exclusive, so +1 to include 'sides'
 
-            return new DiceRoll(count, sides, values);
+            DiceRoll roll = new DiceRoll(count, sides, values);
+            Debug.Log($"[Dice] {roll}");
+            return roll;
         }
 
         /// <summary>Re-seeds the roller so the next rolls are reproducible from a known point.</summary>

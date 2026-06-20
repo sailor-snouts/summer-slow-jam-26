@@ -243,8 +243,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 159.41003
-        y: 30
+        x: 496
+        y: 50
         width: 160
         height: 30
     - id: 1
@@ -252,11 +252,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -268,15 +268,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: What can I get ya?
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -304,8 +304,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 158.05827
-        y: 86.47247
+        x: 496
+        y: 134
         width: 160
         height: 30
     - id: 2
@@ -313,11 +313,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -329,15 +329,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: 'I''m not here to drink. '
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -352,16 +352,15 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: Actor["Ethan_Hermann_Jr."].IsPlayer == true and (Variable["isEthan"]
-        == true)
+      conditionsString: IsPlayer("Ethan Hermann Jr.")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 8.894234
-        y: 145.17311
+        x: 392
+        y: 218
         width: 160
         height: 30
     - id: 3
@@ -420,15 +419,15 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: BrainCheck(2, 6) >= 6
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 158.70546
-        y: 203.58745
+        x: 392
+        y: 302
         width: 160
         height: 30
     - id: 4
@@ -484,8 +483,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 558.6057
-        y: 317.11462
+        x: 704
+        y: 386
         width: 160
         height: 30
     - id: 5
@@ -533,8 +532,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 52.9159
-        y: 312.1254
+        x: 80
+        y: 386
         width: 160
         height: 30
     - id: 6
@@ -588,8 +587,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 559.1957
-        y: 383.29587
+        x: 704
+        y: 470
         width: 160
         height: 30
     - id: 7
@@ -637,8 +636,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 559.253
-        y: 449.47714
+        x: 704
+        y: 554
         width: 160
         height: 30
     - id: 8
@@ -646,11 +645,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 3
         type: 5
@@ -662,15 +661,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Nothing for me, thanks!
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -685,16 +684,16 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: Actor["Erin_Quennell"].IsPlayer == true and (Variable["isErin"]
-        == true)
+      conditionsString: IsPlayer("Erin Quennell")  == true and (CurrentPlayer() 
+        == "")
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 330.3779
-        y: 144.64084
+        x: 602.41095
+        y: 217.31506
         width: 160
         height: 30
     - id: 10
@@ -754,8 +753,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 262.34186
-        y: 311.08276
+        x: 392
+        y: 386
         width: 160
         height: 30
     - id: 11
@@ -809,8 +808,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 140.80792
-        y: 408.28046
+        x: 288
+        y: 470
         width: 160
         height: 30
     - id: 12
@@ -858,13 +857,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 363.2268
-        y: 401.79074
+        x: 496
+        y: 470
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1.13
+    canvasScrollPosition: {x: 68.228455, y: 56.849335}
+    canvasZoom: 1.4599997
   - id: 2
     fields:
     - title: Title

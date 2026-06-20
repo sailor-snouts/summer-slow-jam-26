@@ -1,3 +1,4 @@
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace Game
@@ -26,8 +27,13 @@ namespace Game
         public const int MinValue = 1;
         public const int MaxValue = 4;
 
-        [Tooltip("The character's name. Match it to a Dialogue Database actor to use them in dialogue.")]
-        [SerializeField] private string displayName = "New Character";
+        [Tooltip("Which Dialogue System actor this character is — also used as the character's name. Falls back to the asset name if blank.")]
+        [ActorPopup(true)] // (true) shows a Database field so the dropdown can list actors
+        [SerializeField] private string dialogueActor;
+
+        [Tooltip("Conversation that starts when the player interacts with this character.")]
+        [ConversationPopup]
+        [SerializeField] private string conversation;
 
         [Tooltip("Profile picture / portrait for this character.")]
         [SerializeField] private Sprite profilePicture;
@@ -37,8 +43,12 @@ namespace Game
         [SerializeField, Range(MinValue, MaxValue)] private int brawn = MinValue;
         [SerializeField, Range(MinValue, MaxValue)] private int beauty = MinValue;
 
-        public string DisplayName => displayName;
+        /// <summary>The character's name — its Dialogue System actor (falls back to the asset name if unset).</summary>
+        public string DisplayName => string.IsNullOrEmpty(dialogueActor) ? name : dialogueActor;
         public Sprite ProfilePicture => profilePicture;
+
+        /// <summary>Conversation started when the player interacts with this character.</summary>
+        public string Conversation => conversation;
 
         public int Brain => brain;
         public int Brawn => brawn;

@@ -11,9 +11,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e370bded2b64d4fb1d82dff327c84a2, type: 3}
   m_Name: Ethan
-  m_EditorClassIdentifier:
-  displayName: Ethan
-  profilePicture: {fileID: 0}
+  m_EditorClassIdentifier: 
+  dialogueActor: Ethan Hermann Jr.
+  profilePicture: {fileID: 21300000, guid: 7b1941caaf8849598368a90395cf7e1b, type: 3}
   brain: 2
   brawn: 3
   beauty: 2

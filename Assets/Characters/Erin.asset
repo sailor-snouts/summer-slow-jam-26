@@ -11,9 +11,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e370bded2b64d4fb1d82dff327c84a2, type: 3}
   m_Name: Erin
-  m_EditorClassIdentifier:
-  displayName: Erin
-  profilePicture: {fileID: 0}
+  m_EditorClassIdentifier: 
+  dialogueActor: Erin Quennell
+  profilePicture: {fileID: 21300000, guid: 238f7bf23b964b2aab2610d49b6abbae, type: 3}
   brain: 3
   brawn: 2
   beauty: 3
