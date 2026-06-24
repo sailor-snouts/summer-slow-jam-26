@@ -13,6 +13,22 @@ namespace Game
     /// </summary>
     public class DialogueLuaRegistrar : MonoBehaviour
     {
+        /// <summary>
+        /// Every stat and category check, by method name — one Lua function each, so the dialogue
+        /// editor lists them all in the Conditions dropdown. The names match the public methods below.
+        /// </summary>
+        private static readonly string[] CheckFunctions =
+        {
+            // Brain stats
+            nameof(DriveCheck), nameof(WillpowerCheck), nameof(ObservationCheck), nameof(EmpathyCheck),
+            // Brawn stats
+            nameof(VigorCheck), nameof(EnduranceCheck), nameof(AgilityCheck), nameof(TechniqueCheck),
+            // Beauty stats
+            nameof(CharmCheck), nameof(TauntCheck), nameof(BonhomieCheck), nameof(HostilityCheck),
+            // Category totals
+            nameof(BrainCheck), nameof(BrawnCheck), nameof(BeautyCheck),
+        };
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Bootstrap()
         {
@@ -25,18 +41,16 @@ namespace Game
         private void OnEnable()
         {
             Lua.RegisterFunction("IsPlayer", this, GetType().GetMethod(nameof(IsPlayer)));
-            Lua.RegisterFunction("BrainCheck", this, GetType().GetMethod(nameof(BrainCheck)));
-            Lua.RegisterFunction("BrawnCheck", this, GetType().GetMethod(nameof(BrawnCheck)));
-            Lua.RegisterFunction("BeautyCheck", this, GetType().GetMethod(nameof(BeautyCheck)));
-            Debug.Log("[DialogueLuaRegistrar] Registered IsPlayer / BrainCheck / BrawnCheck / BeautyCheck.");
+            foreach (string functionName in CheckFunctions)
+                Lua.RegisterFunction(functionName, this, GetType().GetMethod(functionName));
+            Debug.Log($"[DialogueLuaRegistrar] Registered IsPlayer + {CheckFunctions.Length} stat/category checks.");
         }
 
         private void OnDisable()
         {
             Lua.UnregisterFunction("IsPlayer");
-            Lua.UnregisterFunction("BrainCheck");
-            Lua.UnregisterFunction("BrawnCheck");
-            Lua.UnregisterFunction("BeautyCheck");
+            foreach (string functionName in CheckFunctions)
+                Lua.UnregisterFunction(functionName);
         }
 
         /// <summary>Lua: true if the player is currently controlling the given actor.</summary>
@@ -46,9 +60,30 @@ namespace Game
             return data != null && data.DisplayName == actorName;
         }
 
-        // Lua skill checks: roll count d sides + the player's stat, return the total to compare.
-        public double BrainCheck(double count, double sides) => SkillCheck.Roll(Stat.Brain, (int)count, (int)sides, showRoll: true);
-        public double BrawnCheck(double count, double sides) => SkillCheck.Roll(Stat.Brawn, (int)count, (int)sides, showRoll: true);
-        public double BeautyCheck(double count, double sides) => SkillCheck.Roll(Stat.Beauty, (int)count, (int)sides, showRoll: true);
+        // Lua skill checks: roll count d sides + the player's stat (or category total), returning the
+        // total to compare. One method per stat and per category so each is its own dropdown entry.
+
+        // Brain stats
+        public double DriveCheck(double count, double sides) => SkillCheck.Roll(Stat.Drive, (int)count, (int)sides, showRoll: true);
+        public double WillpowerCheck(double count, double sides) => SkillCheck.Roll(Stat.Willpower, (int)count, (int)sides, showRoll: true);
+        public double ObservationCheck(double count, double sides) => SkillCheck.Roll(Stat.Observation, (int)count, (int)sides, showRoll: true);
+        public double EmpathyCheck(double count, double sides) => SkillCheck.Roll(Stat.Empathy, (int)count, (int)sides, showRoll: true);
+
+        // Brawn stats
+        public double VigorCheck(double count, double sides) => SkillCheck.Roll(Stat.Vigor, (int)count, (int)sides, showRoll: true);
+        public double EnduranceCheck(double count, double sides) => SkillCheck.Roll(Stat.Endurance, (int)count, (int)sides, showRoll: true);
+        public double AgilityCheck(double count, double sides) => SkillCheck.Roll(Stat.Agility, (int)count, (int)sides, showRoll: true);
+        public double TechniqueCheck(double count, double sides) => SkillCheck.Roll(Stat.Technique, (int)count, (int)sides, showRoll: true);
+
+        // Beauty stats
+        public double CharmCheck(double count, double sides) => SkillCheck.Roll(Stat.Charm, (int)count, (int)sides, showRoll: true);
+        public double TauntCheck(double count, double sides) => SkillCheck.Roll(Stat.Taunt, (int)count, (int)sides, showRoll: true);
+        public double BonhomieCheck(double count, double sides) => SkillCheck.Roll(Stat.Bonhomie, (int)count, (int)sides, showRoll: true);
+        public double HostilityCheck(double count, double sides) => SkillCheck.Roll(Stat.Hostility, (int)count, (int)sides, showRoll: true);
+
+        // Category totals (sum of the four stats)
+        public double BrainCheck(double count, double sides) => SkillCheck.Roll(StatCategory.Brain, (int)count, (int)sides, showRoll: true);
+        public double BrawnCheck(double count, double sides) => SkillCheck.Roll(StatCategory.Brawn, (int)count, (int)sides, showRoll: true);
+        public double BeautyCheck(double count, double sides) => SkillCheck.Roll(StatCategory.Beauty, (int)count, (int)sides, showRoll: true);
     }
 }

@@ -16,6 +16,42 @@ MonoBehaviour:
   - functionName: Game/IsPlayer
     parameters: 03000000
     returnValue: 1
+  - functionName: Game/DriveCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/WillpowerCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/ObservationCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/EmpathyCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/VigorCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/EnduranceCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/AgilityCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/TechniqueCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/CharmCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/TauntCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/BonhomieCheck
+    parameters: 0100000001000000
+    returnValue: 2
+  - functionName: Game/HostilityCheck
+    parameters: 0100000001000000
+    returnValue: 2
   - functionName: Game/BrainCheck
     parameters: 0100000001000000
     returnValue: 2

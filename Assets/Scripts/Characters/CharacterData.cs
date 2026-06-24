@@ -3,8 +3,33 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>The three character stat categories.</summary>
+    /// <summary>
+    /// The twelve character stats, four per <see cref="StatCategory"/>. A category's value is the
+    /// sum of its four stats (see <see cref="CharacterData.GetCategory"/>).
+    /// </summary>
     public enum Stat
+    {
+        // Brain
+        Drive,
+        Willpower,
+        Observation,
+        Empathy,
+
+        // Brawn
+        Vigor,
+        Endurance,
+        Agility,
+        Technique,
+
+        // Beauty
+        Charm,
+        Taunt,
+        Bonhomie,
+        Hostility,
+    }
+
+    /// <summary>The three stat categories. A category's value is the sum of its four stats.</summary>
+    public enum StatCategory
     {
         Brain,
         Brawn,
@@ -12,8 +37,8 @@ namespace Game
     }
 
     /// <summary>
-    /// A character definition asset: a name, the three stats (Brain / Brawn / Beauty), and a
-    /// profile picture. Make as many of these as you like (Assets ▸ Create ▸ Game ▸ Character),
+    /// A character definition asset: a name, the twelve stats (grouped into Brain / Brawn / Beauty),
+    /// and a profile picture. Make as many of these as you like (Assets ▸ Create ▸ Game ▸ Character),
     /// then point a scene <see cref="Character"/> at the one a GameObject should be.
     ///
     /// Stats are read-only at runtime — a ScriptableObject is shared by every reference, so
@@ -38,10 +63,23 @@ namespace Game
         [Tooltip("Profile picture / portrait for this character.")]
         [SerializeField] private Sprite profilePicture;
 
-        [Header("Stats")]
-        [SerializeField, Range(MinValue, MaxValue)] private int brain = MinValue;
-        [SerializeField, Range(MinValue, MaxValue)] private int brawn = MinValue;
-        [SerializeField, Range(MinValue, MaxValue)] private int beauty = MinValue;
+        // Brain
+        [SerializeField, Range(MinValue, MaxValue)] private int drive = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int willpower = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int observation = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int empathy = MinValue;
+
+        // Brawn
+        [SerializeField, Range(MinValue, MaxValue)] private int vigor = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int endurance = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int agility = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int technique = MinValue;
+
+        // Beauty
+        [SerializeField, Range(MinValue, MaxValue)] private int charm = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int taunt = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int bonhomie = MinValue;
+        [SerializeField, Range(MinValue, MaxValue)] private int hostility = MinValue;
 
         /// <summary>The character's name — its Dialogue System actor (falls back to the asset name if unset).</summary>
         public string DisplayName => string.IsNullOrEmpty(dialogueActor) ? name : dialogueActor;
@@ -50,17 +88,36 @@ namespace Game
         /// <summary>Conversation started when the player interacts with this character.</summary>
         public string Conversation => conversation;
 
-        public int Brain => brain;
-        public int Brawn => brawn;
-        public int Beauty => beauty;
+        // Category totals — the sum of the four stats in each (read-only).
+        public int Brain => drive + willpower + observation + empathy;
+        public int Brawn => vigor + endurance + agility + technique;
+        public int Beauty => charm + taunt + bonhomie + hostility;
 
-        /// <summary>Reads one stat by category.</summary>
+        /// <summary>Reads one of the twelve stats.</summary>
         public int Get(Stat stat) => stat switch
         {
-            Stat.Brain => brain,
-            Stat.Brawn => brawn,
-            Stat.Beauty => beauty,
+            Stat.Drive => drive,
+            Stat.Willpower => willpower,
+            Stat.Observation => observation,
+            Stat.Empathy => empathy,
+            Stat.Vigor => vigor,
+            Stat.Endurance => endurance,
+            Stat.Agility => agility,
+            Stat.Technique => technique,
+            Stat.Charm => charm,
+            Stat.Taunt => taunt,
+            Stat.Bonhomie => bonhomie,
+            Stat.Hostility => hostility,
             _ => throw new System.ArgumentOutOfRangeException(nameof(stat), stat, "Unknown stat."),
+        };
+
+        /// <summary>Reads a category total — the sum of its four stats.</summary>
+        public int GetCategory(StatCategory category) => category switch
+        {
+            StatCategory.Brain => Brain,
+            StatCategory.Brawn => Brawn,
+            StatCategory.Beauty => Beauty,
+            _ => throw new System.ArgumentOutOfRangeException(nameof(category), category, "Unknown category."),
         };
     }
 }

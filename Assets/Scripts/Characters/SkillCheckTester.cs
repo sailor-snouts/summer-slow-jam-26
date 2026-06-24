@@ -10,7 +10,7 @@ namespace Game
     /// </summary>
     public class SkillCheckTester : MonoBehaviour
     {
-        [SerializeField] private Stat stat = Stat.Brawn;
+        [SerializeField] private Stat stat = Stat.Vigor;
         [SerializeField] private int count = 2;
         [SerializeField] private int sides = 6;
         [SerializeField] private int requirement = 8;

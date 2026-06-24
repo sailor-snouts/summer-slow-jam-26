@@ -15,6 +15,15 @@ MonoBehaviour:
   dialogueActor: Bartender
   conversation: Bartender1
   profilePicture: {fileID: 4966732595609684114, guid: a06aecf570f460e4e8db002cc9dce11f, type: 3}
-  brain: 2
-  brawn: 2
-  beauty: 1
+  drive: 1
+  willpower: 1
+  observation: 1
+  empathy: 1
+  vigor: 1
+  endurance: 1
+  agility: 1
+  technique: 1
+  charm: 1
+  taunt: 1
+  bonhomie: 1
+  hostility: 1
