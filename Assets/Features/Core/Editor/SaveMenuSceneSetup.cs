@@ -30,7 +30,7 @@ namespace JamTemplate.Saving
             // its Awake dedups, so a bootstrap-scene manager still takes precedence.
             new GameObject("Save Manager", typeof(SaveManager));
 
-            var canvas = MenuSceneBuilder.CreateCanvas("Saves Canvas", 500);
+            var canvas = MenuSceneBuilder.CreateCanvas("Saves Canvas", 1500);
             canvas.gameObject.AddComponent<EnsureCamera>();
             canvas.gameObject.AddComponent<EnsureEventSystem>();
 

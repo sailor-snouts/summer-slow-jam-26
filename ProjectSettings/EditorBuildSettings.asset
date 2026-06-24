@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Features/Core/Scenes/Title.unity
     guid: 4b1ce2d05e70be74ea8b7799060467a6
   - enabled: 1
-    path: Assets/Features/Core/Scenes/Settings.unity
-    guid: 2575819c5efb6a541a1b30392740d1cd
+    path: Assets/Scenes/Settings.unity
+    guid: d433c0600390601479c6708ed8479571
   - enabled: 1
     path: Assets/Features/Core/Scenes/Credits.unity
     guid: a78e098d510d723468d0b03df9abb177
@@ -27,8 +27,8 @@ EditorBuildSettings:
     path: Assets/Features/Core/Scenes/Win.unity
     guid: 6f5e5430fbae452488fc9c843b4376f1
   - enabled: 1
-    path: Assets/Features/Core/Scenes/Pause.unity
-    guid: 5135725f08b32c3499c065be8c171294
+    path: Assets/Scenes/Pause.unity
+    guid: ec0d7850d7016d54490c460ec60db642
   - enabled: 1
     path: Assets/Features/Core/Scenes/Saves.unity
     guid: de68ea69cdcb588428f13510005f2c63

@@ -29,7 +29,7 @@ namespace JamTemplate.Saving
             // own; its Awake dedups, so a bootstrap-scene manager takes precedence.
             new GameObject("High Score Manager", typeof(HighScoreManager));
 
-            var canvas = MenuSceneBuilder.CreateCanvas("High Scores Canvas", 500);
+            var canvas = MenuSceneBuilder.CreateCanvas("High Scores Canvas", 1500);
             canvas.gameObject.AddComponent<EnsureCamera>();
             canvas.gameObject.AddComponent<EnsureEventSystem>();
 
