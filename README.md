@@ -64,7 +64,7 @@ After the WebGL build, a final **cloud** job redeploys it:
 
 ## Deploy to itch.io
 
-The `deploy-itch` job runs automatically after a successful WebGL build — on a push to `main` or on manual dispatch (it `needs` that build, so a push to `main` queues the WebGL build on the self-hosted runner first). All per-project config lives **outside** the workflow, so the same `ci.yml` retargets for every jam without edits:
+The `deploy-itch` job runs automatically after a successful WebGL build (manual dispatch only, since it `needs` that build — and because a public repo can't use the self-hosted runner, the Unity jobs are dispatch-only). All per-project config lives **outside** the workflow, so the same `ci.yml` retargets for every jam without edits:
 
 | Where | Name | Value |
 |---|---|---|

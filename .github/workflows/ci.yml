@@ -106,10 +106,10 @@ jobs:
 
   webgl-build:
     name: WebGL build (self-hosted)
-    # Builds on a push to main (to feed the auto-deploy below) or on manual
-    # dispatch. NOTE: a push to main queues this job on the self-hosted runner;
-    # if that machine is offline the run waits for it to come back.
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    # Manual dispatch only: this repo is public, and GitHub blocks public repos from
+    # using self-hosted runners, so a push-triggered self-hosted job would hang
+    # ("awaiting a runner") until it's cancelled. Trigger Unity builds from Actions ▸ Run workflow.
+    if: github.event_name == 'workflow_dispatch'
     runs-on: [self-hosted, windows, unity]
     defaults:
       run:
@@ -185,8 +185,8 @@ jobs:
 
   # Cloud, license-free: take the WebGL artifact the self-hosted runner just
   # built and push it to itch.io as a browser-playable build with butler. Runs
-  # automatically after a successful WebGL build on a push to main (or manual
-  # dispatch). Per-project config lives outside the workflow so the template
+  # automatically after a successful WebGL build (manual dispatch only, since it
+  # needs that build). Per-project config lives outside the workflow so the template
   # retargets without edits:
   #   - secret BUTLER_API_KEY  — an itch.io API key (itch.io ▸ Settings ▸ API keys)
   #   - variable ITCH_TARGET   — the itch target "user/game" (e.g. roboparker/jamtemplate)
@@ -196,7 +196,7 @@ jobs:
   deploy-itch:
     name: Deploy WebGL to itch.io (cloud)
     needs: webgl-build
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Download WebGL build
