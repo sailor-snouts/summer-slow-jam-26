@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: Erin
   m_EditorClassIdentifier: 
   dialogueActor: Erin Quennell
+  conversation: 
   profilePicture: {fileID: 21300000, guid: 238f7bf23b964b2aab2610d49b6abbae, type: 3}
-  drive: 1
-  willpower: 1
-  observation: 1
-  empathy: 1
-  vigor: 1
-  endurance: 1
-  agility: 1
-  technique: 1
-  charm: 1
-  taunt: 1
-  bonhomie: 1
-  hostility: 1
+  drive: 4
+  willpower: 3
+  observation: 3
+  empathy: 3
+  vigor: 3
+  endurance: 3
+  agility: 3
+  technique: 3
+  charm: 3
+  taunt: 3
+  bonhomie: 3
+  hostility: 2
