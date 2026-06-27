@@ -478,6 +478,48 @@ MonoBehaviour:
       value: E is Erin
       type: 0
       typeString: CustomFieldType_Text
+  - id: 3
+    fields:
+    - title: Name
+      value: WasFrankVigorCheck
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: Oh you know, probably my...physical prowess.
+      type: 0
+      typeString: 
+  - id: 4
+    fields:
+    - title: Name
+      value: WasFrankBonhomieCheck
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: Beats me, I'm just here to help!
+      type: 0
+      typeString: 
+  - id: 5
+    fields:
+    - title: Name
+      value: WasFrankTauntCheck
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: Well, I'm not a meatheaded cop.
+      type: 0
+      typeString: 
   conversations:
   - id: 1
     fields:
@@ -1277,11 +1319,11 @@ MonoBehaviour:
     - title: Title
       value: Frank
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Actor
       value: 1
       type: 5
@@ -2328,15 +2370,15 @@ MonoBehaviour:
         destinationDialogueID: 25
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["WasFrankVigorCheck"] == false
+      userScript: Variable["WasFrankVigorCheck"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 296.2405
-        y: 921.565
+        x: 164.74704
+        y: 1137.474
         width: 160
         height: 30
     - id: 18
@@ -2389,15 +2431,15 @@ MonoBehaviour:
         destinationDialogueID: 26
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["WasFrankBonhomieCheck"] == false
+      userScript: Variable["WasFrankBonhomieCheck"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 605.8058
-        y: 941.2751
+        x: 360.67596
+        y: 1334.4569
         width: 160
         height: 30
     - id: 19
@@ -2512,6 +2554,12 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
+      - originConversationID: 2
+        originDialogueID: 20
+        destinationConversationID: 2
+        destinationDialogueID: 28
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -2519,8 +2567,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 500.8781
-        y: 849.2462
+        x: 508.021
+        y: 1049.2461
         width: 160
         height: 30
     - id: 21
@@ -2573,15 +2621,15 @@ MonoBehaviour:
         destinationDialogueID: 27
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["WasFrankTauntCheck"] == false
+      userScript: Variable["WasFrankTauntCheck"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1010.6896
-        y: 944.17914
+        x: 725.787
+        y: 1216.6729
         width: 160
         height: 30
     - id: 22
@@ -2629,12 +2677,6 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 22
-        destinationConversationID: 2
-        destinationDialogueID: 28
-        isConnector: 0
-        priority: 2
       conditionsString: VigorCheck(2, 6) >= 12
       userScript: 
       onExecute:
@@ -2642,8 +2684,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 144.3564
-        y: 1015.6231
+        x: 12.86293
+        y: 1231.5321
         width: 160
         height: 30
     - id: 23
@@ -2690,12 +2732,6 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 23
-        destinationConversationID: 2
-        destinationDialogueID: 28
-        isConnector: 0
-        priority: 2
       conditionsString: BonhomieCheck(2, 6) >= 10
       userScript: 
       onExecute:
@@ -2703,8 +2739,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 528.1245
-        y: 1023.73914
+        x: 290.94922
+        y: 1410.1027
         width: 160
         height: 30
     - id: 24
@@ -2751,12 +2787,6 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 24
-        destinationConversationID: 2
-        destinationDialogueID: 28
-        isConnector: 0
-        priority: 2
       conditionsString: TauntCheck(2, 6) >= 11
       userScript: 
       onExecute:
@@ -2764,8 +2794,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 913.3146
-        y: 1025.3853
+        x: 627.27563
+        y: 1299.2489
         width: 160
         height: 30
     - id: 25
@@ -2812,12 +2842,6 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 25
-        destinationConversationID: 2
-        destinationDialogueID: 28
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -2825,8 +2849,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 343.77673
-        y: 1018.5216
+        x: 201.60367
+        y: 1232.4889
         width: 160
         height: 30
     - id: 26
@@ -2873,12 +2897,6 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 26
-        destinationConversationID: 2
-        destinationDialogueID: 28
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -2886,8 +2904,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 724.5972
-        y: 1026.4515
+        x: 487.42285
+        y: 1412.8151
         width: 160
         height: 30
     - id: 27
@@ -2934,12 +2952,6 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 27
-        destinationConversationID: 2
-        destinationDialogueID: 28
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -2947,8 +2959,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1123.8971
-        y: 1020.5939
+        x: 837.85803
+        y: 1294.4574
         width: 160
         height: 30
     - id: 28
@@ -2987,23 +2999,24 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: Passthrough
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: (Variable["WasFrankVigorCheck"] == true) and (Variable["WasFrankBonhomieCheck"]
+        == true) and (Variable["WasFrankTauntCheck"] == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 599.02313
-        y: 1188.9564
+        x: 1031.8912
+        y: 1060.9584
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 54, y: 686.87354}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 347.94513}
+    canvasZoom: 0.73000026
   syncInfo:
     syncActors: 0
     syncItems: 0

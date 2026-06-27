@@ -2335,8 +2335,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 296.2405
-        y: 921.565
+        x: 303.3834
+        y: 1121.565
         width: 160
         height: 30
     - id: 18
@@ -2396,8 +2396,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 605.8058
-        y: 941.2751
+        x: 612.94867
+        y: 1141.275
         width: 160
         height: 30
     - id: 19
@@ -2519,8 +2519,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 500.8781
-        y: 849.2462
+        x: 508.021
+        y: 1049.2461
         width: 160
         height: 30
     - id: 21
@@ -2580,8 +2580,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1010.6896
-        y: 944.17914
+        x: 1017.83246
+        y: 1144.1791
         width: 160
         height: 30
     - id: 22
@@ -2629,12 +2629,6 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 22
-        destinationConversationID: 2
-        destinationDialogueID: 28
-        isConnector: 0
-        priority: 2
       conditionsString: VigorCheck(2, 6) >= 12
       userScript: 
       onExecute:
@@ -2642,8 +2636,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 144.3564
-        y: 1015.6231
+        x: 151.49928
+        y: 1215.623
         width: 160
         height: 30
     - id: 23
@@ -2697,8 +2691,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 528.1245
-        y: 1023.73914
+        x: 535.2674
+        y: 1223.739
         width: 160
         height: 30
     - id: 24
@@ -2752,8 +2746,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 913.3146
-        y: 1025.3853
+        x: 920.45746
+        y: 1225.3853
         width: 160
         height: 30
     - id: 25
@@ -2807,8 +2801,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 343.77673
-        y: 1018.5216
+        x: 340.24002
+        y: 1216.5798
         width: 160
         height: 30
     - id: 26
@@ -2862,8 +2856,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 724.5972
-        y: 1026.4515
+        x: 731.7401
+        y: 1226.4514
         width: 160
         height: 30
     - id: 27
@@ -2917,8 +2911,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1123.8971
-        y: 1020.5939
+        x: 1131.0398
+        y: 1220.5938
         width: 160
         height: 30
     - id: 28
@@ -2944,7 +2938,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I can't put my finger on it...
+        value: I can't put my finger on it...but no matter. Go ahead and talk to
+          the Bouncer. He's only gotta check our IDs.
         type: 0
         typeString: 
       - title: Sequence
@@ -2966,13 +2961,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 606.3564
-        y: 1193.623
+        x: 595.5277
+        y: 1599.5947
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 54, y: 686.87354}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 752.4968}
+    canvasZoom: 0.8800001
   syncInfo:
     syncActors: 0
     syncItems: 0

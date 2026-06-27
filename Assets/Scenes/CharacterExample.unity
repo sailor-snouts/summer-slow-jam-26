@@ -642,9 +642,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3379098474752810164, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: a3878b680d1cc764297d6870a96c50cc, type: 2}
     - target: {fileID: 7980294182807469959, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: Frank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
