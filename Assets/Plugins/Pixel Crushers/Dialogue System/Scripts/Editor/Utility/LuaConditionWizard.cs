@@ -34,7 +34,7 @@ namespace PixelCrushers.DialogueSystem
             public int customLuaFuncIndex = 0;
             public SimStatusType simStatusType = SimStatusType.WasDisplayed;
             public EqualityType equalityType = EqualityType.Is;
-            public ComparisonType comparisonType = ComparisonType.Is;
+            public ComparisonType comparisonType = ComparisonType.GreaterEqual;
             [QuestState]
             public QuestState questState = QuestState.Unassigned;
             public string stringValue = string.Empty;
