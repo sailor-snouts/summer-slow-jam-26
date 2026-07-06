@@ -119,5 +119,11 @@ namespace Game
             StatCategory.Beauty => Beauty,
             _ => throw new System.ArgumentOutOfRangeException(nameof(category), category, "Unknown category."),
         };
+
+#if UNITY_EDITOR
+        // Editing this asset (e.g. swapping its portrait) doesn't fire OnValidate on the scene
+        // Characters that reference it, so nudge them to re-read and update live.
+        private void OnValidate() => SpriteEntity.RefreshAllInEditor();
+#endif
     }
 }

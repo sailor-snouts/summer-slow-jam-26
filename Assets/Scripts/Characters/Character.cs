@@ -9,27 +9,21 @@ namespace Game
     /// live in the editor — and, at runtime, copies the name + portrait onto a Pixel Crushers
     /// <c>DialogueActor</c> so dialogue uses the selected character's identity.
     /// </summary>
-    // ExecuteAlways: refresh the sprite in edit mode too. DefaultExecutionOrder: set the
-    // DialogueActor's name/portrait before the Dialogue System reads them.
+    // DefaultExecutionOrder: set the DialogueActor's name/portrait before the Dialogue System reads
+    // them. (Sprite refresh / collider fitting is inherited from SpriteEntity.)
     [ExecuteAlways]
     [DefaultExecutionOrder(-100)]
-    [DisallowMultipleComponent]
+    // RequireComponent isn't inherited from SpriteEntity, so restate the sprite/collider parts here.
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(Mover))]
-    public class Character : MonoBehaviour
+    public class Character : SpriteEntity
     {
         [Tooltip("Which character this GameObject is.")]
         [SerializeField] private CharacterData data;
 
         [Tooltip("At runtime, copy the character's name + portrait onto a DialogueActor on this object.")]
         [SerializeField] private bool applyToDialogueActor = true;
-
-        [Tooltip("Resize the BoxCollider2D to match the sprite whenever it changes.")]
-        [SerializeField] private bool fitColliderToSprite = true;
-
-        private SpriteRenderer spriteRenderer;
-        private BoxCollider2D box;
 
         /// <summary>The selected character definition (name, stats, portrait).</summary>
         public CharacterData Data => data;
@@ -42,6 +36,9 @@ namespace Game
 
         /// <summary>Reads one of the character's stats.</summary>
         public int GetStat(Stat stat) => data != null ? data.Get(stat) : CharacterData.MinValue;
+
+        // A character's world sprite is its portrait.
+        protected override Sprite CurrentSprite => data != null ? data.ProfilePicture : null;
 
         /// <summary>Swaps which character this object is at runtime — refreshes the sprite (and DialogueActor).</summary>
         public void SetData(CharacterData newData)
@@ -57,51 +54,6 @@ namespace Game
             // Runtime only: push identity to the DialogueActor (don't dirty it in edit mode).
             if (Application.isPlaying && applyToDialogueActor && data != null)
                 ApplyToDialogueActor();
-        }
-
-        protected virtual void OnEnable() => RefreshSprite();
-
-        // Fires in the editor when this component loads or its Data changes. Setting the sprite
-        // here directly triggers a SendMessage (bounds-changed), which Unity forbids during
-        // OnValidate — so defer the refresh to just after validation completes.
-        protected virtual void OnValidate()
-        {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.delayCall += DeferredRefresh;
-#endif
-        }
-
-#if UNITY_EDITOR
-        private void DeferredRefresh()
-        {
-            if (this == null) // may have been destroyed between OnValidate and this callback
-                return;
-            RefreshSprite();
-        }
-#endif
-
-        /// <summary>Shows the selected character's profile picture on this object's SpriteRenderer.</summary>
-        private void RefreshSprite()
-        {
-            if (spriteRenderer == null)
-                spriteRenderer = GetComponent<SpriteRenderer>();
-            if (spriteRenderer == null)
-                return;
-
-            Sprite sprite = data != null ? data.ProfilePicture : null;
-            spriteRenderer.sprite = sprite;
-
-            // Keep the collider matching the sprite, so it actually has a shape to block with.
-            if (fitColliderToSprite && sprite != null)
-            {
-                if (box == null)
-                    box = GetComponent<BoxCollider2D>();
-                if (box != null)
-                {
-                    box.size = sprite.bounds.size;
-                    box.offset = sprite.bounds.center;
-                }
-            }
         }
 
         private void ApplyToDialogueActor()
