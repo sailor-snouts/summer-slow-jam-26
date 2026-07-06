@@ -47,6 +47,9 @@ namespace Game
             if (!Application.isPlaying)
                 return;
 
+            if (PlayerInput.Locked)
+                return; // no character swapping mid-conversation
+
             if (Keyboard.current != null && Keyboard.current[swapKey].wasPressedThisFrame)
                 Swap();
         }

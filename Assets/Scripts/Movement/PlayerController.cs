@@ -40,6 +40,13 @@ namespace Game
 
         private void Update()
         {
+            // Locked during conversations: stop, and don't read movement (dialogue owns input then).
+            if (PlayerInput.Locked)
+            {
+                mover.MoveDirection = Vector2.zero;
+                return;
+            }
+
             // Read in Update, apply in the Mover's FixedUpdate — the standard input/physics split.
             mover.MoveDirection = moveAction.ReadValue<Vector2>();
         }

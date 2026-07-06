@@ -41,6 +41,9 @@ namespace Game
 
         private void Update()
         {
+            if (PlayerInput.Locked)
+                return; // can't start another interaction while a conversation is up
+
             if (Keyboard.current != null && Keyboard.current[interactKey].wasPressedThisFrame)
                 TryInteract();
         }
