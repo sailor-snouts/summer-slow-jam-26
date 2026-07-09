@@ -4,7 +4,7 @@ namespace Game
 {
     /// <summary>
     /// A <see cref="ConversationTrigger"/> for an NPC: its conversation comes from the object's
-    /// <see cref="Character"/> → <see cref="CharacterData"/>. The NPC is the conversant (it greets
+    /// <see cref="Character"/> to <see cref="CharacterData"/>. The NPC is the conversant (it greets
     /// first) and the interacting player is the actor.
     /// </summary>
     [RequireComponent(typeof(Character))]

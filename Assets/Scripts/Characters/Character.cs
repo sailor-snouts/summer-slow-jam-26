@@ -5,8 +5,8 @@ namespace Game
     /// <summary>
     /// A character in the scene. Pick which character this GameObject is with the
     /// <see cref="data"/> selector (a <see cref="CharacterData"/> asset). It shows the
-    /// character's profile picture on this object's <see cref="SpriteRenderer"/> — updating
-    /// live in the editor — and, at runtime, copies the name + portrait onto a Pixel Crushers
+    /// character's profile picture on this object's <see cref="SpriteRenderer"/> - updating
+    /// live in the editor - and, at runtime, copies the name + portrait onto a Pixel Crushers
     /// <c>DialogueActor</c> so dialogue uses the selected character's identity.
     /// </summary>
     // DefaultExecutionOrder: set the DialogueActor's name/portrait before the Dialogue System reads
@@ -40,7 +40,7 @@ namespace Game
         // A character's world sprite is its portrait.
         protected override Sprite CurrentSprite => data != null ? data.ProfilePicture : null;
 
-        /// <summary>Swaps which character this object is at runtime — refreshes the sprite (and DialogueActor).</summary>
+        /// <summary>Swaps which character this object is at runtime - refreshes the sprite (and DialogueActor).</summary>
         public void SetData(CharacterData newData)
         {
             data = newData;
@@ -58,7 +58,7 @@ namespace Game
 
         private void ApplyToDialogueActor()
         {
-            // Create the DialogueActor on demand so you don't have to add/configure it by hand —
+            // Create the DialogueActor on demand so you don't have to add/configure it by hand -
             // its identity comes entirely from the CharacterData. Fully-qualified to bind the base
             // type (and avoid the wrapper/namespace clash).
             var dialogueActor = GetComponent<PixelCrushers.DialogueSystem.DialogueActor>();

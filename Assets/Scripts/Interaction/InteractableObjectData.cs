@@ -4,10 +4,10 @@ using UnityEngine;
 namespace Game
 {
     /// <summary>
-    /// Definition for an interactable object — a clue, prop, door, note, etc. the player can examine.
+    /// Definition for an interactable object - a clue, prop, door, note, etc. the player can examine.
     /// Unlike a <see cref="CharacterData"/> it has no stats and no portrait: just the world
     /// <see cref="sprite"/> to show and the <see cref="conversation"/> to start when interacted with.
-    /// Create via Assets ▸ Create ▸ Game ▸ Interactable Object, then point a scene
+    /// Create via Assets > Create > Game > Interactable Object, then point a scene
     /// <see cref="InteractableObject"/> at it.
     /// </summary>
     [CreateAssetMenu(fileName = "Interactable Object", menuName = "Game/Interactable Object")]

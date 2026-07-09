@@ -6,7 +6,7 @@ namespace Game
     /// <summary>
     /// The player's character: a <see cref="Character"/> that swaps its identity (sprite + stats)
     /// between two <see cref="CharacterData"/> on a key press. While active it is the skill-check /
-    /// dialogue "player" — query <see cref="Current"/> / <see cref="CurrentData"/> to find out which
+    /// dialogue "player" - query <see cref="Current"/> / <see cref="CurrentData"/> to find out which
     /// character the player currently is.
     /// </summary>
     public class PlayerCharacter : Character

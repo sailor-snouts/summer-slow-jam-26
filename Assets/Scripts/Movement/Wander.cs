@@ -4,7 +4,7 @@ namespace Game
 {
     /// <summary>
     /// Simple NPC movement: amble in a random direction for a while, pause, then pick a new
-    /// direction — repeat. It only sets <see cref="Mover.MoveDirection"/>, so it's a drop-in
+    /// direction - repeat. It only sets <see cref="Mover.MoveDirection"/>, so it's a drop-in
     /// alternative to <see cref="PlayerController"/>: same Mover, a different "brain".
     ///
     /// Move time, pause time and speed each follow the same pattern: a range (min..max) sets the
@@ -18,16 +18,16 @@ namespace Game
     {
         // These are laid out by WanderEditor (range slider + its curve), so no [Header]s here.
         [SerializeField, Min(0f)] private Vector2 moveTimeRange = new Vector2(0f, 3f);
-        [SerializeField, Tooltip("X = random 0..1 → where in Move Time the value lands (Y: 0 = min, 1 = max).")]
+        [SerializeField, Tooltip("X = random 0..1 to where in Move Time the value lands (Y: 0 = min, 1 = max).")]
         private AnimationCurve moveTimeCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
         [SerializeField, Min(0f)] private Vector2 pauseTimeRange = new Vector2(0f, 2f);
-        [SerializeField, Tooltip("X = random 0..1 → where in Pause Time the value lands (Y: 0 = min, 1 = max).")]
+        [SerializeField, Tooltip("X = random 0..1 to where in Pause Time the value lands (Y: 0 = min, 1 = max).")]
         private AnimationCurve pauseTimeCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
         // Speed is a fraction (0..1) of the Mover's max speed.
         [SerializeField] private Vector2 speedRange = new Vector2(0f, 1f);
-        [SerializeField, Tooltip("X = random 0..1 → where in Speed the value lands (Y: 0 = min, 1 = max).")]
+        [SerializeField, Tooltip("X = random 0..1 to where in Speed the value lands (Y: 0 = min, 1 = max).")]
         private AnimationCurve speedCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
         [Header("Area restriction")]
@@ -73,7 +73,7 @@ namespace Game
             }
 
             // If the next step would carry it out of the area, abort this leg: pause now, and a
-            // fresh leg (new random direction) starts after the pause — i.e. run the cycle again.
+            // fresh leg (new random direction) starts after the pause - i.e. run the cycle again.
             if (moving && restrictArea && WillExitArea())
                 StartPause();
 
@@ -82,7 +82,7 @@ namespace Game
 
         private void StartMove()
         {
-            // A random unit direction (cosmetic randomness — not the seeded dice RNG).
+            // A random unit direction (cosmetic randomness - not the seeded dice RNG).
             float angle = Random.Range(0f, Mathf.PI * 2f);
             Vector2 unit = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
@@ -109,8 +109,8 @@ namespace Game
         }
 
         // True if, at the current speed, the NPC would step outside the area within the look-ahead
-        // "skin". Only guards the inside→outside crossing, so if it's somehow already outside
-        // (e.g. shoved by physics) it isn't trapped — a later leg wanders it back in.
+        // "skin". Only guards the inside to outside crossing, so if it's somehow already outside
+        // (e.g. shoved by physics) it isn't trapped - a later leg wanders it back in.
         private bool WillExitArea()
         {
             Vector2 pos = transform.position;
@@ -122,7 +122,7 @@ namespace Game
             if (!insideNow)
                 return false;
 
-            // Skin = speed × look-ahead: direction.magnitude is the speed fraction and Mover.MoveSpeed
+            // Skin = speed x look-ahead: direction.magnitude is the speed fraction and Mover.MoveSpeed
             // is the full speed, so this is the real velocity projected over edgeLookahead seconds.
             Vector2 predicted = pos + direction * mover.MoveSpeed * edgeLookahead;
 

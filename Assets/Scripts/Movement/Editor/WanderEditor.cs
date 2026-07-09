@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game
 {
     /// <summary>
-    /// Custom Inspector for <see cref="Wander"/>: draws each tunable as a min–max range slider
+    /// Custom Inspector for <see cref="Wander"/>: draws each tunable as a min-max range slider
     /// followed by its distribution curve, and hides the Area Size / Center Offset fields unless
     /// Restrict Area is ticked.
     /// </summary>
@@ -18,7 +18,7 @@ namespace Game
 
             DrawRangeWithCurve("moveTimeRange", "moveTimeCurve", "Move Time (s)", 0f, 10f);
             DrawRangeWithCurve("pauseTimeRange", "pauseTimeCurve", "Pause Time (s)", 0f, 10f);
-            DrawRangeWithCurve("speedRange", "speedCurve", "Speed (× max)", 0f, 1f);
+            DrawRangeWithCurve("speedRange", "speedCurve", "Speed (x max)", 0f, 1f);
 
             EditorGUILayout.Space();
 
@@ -53,12 +53,12 @@ namespace Game
 
             SerializedProperty curve = serializedObject.FindProperty(curveProp);
             var content = new GUIContent(curve.displayName,
-                "X = random 0..1 → the value's position in the range above (Y: 0 = min, 1 = max).");
+                "X = random 0..1 to the value's position in the range above (Y: 0 = min, 1 = max).");
             EditorGUILayout.CurveField(curve, CurveColor, CurveRange, content);
             EditorGUILayout.Space(2f);
         }
 
-        /// <summary>Draws a Vector2 (x = min, y = max) as a min–max slider with numeric fields.</summary>
+        /// <summary>Draws a Vector2 (x = min, y = max) as a min-max slider with numeric fields.</summary>
         private void DrawRangeSlider(string propertyName, string label, float limitMin, float limitMax)
         {
             SerializedProperty prop = serializedObject.FindProperty(propertyName);

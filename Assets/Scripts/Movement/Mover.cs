@@ -4,7 +4,7 @@ namespace Game
 {
     /// <summary>
     /// The ability to move. Drives a kinematic Rigidbody2D by casting its collider ahead each
-    /// physics step and stopping at (and sliding along) anything on the blocking layers — walls
+    /// physics step and stopping at (and sliding along) anything on the blocking layers - walls
     /// and other characters. Because it never applies forces, nothing gets pushed: characters
     /// block each other and the walls, but can't shove anything. Also flips the sprite to face
     /// the move direction. A driver (<see cref="PlayerController"/> or an AI like
@@ -17,7 +17,7 @@ namespace Game
         [SerializeField, Min(0f)] private float moveSpeed = 5f;
 
         [Header("Collision")]
-        [SerializeField, Tooltip("Layers that block movement — walls and other characters.")]
+        [SerializeField, Tooltip("Layers that block movement - walls and other characters.")]
         private LayerMask blockingLayers = ~0;
 
         [Header("Facing")]
@@ -48,7 +48,7 @@ namespace Game
             set => moveSpeed = Mathf.Max(0f, value);
         }
 
-        /// <summary>The last non-zero move direction (normalized), kept while idle — i.e. which way it's facing.</summary>
+        /// <summary>The last non-zero move direction (normalized), kept while idle - i.e. which way it's facing.</summary>
         public Vector2 Facing { get; private set; } = Vector2.right;
 
         private void Awake()

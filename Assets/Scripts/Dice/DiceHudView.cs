@@ -9,7 +9,7 @@ namespace Game
     /// Shows a dice roll on the HUD. Put this on the root of a Canvas you build in the editor,
     /// and wire the references below. It listens for <see cref="DiceRoller.Rolled"/> and, for
     /// each announced roll, spawns one cell per die, briefly flashes random faces, lands on the
-    /// real values, holds, then fades out. It never rolls anything itself — it only displays.
+    /// real values, holds, then fades out. It never rolls anything itself - it only displays.
     /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
     public class DiceHudView : MonoBehaviour
@@ -28,7 +28,7 @@ namespace Game
         private GameObject dieCellPrefab;
 
         [SerializeField]
-        [Tooltip("The label / total line, e.g. 'Attack — 9'. Optional.")]
+        [Tooltip("The label / total line, e.g. 'Attack - 9'. Optional.")]
         private TMP_Text labelText;
 
         [Header("Timing (seconds)")]

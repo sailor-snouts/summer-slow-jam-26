@@ -5,7 +5,7 @@ namespace Game
 {
     /// <summary>
     /// Registers the game's custom dialogue Lua functions, and auto-spawns itself at startup (and
-    /// survives scene loads) so they're always available — no component to place, and no dependency
+    /// survives scene loads) so they're always available - no component to place, and no dependency
     /// on the player object being set up. Registration happens in OnEnable with 'this' (instance
     /// methods, which the Dialogue System's Lua interpreter needs) and after the system has reset
     /// its Lua environment, so the registrations stick. Values come from the static player/skill-check
@@ -14,7 +14,7 @@ namespace Game
     public class DialogueLuaRegistrar : MonoBehaviour
     {
         /// <summary>
-        /// Every stat and category check, by method name — one Lua function each, so the dialogue
+        /// Every stat and category check, by method name - one Lua function each, so the dialogue
         /// editor lists them all in the Conditions dropdown. The names match the public methods below.
         /// </summary>
         private static readonly string[] CheckFunctions =
@@ -35,7 +35,7 @@ namespace Game
             var go = new GameObject("Dialogue Lua Registrar");
             DontDestroyOnLoad(go);
             go.AddComponent<DialogueLuaRegistrar>();
-            Debug.Log("[DialogueLuaRegistrar] Bootstrap ran — registrar spawned.");
+            Debug.Log("[DialogueLuaRegistrar] Bootstrap ran - registrar spawned.");
         }
 
         private void OnEnable()

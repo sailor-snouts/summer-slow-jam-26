@@ -6,7 +6,7 @@ namespace Game
     /// <summary>
     /// On a key press, sweeps a circle in the player's movement/facing direction (like an Unreal
     /// sphere-sweep): the circle begins at <see cref="startDistance"/> in front of the player and
-    /// travels to <see cref="maxDistance"/>. The first <see cref="IInteractable"/> it hits is used —
+    /// travels to <see cref="maxDistance"/>. The first <see cref="IInteractable"/> it hits is used -
     /// so you must be facing the target and within the band to interact with it.
     /// </summary>
     [RequireComponent(typeof(Mover))]
@@ -19,7 +19,7 @@ namespace Game
         [SerializeField, Range(0f, 5f), Tooltip("Where the swept circle ends.")]
         private float maxDistance = 1.5f;
 
-        [SerializeField, Range(0f, 2f), Tooltip("Radius of the swept circle — a fatter sweep is more forgiving to aim.")]
+        [SerializeField, Range(0f, 2f), Tooltip("Radius of the swept circle - a fatter sweep is more forgiving to aim.")]
         private float castRadius = 0.4f;
 
         [SerializeField, Tooltip("Which layers hold interactables.")]

@@ -8,12 +8,12 @@ namespace Game
     /// that object's sprite and keeps the collider fitted to it. Pair it with an
     /// <see cref="ObjectDialogue"/> to start the object's conversation on interaction.
     ///
-    /// It's the counterpart to a <see cref="Character"/> — but with no stats, no portrait, and no
+    /// It's the counterpart to a <see cref="Character"/> - but with no stats, no portrait, and no
     /// movement (objects don't move, so no <c>Mover</c> is required).
     /// </summary>
     // RequireComponent isn't inherited from SpriteEntity, so restate it here to auto-add the parts
     // RefreshSprite needs (and ExecuteAlways so the sprite shows in the editor). Also pull in
-    // ObjectDialogue — the interactable half — so an object is never missing what makes it usable.
+    // ObjectDialogue - the interactable half - so an object is never missing what makes it usable.
     // (ObjectDialogue requires InteractableObject too, so adding either gives you both.)
     [ExecuteAlways]
     [RequireComponent(typeof(SpriteRenderer))]

@@ -38,10 +38,10 @@ namespace Game
 
     /// <summary>
     /// A character definition asset: a name, the twelve stats (grouped into Brain / Brawn / Beauty),
-    /// and a profile picture. Make as many of these as you like (Assets ▸ Create ▸ Game ▸ Character),
+    /// and a profile picture. Make as many of these as you like (Assets > Create > Game > Character),
     /// then point a scene <see cref="Character"/> at the one a GameObject should be.
     ///
-    /// Stats are read-only at runtime — a ScriptableObject is shared by every reference, so
+    /// Stats are read-only at runtime - a ScriptableObject is shared by every reference, so
     /// mutating it would change the asset for everyone (and persist in the editor). If a
     /// character ever needs per-instance, changing stats, we'd add a runtime copy then.
     /// </summary>
@@ -52,7 +52,10 @@ namespace Game
         public const int MinValue = 1;
         public const int MaxValue = 4;
 
-        [Tooltip("Which Dialogue System actor this character is — also used as the character's name. Falls back to the asset name if blank.")]
+        /// <summary>Masculine + feminine always sum to this - the split is one slider's worth of points.</summary>
+        public const int GenderTotal = 10;
+
+        [Tooltip("Which Dialogue System actor this character is - also used as the character's name. Falls back to the asset name if blank.")]
         [ActorPopup(true)] // (true) shows a Database field so the dropdown can list actors
         [SerializeField] private string dialogueActor;
 
@@ -81,17 +84,27 @@ namespace Game
         [SerializeField, Range(MinValue, MaxValue)] private int bonhomie = MinValue;
         [SerializeField, Range(MinValue, MaxValue)] private int hostility = MinValue;
 
-        /// <summary>The character's name — its Dialogue System actor (falls back to the asset name if unset).</summary>
+        // Masculine / feminine split: we store only the masculine share (0..GenderTotal); feminine is
+        // the rest, so the two always sum to GenderTotal. The inspector edits it as a single slider.
+        [SerializeField, Range(0, GenderTotal)] private int masculine = GenderTotal / 2;
+
+        /// <summary>The character's name - its Dialogue System actor (falls back to the asset name if unset).</summary>
         public string DisplayName => string.IsNullOrEmpty(dialogueActor) ? name : dialogueActor;
         public Sprite ProfilePicture => profilePicture;
 
         /// <summary>Conversation started when the player interacts with this character.</summary>
         public string Conversation => conversation;
 
-        // Category totals — the sum of the four stats in each (read-only).
+        // Category totals - the sum of the four stats in each (read-only).
         public int Brain => drive + willpower + observation + empathy;
         public int Brawn => vigor + endurance + agility + technique;
         public int Beauty => charm + taunt + bonhomie + hostility;
+
+        /// <summary>Masculine share of the <see cref="GenderTotal"/> points (0..10).</summary>
+        public int Masculine => masculine;
+
+        /// <summary>Feminine share - the rest of the <see cref="GenderTotal"/> points.</summary>
+        public int Feminine => GenderTotal - masculine;
 
         /// <summary>Reads one of the twelve stats.</summary>
         public int Get(Stat stat) => stat switch
@@ -111,7 +124,7 @@ namespace Game
             _ => throw new System.ArgumentOutOfRangeException(nameof(stat), stat, "Unknown stat."),
         };
 
-        /// <summary>Reads a category total — the sum of its four stats.</summary>
+        /// <summary>Reads a category total - the sum of its four stats.</summary>
         public int GetCategory(StatCategory category) => category switch
         {
             StatCategory.Brain => Brain,
@@ -122,8 +135,13 @@ namespace Game
 
 #if UNITY_EDITOR
         // Editing this asset (e.g. swapping its portrait) doesn't fire OnValidate on the scene
-        // Characters that reference it, so nudge them to re-read and update live.
-        private void OnValidate() => SpriteEntity.RefreshAllInEditor();
+        // Characters that reference it, so nudge them to re-read and update live. Also keep the
+        // masculine/feminine split within its point budget in case it's edited outside the slider.
+        private void OnValidate()
+        {
+            masculine = Mathf.Clamp(masculine, 0, GenderTotal);
+            SpriteEntity.RefreshAllInEditor();
+        }
 #endif
     }
 }

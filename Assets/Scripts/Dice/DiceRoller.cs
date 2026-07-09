@@ -28,7 +28,7 @@ namespace Game
         [Tooltip("The seed used when 'Use Fixed Seed' is on.")]
         private int seed = 12345;
 
-        // System.Random (not UnityEngine.Random) so the sequence is owned here and seedable —
+        // System.Random (not UnityEngine.Random) so the sequence is owned here and seedable -
         // no global state, which keeps rolls reproducible and independent of the rest of the game.
         private System.Random random;
 
@@ -50,7 +50,7 @@ namespace Game
                 Instance = null;
         }
 
-        /// <summary>Rolls <paramref name="count"/> dice of <paramref name="sides"/> sides. Silent — just returns the values.</summary>
+        /// <summary>Rolls <paramref name="count"/> dice of <paramref name="sides"/> sides. Silent - just returns the values.</summary>
         public DiceRoll Roll(int count, int sides)
         {
             if (count < 1)

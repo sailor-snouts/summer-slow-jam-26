@@ -5,7 +5,7 @@ namespace Game
 {
     /// <summary>
     /// Reads movement input (WASD / arrows / left stick) and feeds it to this object's
-    /// <see cref="Mover"/>. This is the only piece that knows about input — swap it for an AI
+    /// <see cref="Mover"/>. This is the only piece that knows about input - swap it for an AI
     /// driver on an NPC and the same <see cref="Mover"/> moves the same way.
     /// </summary>
     [RequireComponent(typeof(Mover))]
@@ -47,7 +47,7 @@ namespace Game
                 return;
             }
 
-            // Read in Update, apply in the Mover's FixedUpdate — the standard input/physics split.
+            // Read in Update, apply in the Mover's FixedUpdate - the standard input/physics split.
             mover.MoveDirection = moveAction.ReadValue<Vector2>();
         }
     }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    /// <summary>The immutable result of one dice roll (e.g. 2d6 → [4,5], total 9).</summary>
+    /// <summary>The immutable result of one dice roll (e.g. 2d6 to [4,5], total 9).</summary>
     public readonly struct DiceRoll
     {
         public int Count { get; }

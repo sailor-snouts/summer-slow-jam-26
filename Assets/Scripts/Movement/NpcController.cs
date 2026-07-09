@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>The NPC's available movement modes. Add more as we build them (Patrol, Follow, …).</summary>
+    /// <summary>The NPC's available movement modes. Add more as we build them (Patrol, Follow, ...).</summary>
     public enum NpcWalkMode
     {
         Wander,
@@ -75,7 +75,7 @@ namespace Game
         }
 
         // The Dialogue System sends these to a conversation's participants (via SendMessage). The NPC
-        // is the conversant, so it gets them when the player starts/ends talking to it — freeze while
+        // is the conversant, so it gets them when the player starts/ends talking to it - freeze while
         // the conversation is up, resume when it ends or is exited. Plain named methods: no Dialogue
         // System reference needed.
         private void OnConversationStart(Transform actor) => SetFrozen(true);
