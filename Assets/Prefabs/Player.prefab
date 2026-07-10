@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5859975338754909829}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,9 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c2af579c5965245957804831e57e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.PlayerCharacter
+  fitColliderToSprite: 1
   data: {fileID: 11400000, guid: 9a5074d8c4124911a6ddb29dfec3eb54, type: 2}
   applyToDialogueActor: 1
-  fitColliderToSprite: 1
   characterA: {fileID: 11400000, guid: 9a5074d8c4124911a6ddb29dfec3eb54, type: 2}
   characterB: {fileID: 11400000, guid: 521cfa547fba44b9981d517f68238bac, type: 2}
   swapKey: 3
