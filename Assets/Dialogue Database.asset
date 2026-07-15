@@ -946,8 +946,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 870.70245
-        y: 400.10773
+        x: 891.9146
+        y: 415.8653
         width: 160
         height: 30
     - id: 5
@@ -1050,8 +1050,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 869.3326
-        y: 469.49585
+        x: 890.54474
+        y: 485.25342
         width: 160
         height: 30
     - id: 7
@@ -1099,8 +1099,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 868.87604
-        y: 553.4955
+        x: 893.1185
+        y: 571.0713
         width: 160
         height: 30
     - id: 8
@@ -1215,7 +1215,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 557.3332
+        x: 556.12103
         y: 411.06665
         width: 160
         height: 30
@@ -1263,14 +1263,15 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: IsPlayer("Ethan Hermann Jr.")  == true
+      conditionsString: IsPlayer("Ethan Hermann Jr.")  == true and (Variable["isErin"]
+        == false)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 452.72726
+        x: 453.33328
         y: 495.06665
         width: 160
         height: 30
@@ -1289,7 +1290,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1297,7 +1298,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Yep! Right in the back corner.
+        value: Sorry, looks like it ended early tonight.
         type: 0
         typeString: 
       - title: Sequence
@@ -1315,18 +1316,19 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 12
         destinationConversationID: 1
-        destinationDialogueID: 7
+        destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      conditionsString: IsPlayer("Erin Quennell")  == true
+      conditionsString: IsPlayer("Erin Quennell")  == true and (Variable["isEthan"]
+        == false)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 661.3326
-        y: 495.06665
+        x: 677.6962
+        y: 490.21814
         width: 160
         height: 30
     - id: 13
@@ -1396,8 +1398,64 @@ MonoBehaviour:
         y: 300.47815
         width: 160
         height: 30
+    - id: 14
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: If you'd like, you can still speak to Dr. Neumann, she's sitting at
+          the table over there.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 14
+        destinationConversationID: 1
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 677.0902
+        y: 568.70294
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 304.2945, y: 21.212128}
+    canvasScrollPosition: {x: 163.68835, y: 111.51515}
     canvasZoom: 1.1
   - id: 2
     fields:
@@ -5120,7 +5178,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: But who will you become?
+        value: But what do you see?
         type: 0
         typeString: 
       - title: Sequence
@@ -5166,8 +5224,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1105.7349
-        y: 157.54256
+        x: 1103.848
+        y: 156.91362
         width: 160
         height: 30
     - id: 4
@@ -5193,7 +5251,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'll stick with being Ethan Hermann.
+        value: I see Ethan Hermann.
         type: 0
         typeString: 
       - title: Sequence
@@ -5207,16 +5265,23 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: IsPlayer("Ethan Hermann Jr.")  == true
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 4
+        destinationConversationID: 4
+        destinationDialogueID: 28
+        isConnector: 0
+        priority: 2
+      conditionsString: IsPlayer("Ethan Hermann Jr.")  == true and (Variable["isErin"]
+        == false)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 771.71075
-        y: 277.33344
+        x: 782.40265
+        y: 281.107
         width: 160
         height: 30
     - id: 5
@@ -5242,7 +5307,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'll become Erin Quennell.
+        value: I see Erin Quennell.
         type: 0
         typeString: 
       - title: Sequence
@@ -5256,15 +5321,24 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: IsPlayer("Ethan Hermann Jr.")  == true
-      userScript: 
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 5
+        destinationConversationID: 4
+        destinationDialogueID: 27
+        isConnector: 0
+        priority: 2
+      conditionsString: IsPlayer("Ethan Hermann Jr.")  == true and (Variable["isErin"]
+        == false)
+      userScript: 'Variable["isEthan"] = false;
+
+        Variable["isErin"] = true'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 975.83655
+        x: 977.09436
         y: 280.956
         width: 160
         height: 30
@@ -5292,7 +5366,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: 'We see what they designed us to be; what Voids fear, the upholder
-          of C.I.S., a highest caliber Viable. '
+          of C.I.S., Viable of the highest caliber. '
         type: 0
         typeString: 
       - title: Sequence
@@ -5321,8 +5395,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 551.3334
-        y: 164.03885
+        x: 555.73596
+        y: 162.781
         width: 160
         height: 30
     - id: 7
@@ -5426,7 +5500,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["ProtostrogenCheck"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5628,7 +5702,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'll stick with being Erin Quennell.
+        value: I see Erin Quennell.
         type: 0
         typeString: 
       - title: Sequence
@@ -5642,8 +5716,15 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: IsPlayer("Erin Quennell")  == true
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 12
+        destinationConversationID: 4
+        destinationDialogueID: 29
+        isConnector: 0
+        priority: 2
+      conditionsString: IsPlayer("Erin Quennell")  == true and (Variable["isEthan"]
+        == false)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5677,7 +5758,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'll become Ethan Hermann.
+        value: I see Ethan Hermann.
         type: 0
         typeString: 
       - title: Sequence
@@ -5691,16 +5772,25 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: IsPlayer("Erin Quennell")  == true
-      userScript: 
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 13
+        destinationConversationID: 4
+        destinationDialogueID: 30
+        isConnector: 0
+        priority: 2
+      conditionsString: IsPlayer("Erin Quennell")  == true and (Variable["isEthan"]
+        == false)
+      userScript: 'Variable["isEthan"] = true;
+
+        Variable["isErin"] = false'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1403.848
-        y: 281.7564
+        y: 280.49857
         width: 160
         height: 30
     - id: 14
@@ -5809,7 +5899,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: Variable["ProtostrogenCheck"] = true
+      userScript: 'Variable["ProtostrogenCheck"] = true;
+
+        Variable["isEthan"]
+        = false;
+
+        Variable["isErin"] = true'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5912,7 +6007,8 @@ MonoBehaviour:
         destinationDialogueID: 18
         isConnector: 0
         priority: 2
-      conditionsString: IsPlayer("Erin Quennell")  == true
+      conditionsString: IsPlayer("Erin Quennell")  == true and (Variable["isEthan"]
+        == false)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5920,7 +6016,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 280.94803
-        y: 638.2096
+        y: 640.0964
         width: 160
         height: 30
     - id: 18
@@ -5976,8 +6072,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 284.72162
-        y: 705.1906
+        x: 286.60843
+        y: 702.04596
         width: 160
         height: 30
     - id: 19
@@ -6321,7 +6417,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 277.80316
-        y: 996.70013
+        y: 996.0712
         width: 160
         height: 30
     - id: 25
@@ -6428,9 +6524,306 @@ MonoBehaviour:
         y: 1093.8701
         width: 160
         height: 30
+    - id: 27
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 19
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You are now Erin Quennell.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 972.6919
+        y: 349.195
+        width: 160
+        height: 30
+    - id: 28
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 19
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You are still Ethan Hermann.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 776.11334
+        y: 348.71707
+        width: 160
+        height: 30
+    - id: 29
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 19
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You are still Erin Quennell.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1197.5587
+        y: 348.73752
+        width: 160
+        height: 30
+    - id: 30
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 19
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You are now Ethan Hermann.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1405.7347
+        y: 346.22183
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 67.29559, y: 535.2201}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1.06
+  - id: 5
+    fields:
+    - title: Title
+      value: Dawn Neumann
+      type: 0
+      typeString: 
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: Actor
+      value: 1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: 4
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      emTagForOldResponses: 0
+      emTagForInvalidResponses: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+        inputAction: {fileID: 0}
+      cancelConversation:
+        key: 27
+        buttonName: 
+        inputAction: {fileID: 0}
+      actorSubtitlePanelOverrides: []
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 4
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      conversationID: 0
+      isRoot: 1
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: 
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 30
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   syncInfo:
     syncActors: 0
     syncItems: 0
