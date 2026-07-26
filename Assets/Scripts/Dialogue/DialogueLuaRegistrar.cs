@@ -41,14 +41,18 @@ namespace Game
         private void OnEnable()
         {
             Lua.RegisterFunction("IsPlayer", this, GetType().GetMethod(nameof(IsPlayer)));
+            Lua.RegisterFunction("Masculine", this, GetType().GetMethod(nameof(Masculine)));
+            Lua.RegisterFunction("Feminine", this, GetType().GetMethod(nameof(Feminine)));
             foreach (string functionName in CheckFunctions)
                 Lua.RegisterFunction(functionName, this, GetType().GetMethod(functionName));
-            Debug.Log($"[DialogueLuaRegistrar] Registered IsPlayer + {CheckFunctions.Length} stat/category checks.");
+            Debug.Log($"[DialogueLuaRegistrar] Registered IsPlayer + Masculine/Feminine + {CheckFunctions.Length} stat/category checks.");
         }
 
         private void OnDisable()
         {
             Lua.UnregisterFunction("IsPlayer");
+            Lua.UnregisterFunction("Masculine");
+            Lua.UnregisterFunction("Feminine");
             foreach (string functionName in CheckFunctions)
                 Lua.UnregisterFunction(functionName);
         }
@@ -59,6 +63,11 @@ namespace Game
             CharacterData data = PlayerCharacter.CurrentData;
             return data != null && data.DisplayName == actorName;
         }
+
+        // Effective masculine/feminine of the current player (base split plus the equipped outfit's
+        // shift, 0..10). These are plain values to compare, not dice rolls - e.g. Feminine() >= 7.
+        public double Masculine() => Outfits.EffectiveMasculine(PlayerCharacter.CurrentData);
+        public double Feminine() => Outfits.EffectiveFeminine(PlayerCharacter.CurrentData);
 
         // Lua skill checks: roll count d sides + the player's stat (or category total), returning the
         // total to compare. One method per stat and per category so each is its own dropdown entry.

@@ -16,6 +16,12 @@ MonoBehaviour:
   - functionName: Game/IsPlayer
     parameters: 03000000
     returnValue: 1
+  - functionName: Game/Masculine
+    parameters:
+    returnValue: 2
+  - functionName: Game/Feminine
+    parameters:
+    returnValue: 2
   - functionName: Game/DriveCheck
     parameters: 0100000001000000
     returnValue: 2

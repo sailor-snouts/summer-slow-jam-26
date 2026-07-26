@@ -28,7 +28,8 @@ namespace Game
                 Debug.LogError("[SkillCheck] No character given and DefaultCharacter isn't set - returning 0.");
                 return 0;
             }
-            return RollCore(character, character.Get(stat), stat.ToString(), count, sides, showRoll);
+            // Effective stat: base value plus the equipped outfit's modifier.
+            return RollCore(character, Outfits.EffectiveStat(character, stat), stat.ToString(), count, sides, showRoll);
         }
 
         /// <summary>
@@ -42,7 +43,8 @@ namespace Game
                 Debug.LogError("[SkillCheck] No character given and DefaultCharacter isn't set - returning 0.");
                 return 0;
             }
-            return RollCore(character, character.GetCategory(category), category.ToString(), count, sides, showRoll);
+            // Effective category: base total plus the equipped outfit's modifiers.
+            return RollCore(character, Outfits.EffectiveCategory(character, category), category.ToString(), count, sides, showRoll);
         }
 
         /// <summary>Roll + stat for <see cref="DefaultCharacter"/> (the dialogue/player default).</summary>

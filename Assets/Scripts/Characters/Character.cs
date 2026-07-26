@@ -37,8 +37,21 @@ namespace Game
         /// <summary>Reads one of the character's stats.</summary>
         public int GetStat(Stat stat) => data != null ? data.Get(stat) : CharacterData.MinValue;
 
-        // A character's world sprite is its portrait.
-        protected override Sprite CurrentSprite => data != null ? data.ProfilePicture : null;
+        // A character's world sprite is its equipped outfit's worn look (runtime only), or its
+        // portrait when nothing is equipped.
+        protected override Sprite CurrentSprite
+        {
+            get
+            {
+                if (Application.isPlaying)
+                {
+                    Sprite worn = Outfits.WornSprite(data);
+                    if (worn != null)
+                        return worn;
+                }
+                return data != null ? data.ProfilePicture : null;
+            }
+        }
 
         /// <summary>Swaps which character this object is at runtime - refreshes the sprite (and DialogueActor).</summary>
         public void SetData(CharacterData newData)
@@ -54,6 +67,25 @@ namespace Game
             // Runtime only: push identity to the DialogueActor (don't dirty it in edit mode).
             if (Application.isPlaying && applyToDialogueActor && data != null)
                 ApplyToDialogueActor();
+        }
+
+        // Re-pull the sprite when this character's outfit changes. Subscribed symmetrically in
+        // enable/disable; the event only fires at runtime.
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            Outfits.Changed += OnOutfitChanged;
+        }
+
+        protected virtual void OnDisable()
+        {
+            Outfits.Changed -= OnOutfitChanged;
+        }
+
+        private void OnOutfitChanged(CharacterData changed)
+        {
+            if (changed == data)
+                RefreshSprite();
         }
 
         private void ApplyToDialogueActor()

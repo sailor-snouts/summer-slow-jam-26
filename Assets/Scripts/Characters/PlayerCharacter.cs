@@ -36,8 +36,9 @@ namespace Game
             Apply();
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
             if (Current == this)
                 Current = null;
         }
