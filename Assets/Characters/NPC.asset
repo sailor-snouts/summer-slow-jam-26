@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e370bded2b64d4fb1d82dff327c84a2, type: 3}
   m_Name: NPC
   m_EditorClassIdentifier: 
-  dialogueActor: Bartender
+  dialogueActor: Ethan Hermann Jr.
   conversation: Bartender1
   profilePicture: {fileID: 4966732595609684114, guid: a06aecf570f460e4e8db002cc9dce11f, type: 3}
   drive: 1
@@ -27,3 +27,4 @@ MonoBehaviour:
   taunt: 1
   bonhomie: 1
   hostility: 1
+  masculine: 5
