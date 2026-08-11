@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d273e6a5-c303-4f00-b7db-20bf0646bd2e}">
+		<property name="assetPath">
+			<value>RabbitHole_temp.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>120.00002083333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{240b8809-13a2-4d90-9fb4-d378fe7c7f71}</destination>
+		</relationship>
+	</object>
+</objects>
