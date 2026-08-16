@@ -168,6 +168,9 @@ Packages/packages-lock.json linguist-generated
 # covered above — .dll/.so/.a carry the desktop/WebGL runtimes)
 *.bank                  lfs
 *.dylib                 lfs
+# Keep the text files inside FMOD's macOS plugin bundles as LF (not LFS/CRLF).
+Assets/Plugins/FMOD/**/*.bundle     text eol=lf
+Assets/Plugins/FMOD/**/Info.plist   text eol=lf
 
 # Spine export file for Unity
 *.skel.bytes            lfs
