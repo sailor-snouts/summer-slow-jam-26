@@ -20,7 +20,7 @@ namespace Game
             // (works even if the player's own OnEnable hasn't run yet).
             PlayerCharacter player = PlayerCharacter.Current != null
                 ? PlayerCharacter.Current
-                : FindFirstObjectByType<PlayerCharacter>();
+                : FindAnyObjectByType<PlayerCharacter>();
 
             if (player != null)
                 cam.Follow = player.transform;

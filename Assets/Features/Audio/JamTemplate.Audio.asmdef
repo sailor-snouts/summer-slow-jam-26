@@ -1,7 +1,10 @@
 {
     "name": "JamTemplate.Audio",
     "rootNamespace": "JamTemplate.Audio",
-    "references": [],
+    "references": [
+        "FMODUnity",
+        "Unity.InputSystem"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
@@ -9,6 +12,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.fmod.unity",
+            "expression": "",
+            "define": "FMOD_PRESENT"
+        }
+    ],
     "noEngineReferences": false
 }

@@ -17,6 +17,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.fmod.unity",
+            "expression": "",
+            "define": "FMOD_PRESENT"
+        }
+    ],
     "noEngineReferences": false
 }

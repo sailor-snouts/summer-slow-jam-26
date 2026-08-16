@@ -138,12 +138,36 @@ namespace JamTemplate.Audio
         private void ResolveBuses()
         {
             masterBus = RuntimeManager.GetBus(masterBusPath);
-            vcas[(int)AudioCategory.Sfx] = RuntimeManager.GetVCA(sfxVca);
-            vcas[(int)AudioCategory.Music] = RuntimeManager.GetVCA(musicVca);
-            vcas[(int)AudioCategory.Ambiance] = RuntimeManager.GetVCA(ambianceVca);
-            vcas[(int)AudioCategory.Dialogue] = RuntimeManager.GetVCA(dialogueVca);
-            vcas[(int)AudioCategory.Ui] = RuntimeManager.GetVCA(uiVca);
+            vcas[(int)AudioCategory.Sfx] = TryGetVca(sfxVca);
+            vcas[(int)AudioCategory.Music] = TryGetVca(musicVca);
+            vcas[(int)AudioCategory.Ambiance] = TryGetVca(ambianceVca);
+            vcas[(int)AudioCategory.Dialogue] = TryGetVca(dialogueVca);
+            vcas[(int)AudioCategory.Ui] = TryGetVca(uiVca);
             busesResolved = true;
+        }
+
+        // A fresh FMOD project has no VCAs, and GetVCA throws when one is missing. Treat that as a
+        // warning, not a fatal error, so init still completes - master volume, the global fade, and
+        // playback keep working off the master bus. Per-category volume for a missing VCA just no-ops
+        // (ApplyCategoryVolume checks isValid) until you create the VCA in FMOD Studio.
+        private VCA TryGetVca(string path)
+        {
+            // Blank path = intentionally no VCA for this category (its slider just no-ops). Clearing
+            // the path fields on the Fmod Audio Manager is how you opt out without console noise.
+            if (string.IsNullOrEmpty(path))
+                return default;
+
+            try
+            {
+                return RuntimeManager.GetVCA(path);
+            }
+            catch (VCANotFoundException)
+            {
+                Debug.LogWarning(
+                    $"[FmodAudio] VCA '{path}' not found - that category's volume slider is disabled " +
+                    "until you create the VCA in FMOD Studio and rebuild banks.", this);
+                return default;
+            }
         }
 
         // --- Autoplay / focus (WebGL) ------------------------------------------
@@ -412,7 +436,7 @@ namespace JamTemplate.Audio
             if (!instance.isValid())
                 return;
 
-            instance.stop(STOP_MODE.ALLOWFADEOUT);
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             instance.release();
             instance = default;
         }
@@ -422,7 +446,7 @@ namespace JamTemplate.Audio
             if (!instance.isValid())
                 return;
 
-            instance.stop(STOP_MODE.IMMEDIATE);
+            instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             instance.release();
             instance = default;
         }

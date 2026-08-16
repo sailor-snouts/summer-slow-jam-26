@@ -29,6 +29,11 @@
             "name": "com.unity.cinemachine",
             "expression": "3.0.0",
             "define": "CINEMACHINE_3"
+        },
+        {
+            "name": "com.fmod.unity",
+            "expression": "",
+            "define": "FMOD_PRESENT"
         }
     ],
     "noEngineReferences": false
