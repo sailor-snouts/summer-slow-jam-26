@@ -48,11 +48,11 @@ MonoBehaviour:
   - Master
   - Master.strings
   masterBusPath: bus:/
-  sfxVca: vca:/Sfx
+  sfxVca:
   musicVca: vca:/Music
-  ambianceVca: vca:/Ambiance
-  dialogueVca: vca:/Dialogue
-  uiVca: vca:/UI
+  ambianceVca:
+  dialogueVca:
+  uiVca:
   uiClickEvent:
     Guid:
       Data1: 0
