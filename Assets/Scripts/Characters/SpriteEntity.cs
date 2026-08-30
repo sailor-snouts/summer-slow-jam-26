@@ -6,7 +6,7 @@ namespace Game
     /// Base for a scene thing that shows a sprite taken from a data asset and keeps a
     /// <see cref="BoxCollider2D"/> fitted to that sprite - updating live in the editor. Subclasses
     /// supply the sprite through <see cref="CurrentSprite"/> (a <see cref="Character"/> uses its
-    /// portrait, an <see cref="InteractableObject"/> uses its object sprite), so the SpriteRenderer /
+    /// world sprite, an <see cref="InteractableObject"/> uses its object sprite), so the SpriteRenderer /
     /// collider plumbing lives here once instead of in each.
     /// </summary>
     // ExecuteAlways: refresh the sprite in edit mode too.
@@ -86,6 +86,8 @@ namespace Game
                 foreach (SpriteEntity entity in entities)
                     if (entity != null)
                         entity.RefreshSprite();
+                // Force the Scene/Game views to redraw so the swapped sprite shows immediately.
+                UnityEditor.SceneView.RepaintAll();
             };
         }
 #endif

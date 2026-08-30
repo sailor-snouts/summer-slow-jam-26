@@ -5,9 +5,10 @@ namespace Game
     /// <summary>
     /// A character in the scene. Pick which character this GameObject is with the
     /// <see cref="data"/> selector (a <see cref="CharacterData"/> asset). It shows the
-    /// character's profile picture on this object's <see cref="SpriteRenderer"/> - updating
+    /// character's world sprite on this object's <see cref="SpriteRenderer"/> - updating
     /// live in the editor - and, at runtime, copies the name + portrait onto a Pixel Crushers
-    /// <c>DialogueActor</c> so dialogue uses the selected character's identity.
+    /// <c>DialogueActor</c> so dialogue uses the selected character's identity. The portrait
+    /// (profile picture) is separate and used only for dialogue.
     /// </summary>
     // DefaultExecutionOrder: set the DialogueActor's name/portrait before the Dialogue System reads
     // them. (Sprite refresh / collider fitting is inherited from SpriteEntity.)
@@ -37,8 +38,8 @@ namespace Game
         /// <summary>Reads one of the character's stats.</summary>
         public int GetStat(Stat stat) => data != null ? data.Get(stat) : CharacterData.MinValue;
 
-        // A character's world sprite is its equipped outfit's worn look (runtime only), or its
-        // portrait when nothing is equipped.
+        // A character's world sprite is its equipped outfit's worn look (runtime only), or its own
+        // world sprite when nothing is equipped (which falls back to the portrait if unset).
         protected override Sprite CurrentSprite
         {
             get
@@ -49,7 +50,7 @@ namespace Game
                     if (worn != null)
                         return worn;
                 }
-                return data != null ? data.ProfilePicture : null;
+                return data != null ? data.WorldSprite : null;
             }
         }
 

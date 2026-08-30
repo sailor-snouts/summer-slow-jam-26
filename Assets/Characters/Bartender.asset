@@ -15,6 +15,7 @@ MonoBehaviour:
   dialogueActor: Bartender
   conversation: Bartender1
   profilePicture: {fileID: -6623591779945596923, guid: 2520833535ac3bb4c8db84f5f4f1f12e, type: 3}
+  worldSprite: {fileID: 5322661941387007901, guid: adcf01696a9b4bc4da6ca2f2f0c7b53c, type: 3}
   drive: 1
   willpower: 1
   observation: 1

@@ -15,6 +15,7 @@ MonoBehaviour:
   dialogueActor: Bouncer
   conversation: Bouncer+Frank
   profilePicture: {fileID: -4889887851962213709, guid: 0f16beaa872455c43b143f5ac861b9f9, type: 3}
+  worldSprite: {fileID: -7052261092988475347, guid: 0d4fafe8071f4a34481d97356086ec7f, type: 3}
   drive: 1
   willpower: 1
   observation: 1

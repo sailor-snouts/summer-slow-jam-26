@@ -18,6 +18,7 @@ namespace Game
             EditorGUILayout.PropertyField(serializedObject.FindProperty("dialogueActor"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("conversation"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("profilePicture"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("worldSprite"));
 
             DrawCategory("Brain", "drive", "willpower", "observation", "empathy");
             DrawCategory("Brawn", "vigor", "endurance", "agility", "technique");

@@ -63,8 +63,11 @@ namespace Game
         [ConversationPopup]
         [SerializeField] private string conversation;
 
-        [Tooltip("Profile picture / portrait for this character.")]
+        [Tooltip("Headshot / portrait shown in dialogue (the Dialogue System actor's picture).")]
         [SerializeField] private Sprite profilePicture;
+
+        [Tooltip("Sprite shown for this character in the game world. Falls back to the portrait if unset.")]
+        [SerializeField] private Sprite worldSprite;
 
         // Brain
         [SerializeField, Range(MinValue, MaxValue)] private int drive = MinValue;
@@ -90,7 +93,12 @@ namespace Game
 
         /// <summary>The character's name - its Dialogue System actor (falls back to the asset name if unset).</summary>
         public string DisplayName => string.IsNullOrEmpty(dialogueActor) ? name : dialogueActor;
+
+        /// <summary>Dialogue headshot / portrait.</summary>
         public Sprite ProfilePicture => profilePicture;
+
+        /// <summary>In-world sprite (falls back to the portrait when no world sprite is set).</summary>
+        public Sprite WorldSprite => worldSprite != null ? worldSprite : profilePicture;
 
         /// <summary>Conversation started when the player interacts with this character.</summary>
         public string Conversation => conversation;

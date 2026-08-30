@@ -114,7 +114,7 @@ namespace Game
 
             if (previewImage != null)
             {
-                Sprite shown = worn != null ? worn : (character != null ? character.ProfilePicture : null);
+                Sprite shown = worn != null ? worn : (character != null ? character.WorldSprite : null);
                 previewImage.sprite = shown;
                 previewImage.enabled = shown != null;
             }
