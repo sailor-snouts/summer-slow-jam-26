@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae8a69d094e9084bb50220b6f77deab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character
+  fitColliderToSprite: 1
   data: {fileID: 11400000, guid: 7279b9a6ce47406893d1db6b1d29218a, type: 2}
   applyToDialogueActor: 1
-  fitColliderToSprite: 1
 --- !u!114 &3907629656564424640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4966732595609684114, guid: a06aecf570f460e4e8db002cc9dce11f, type: 3}
+  m_Sprite: {fileID: -6623591779945596923, guid: 2520833535ac3bb4c8db84f5f4f1f12e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -273,13 +273,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.02, y: 1.11}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.02, y: 1.11}
   m_EdgeRadius: 0
 --- !u!50 &5396418762958997940
 Rigidbody2D:

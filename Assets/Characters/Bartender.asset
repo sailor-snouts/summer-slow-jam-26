@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e370bded2b64d4fb1d82dff327c84a2, type: 3}
-  m_Name: Erin
+  m_Name: Bartender
   m_EditorClassIdentifier: 
-  dialogueActor: Erin Quennell
-  conversation: 
-  profilePicture: {fileID: 2847520428423177803, guid: b500daf21571aff408c4480db11f0aff, type: 3}
-  drive: 4
-  willpower: 3
-  observation: 3
-  empathy: 3
-  vigor: 3
-  endurance: 3
-  agility: 3
-  technique: 3
-  charm: 3
-  taunt: 3
-  bonhomie: 3
-  hostility: 2
-  masculine: 3
+  dialogueActor: Bartender
+  conversation: Bartender1
+  profilePicture: {fileID: -6623591779945596923, guid: 2520833535ac3bb4c8db84f5f4f1f12e, type: 3}
+  drive: 1
+  willpower: 1
+  observation: 1
+  empathy: 1
+  vigor: 1
+  endurance: 1
+  agility: 1
+  technique: 1
+  charm: 1
+  taunt: 1
+  bonhomie: 1
+  hostility: 1
+  masculine: 5

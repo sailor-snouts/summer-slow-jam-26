@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueActor: Ethan Hermann Jr.
   conversation: 
-  profilePicture: {fileID: 21300000, guid: 7b1941caaf8849598368a90395cf7e1b, type: 3}
+  profilePicture: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
   drive: 2
   willpower: 3
   observation: 3

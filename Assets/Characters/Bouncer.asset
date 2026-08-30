@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e370bded2b64d4fb1d82dff327c84a2, type: 3}
-  m_Name: Erin
+  m_Name: Bouncer
   m_EditorClassIdentifier: 
-  dialogueActor: Erin Quennell
-  conversation: 
-  profilePicture: {fileID: 2847520428423177803, guid: b500daf21571aff408c4480db11f0aff, type: 3}
-  drive: 4
-  willpower: 3
-  observation: 3
-  empathy: 3
-  vigor: 3
-  endurance: 3
-  agility: 3
-  technique: 3
-  charm: 3
-  taunt: 3
-  bonhomie: 3
-  hostility: 2
-  masculine: 3
+  dialogueActor: Bouncer
+  conversation: Bouncer+Frank
+  profilePicture: {fileID: -4889887851962213709, guid: 0f16beaa872455c43b143f5ac861b9f9, type: 3}
+  drive: 1
+  willpower: 1
+  observation: 1
+  empathy: 1
+  vigor: 1
+  endurance: 1
+  agility: 1
+  technique: 1
+  charm: 1
+  taunt: 1
+  bonhomie: 1
+  hostility: 1
+  masculine: 5
