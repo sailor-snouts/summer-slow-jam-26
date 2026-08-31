@@ -6,9 +6,10 @@ namespace Game
     /// The ability to move. Drives a kinematic Rigidbody2D by casting its collider ahead each
     /// physics step and stopping at (and sliding along) anything on the blocking layers - walls
     /// and other characters. Because it never applies forces, nothing gets pushed: characters
-    /// block each other and the walls, but can't shove anything. Also flips the sprite to face
-    /// the move direction. A driver (<see cref="PlayerController"/> or an AI like
-    /// <see cref="Wander"/>) sets <see cref="MoveDirection"/>; this decides nothing about where to go.
+    /// block each other and the walls, but can't shove anything. A driver (<see cref="PlayerController"/>
+    /// or an AI like <see cref="Wander"/>) sets <see cref="MoveDirection"/>; this decides nothing about
+    /// where to go. It tracks <see cref="Facing"/> (the last heading) which the <see cref="Character"/>
+    /// turns into a directional sprite and interaction uses as its sweep direction.
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     [DisallowMultipleComponent]
@@ -20,18 +21,10 @@ namespace Game
         [SerializeField, Tooltip("Layers that block movement - walls and other characters.")]
         private LayerMask blockingLayers = ~0;
 
-        [Header("Facing")]
-        [SerializeField, Tooltip("Tick if the sprite art faces RIGHT by default.")]
-        private bool spriteFacesRight = true;
-
-        [SerializeField, Min(0f), Tooltip("Ignore horizontal movement smaller than this when flipping.")]
-        private float facingDeadzone = 0.01f;
-
         // Small gap kept from surfaces so the cast doesn't start already overlapping.
         private const float Skin = 0.02f;
 
         private Rigidbody2D body;
-        private SpriteRenderer spriteRenderer;
         private ContactFilter2D filter;
         private readonly RaycastHit2D[] hits = new RaycastHit2D[8];
 
@@ -49,12 +42,11 @@ namespace Game
         }
 
         /// <summary>The last non-zero move direction (normalized), kept while idle - i.e. which way it's facing.</summary>
-        public Vector2 Facing { get; private set; } = Vector2.right;
+        public Vector2 Facing { get; private set; } = Vector2.down;
 
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
             body.bodyType = RigidbodyType2D.Kinematic; // we move it ourselves; no physics push
 
             filter = new ContactFilter2D { useTriggers = false };
@@ -115,20 +107,11 @@ namespace Game
             return moved;
         }
 
+        // Remember the last real heading so we keep facing it while idle.
         private void UpdateFacing()
         {
-            // Remember the last real heading so we keep facing it while idle.
             if (MoveDirection.sqrMagnitude > 1e-6f)
                 Facing = MoveDirection.normalized;
-
-            if (spriteRenderer == null)
-                return;
-
-            float x = MoveDirection.x;
-            if (Mathf.Abs(x) < facingDeadzone)
-                return; // moving straight up/down: keep the current left/right flip
-
-            spriteRenderer.flipX = (x > 0f) != spriteFacesRight;
         }
     }
 }

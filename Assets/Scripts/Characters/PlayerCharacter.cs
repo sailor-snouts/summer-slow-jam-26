@@ -43,8 +43,10 @@ namespace Game
                 Current = null;
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update(); // directional facing from movement
+
             if (!Application.isPlaying)
                 return;
 

@@ -1,5 +1,6 @@
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -36,6 +37,15 @@ namespace Game
         Beauty,
     }
 
+    /// <summary>A character's four facing directions. Down is the default (enum value 0).</summary>
+    public enum Facing4
+    {
+        Down,
+        Up,
+        Left,
+        Right,
+    }
+
     /// <summary>
     /// A character definition asset: a name, the twelve stats (grouped into Brain / Brawn / Beauty),
     /// and a profile picture. Make as many of these as you like (Assets > Create > Game > Character),
@@ -66,8 +76,13 @@ namespace Game
         [Tooltip("Headshot / portrait shown in dialogue (the Dialogue System actor's picture).")]
         [SerializeField] private Sprite profilePicture;
 
-        [Tooltip("Sprite shown for this character in the game world. Falls back to the portrait if unset.")]
-        [SerializeField] private Sprite worldSprite;
+        // World sprites by facing direction. Down is the default; the old single worldSprite migrates
+        // into spriteDown. Unset directions fall back to Down, then the portrait (see GetSprite).
+        [FormerlySerializedAs("worldSprite")]
+        [SerializeField] private Sprite spriteDown;
+        [SerializeField] private Sprite spriteUp;
+        [SerializeField] private Sprite spriteLeft;
+        [SerializeField] private Sprite spriteRight;
 
         // Brain
         [SerializeField, Range(MinValue, MaxValue)] private int drive = MinValue;
@@ -97,8 +112,26 @@ namespace Game
         /// <summary>Dialogue headshot / portrait.</summary>
         public Sprite ProfilePicture => profilePicture;
 
-        /// <summary>In-world sprite (falls back to the portrait when no world sprite is set).</summary>
-        public Sprite WorldSprite => worldSprite != null ? worldSprite : profilePicture;
+        /// <summary>Default in-world sprite (facing down) - used for menus and previews.</summary>
+        public Sprite WorldSprite => GetSprite(Facing4.Down);
+
+        /// <summary>
+        /// The world sprite for a facing direction. Falls back to the down sprite, then the portrait,
+        /// so a character always shows something even when some directions aren't authored.
+        /// </summary>
+        public Sprite GetSprite(Facing4 facing)
+        {
+            Sprite chosen = facing switch
+            {
+                Facing4.Up => spriteUp,
+                Facing4.Left => spriteLeft,
+                Facing4.Right => spriteRight,
+                _ => spriteDown,
+            };
+            if (chosen != null)
+                return chosen;
+            return spriteDown != null ? spriteDown : profilePicture;
+        }
 
         /// <summary>Conversation started when the player interacts with this character.</summary>
         public string Conversation => conversation;

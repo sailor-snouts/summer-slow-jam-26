@@ -15,7 +15,10 @@ MonoBehaviour:
   dialogueActor: Frank Columbia
   conversation: Frank
   profilePicture: {fileID: 4701117812578064336, guid: df97e1d330ce92e4ba4b34246d6cad6a, type: 3}
-  worldSprite: {fileID: 4701117812578064336, guid: df97e1d330ce92e4ba4b34246d6cad6a, type: 3}
+  spriteDown: {fileID: -8527135575928271472, guid: 655eb183182dc3342b57fd3573f063ea, type: 3}
+  spriteUp: {fileID: 0}
+  spriteLeft: {fileID: 0}
+  spriteRight: {fileID: 0}
   drive: 1
   willpower: 1
   observation: 1

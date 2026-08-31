@@ -15,7 +15,10 @@ MonoBehaviour:
   dialogueActor: Ethan Hermann Jr.
   conversation: 
   profilePicture: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
-  worldSprite: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
+  spriteDown: {fileID: -4630480501371447258, guid: 65ff7ad1e52fc784eaf8986786e66575, type: 3}
+  spriteUp: {fileID: -3993644141826697479, guid: d316f94b8ff87214fa0f2f1d902ca313, type: 3}
+  spriteLeft: {fileID: 2744720777520711065, guid: b3241097182cade40a804de0b75956f6, type: 3}
+  spriteRight: {fileID: -4170151739546370786, guid: 7274269d1fbbb45469301a80c46cc0d5, type: 3}
   drive: 2
   willpower: 3
   observation: 3

@@ -26,6 +26,12 @@ namespace Game
         [Tooltip("At runtime, copy the character's name + portrait onto a DialogueActor on this object.")]
         [SerializeField] private bool applyToDialogueActor = true;
 
+        [Tooltip("Which way the character faces to begin with - and what the editor preview shows.")]
+        [SerializeField] private Facing4 defaultFacing = Facing4.Down;
+
+        private Mover mover;
+        private Facing4 currentFacing = Facing4.Down;
+
         /// <summary>The selected character definition (name, stats, portrait).</summary>
         public CharacterData Data => data;
 
@@ -39,18 +45,22 @@ namespace Game
         public int GetStat(Stat stat) => data != null ? data.Get(stat) : CharacterData.MinValue;
 
         // A character's world sprite is its equipped outfit's worn look (runtime only), or its own
-        // world sprite when nothing is equipped (which falls back to the portrait if unset).
+        // directional sprite for the way it's facing. Edit mode previews the serialized defaultFacing;
+        // at runtime the facing follows movement (see Update).
         protected override Sprite CurrentSprite
         {
             get
             {
+                if (data == null)
+                    return null;
                 if (Application.isPlaying)
                 {
                     Sprite worn = Outfits.WornSprite(data);
                     if (worn != null)
                         return worn;
+                    return data.GetSprite(currentFacing);
                 }
-                return data != null ? data.WorldSprite : null;
+                return data.GetSprite(defaultFacing);
             }
         }
 
@@ -65,9 +75,39 @@ namespace Game
 
         protected virtual void Awake()
         {
+            mover = GetComponent<Mover>();
+            currentFacing = defaultFacing;
+
             // Runtime only: push identity to the DialogueActor (don't dirty it in edit mode).
             if (Application.isPlaying && applyToDialogueActor && data != null)
                 ApplyToDialogueActor();
+        }
+
+        // Runtime: face the way we're moving, swapping the directional sprite when the facing changes.
+        // Idle keeps the last facing. (virtual so PlayerCharacter can extend it for swap input.)
+        protected virtual void Update()
+        {
+            if (!Application.isPlaying || mover == null)
+                return;
+
+            Vector2 move = mover.MoveDirection;
+            if (move.sqrMagnitude < 1e-6f)
+                return;
+
+            Facing4 next = FromVector(move);
+            if (next != currentFacing)
+            {
+                currentFacing = next;
+                RefreshSprite();
+            }
+        }
+
+        // Pick the cardinal direction closest to a movement vector (dominant axis; ties go vertical).
+        private static Facing4 FromVector(Vector2 v)
+        {
+            if (Mathf.Abs(v.x) > Mathf.Abs(v.y))
+                return v.x > 0f ? Facing4.Right : Facing4.Left;
+            return v.y > 0f ? Facing4.Up : Facing4.Down;
         }
 
         // Re-pull the sprite when this character's outfit changes. Subscribed symmetrically in

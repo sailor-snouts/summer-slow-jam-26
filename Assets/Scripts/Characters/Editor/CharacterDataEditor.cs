@@ -18,7 +18,13 @@ namespace Game
             EditorGUILayout.PropertyField(serializedObject.FindProperty("dialogueActor"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("conversation"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("profilePicture"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("worldSprite"));
+
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("World Sprites (by facing)", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spriteDown"), new GUIContent("Down"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spriteUp"), new GUIContent("Up"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spriteLeft"), new GUIContent("Left"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spriteRight"), new GUIContent("Right"));
 
             DrawCategory("Brain", "drive", "willpower", "observation", "empathy");
             DrawCategory("Brawn", "vigor", "endurance", "agility", "technique");
