@@ -119,6 +119,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &494490334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7980294182807469959, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
+  m_PrefabInstance: {fileID: 7838589976725265203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &494490344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494490334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfb66c342bf418429755b0a0753dac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.AutoStartConversation
+  npc: {fileID: 0}
+  delay: 1
+  playOnce: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,11 +1332,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1274301829742228160, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.55
+      value: -8.65
       objectReference: {fileID: 0}
     - target: {fileID: 1274301829742228160, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.45
+      value: -1.58
       objectReference: {fileID: 0}
     - target: {fileID: 1274301829742228160, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1373,11 +1393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124843884935004494, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.91
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 1124843884935004494, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.48
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1124843884935004494, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1439,7 +1459,10 @@ PrefabInstance:
     - {fileID: 1087314182527948673, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7980294182807469959, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 494490344}
   m_SourcePrefab: {fileID: 100100000, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
 --- !u!1001 &8604001286337377342
 PrefabInstance:

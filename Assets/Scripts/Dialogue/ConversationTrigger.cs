@@ -33,6 +33,9 @@ namespace Game
             TryStart(initiator);
         }
 
+        /// <summary>The conversation this trigger will start, from its data source (may be null/empty).</summary>
+        public string Conversation => GetConversation();
+
         /// <summary>The conversation to start - pulled from the subclass's data source (may be null/empty).</summary>
         protected abstract string GetConversation();
 
