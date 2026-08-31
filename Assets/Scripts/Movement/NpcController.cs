@@ -2,10 +2,16 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>The NPC's available movement modes. Add more as we build them (Patrol, Follow, ...).</summary>
+    /// <summary>
+    /// The NPC's available movement modes. Wander stays first so existing NPCs keep their saved mode;
+    /// add more as we build them (Patrol, Follow, ...).
+    /// </summary>
     public enum NpcWalkMode
     {
         Wander,
+
+        /// <summary>Don't move at all - a stationary NPC.</summary>
+        None,
     }
 
     /// <summary>
@@ -52,15 +58,20 @@ namespace Game
         {
             IsFrozen = value;
             ApplyDrivers();
-            if (IsFrozen && mover != null)
-                mover.MoveDirection = Vector2.zero; // stop dead, don't coast on the last heading
         }
 
-        // Enable a driver only when it's the current mode AND we're not frozen.
+        // Enable a driver only when it's the current mode and we're not frozen. None mode (and being
+        // frozen) leave every driver off.
         private void ApplyDrivers()
         {
-            SetDriver<Wander>(!IsFrozen && CurrentMode == NpcWalkMode.Wander);
-            // Later, e.g.:  SetDriver<Patrol>(!IsFrozen && CurrentMode == NpcWalkMode.Patrol);
+            bool wander = !IsFrozen && CurrentMode == NpcWalkMode.Wander;
+            SetDriver<Wander>(wander);
+            // Later, e.g.:  bool patrol = !IsFrozen && CurrentMode == NpcWalkMode.Patrol; SetDriver<Patrol>(patrol);
+
+            // With no driver feeding it (None mode or frozen), stop the Mover dead so it doesn't coast
+            // on its last heading. Extend this condition ("no driver active") as more drivers are added.
+            if (mover != null && !wander)
+                mover.MoveDirection = Vector2.zero;
         }
 
         private void SetDriver<T>(bool active) where T : MonoBehaviour
