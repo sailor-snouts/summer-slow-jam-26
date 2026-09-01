@@ -41,16 +41,18 @@ namespace Game
         private void OnEnable()
         {
             Lua.RegisterFunction("IsPlayer", this, GetType().GetMethod(nameof(IsPlayer)));
+            Lua.RegisterFunction("SetPlayer", this, GetType().GetMethod(nameof(SetPlayer)));
             Lua.RegisterFunction("Masculine", this, GetType().GetMethod(nameof(Masculine)));
             Lua.RegisterFunction("Feminine", this, GetType().GetMethod(nameof(Feminine)));
             foreach (string functionName in CheckFunctions)
                 Lua.RegisterFunction(functionName, this, GetType().GetMethod(functionName));
-            Debug.Log($"[DialogueLuaRegistrar] Registered IsPlayer + Masculine/Feminine + {CheckFunctions.Length} stat/category checks.");
+            Debug.Log($"[DialogueLuaRegistrar] Registered IsPlayer + SetPlayer + Masculine/Feminine + {CheckFunctions.Length} stat/category checks.");
         }
 
         private void OnDisable()
         {
             Lua.UnregisterFunction("IsPlayer");
+            Lua.UnregisterFunction("SetPlayer");
             Lua.UnregisterFunction("Masculine");
             Lua.UnregisterFunction("Feminine");
             foreach (string functionName in CheckFunctions)
@@ -62,6 +64,15 @@ namespace Game
         {
             CharacterData data = PlayerCharacter.CurrentData;
             return data != null && data.DisplayName == actorName;
+        }
+
+        /// <summary>Lua: switch the player to the character with the given actor name (one of the two options).</summary>
+        public void SetPlayer(string actorName)
+        {
+            if (PlayerCharacter.Current != null)
+                PlayerCharacter.Current.SetActiveByName(actorName);
+            else
+                Debug.LogWarning($"[DialogueLuaRegistrar] SetPlayer('{actorName}') called but there's no active PlayerCharacter.");
         }
 
         // Effective masculine/feminine of the current player (base split plus the equipped outfit's

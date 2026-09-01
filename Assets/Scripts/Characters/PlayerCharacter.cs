@@ -64,6 +64,32 @@ namespace Game
             Apply();
         }
 
+        /// <summary>
+        /// Sets which character the player is by actor name (e.g. from the Mirror dialogue). Matches
+        /// against the two options' display names; returns true if one matched.
+        /// </summary>
+        public bool SetActiveByName(string actorName)
+        {
+            if (characterA != null && characterA.DisplayName == actorName)
+            {
+                usingA = true;
+                Apply();
+                return true;
+            }
+            if (characterB != null && characterB.DisplayName == actorName)
+            {
+                usingA = false;
+                Apply();
+                return true;
+            }
+
+            Debug.LogWarning(
+                $"[PlayerCharacter] No player character named '{actorName}'. Options are " +
+                $"'{(characterA != null ? characterA.DisplayName : "none")}' and " +
+                $"'{(characterB != null ? characterB.DisplayName : "none")}'.", this);
+            return false;
+        }
+
         private void Apply()
         {
             CharacterData active = Active;

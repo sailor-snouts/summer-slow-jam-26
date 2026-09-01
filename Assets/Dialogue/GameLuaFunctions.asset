@@ -67,4 +67,7 @@ MonoBehaviour:
   - functionName: Game/BeautyCheck
     parameters: 0100000001000000
     returnValue: 2
-  scriptFunctions: []
+  scriptFunctions:
+  - functionName: Game/SetPlayer
+    parameters: 03000000
+    returnValue: 0
