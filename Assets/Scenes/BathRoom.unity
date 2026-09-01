@@ -119,6 +119,83 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &280713467
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 914078993664735724, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 914078993664735724, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 914078993664735724, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544160350491751843, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544160350491751843, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354693012803999758, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+      propertyPath: m_Name
+      value: Trashcan
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,11 +494,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 914078993664735724, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 914078993664735724, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_Size.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 914078993664735724, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_IsTrigger
@@ -477,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7354693012803999758, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_Name
-      value: nteractableObject
+      value: Mirror
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -511,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 1272456486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.005, y: 5.42, z: 0}
+  m_LocalPosition: {x: 0.14, y: 0.55, z: 0}
   m_LocalScale: {x: 30, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1390,3 +1467,4 @@ SceneRoots:
   - {fileID: 2009799397}
   - {fileID: 1844316914}
   - {fileID: 1200130853}
+  - {fileID: 280713467}

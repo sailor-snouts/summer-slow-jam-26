@@ -6783,7 +6783,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: SetPlayer("Erin Quennell")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6832,7 +6832,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: SetPlayer("Ethan Hermann Jr.")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6881,7 +6881,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: SetPlayer("Erin Quennell")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6930,7 +6930,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: SetPlayer("Ethan Hermann Jr.")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6941,8 +6941,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 3.144638, y: 274.21414}
-    canvasZoom: 1.06
+    canvasScrollPosition: {x: 276.28864, y: 0}
+    canvasZoom: 0.97
   - id: 5
     fields:
     - title: Title

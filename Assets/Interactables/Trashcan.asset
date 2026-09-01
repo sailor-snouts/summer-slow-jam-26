@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eb1fa4f3c989494eb239f134f2173c9, type: 3}
-  m_Name: Mirror
+  m_Name: Trashcan
   m_EditorClassIdentifier: Assembly-CSharp::Game.InteractableObjectData
   sprite: {fileID: 21300000, guid: 70fbd1b770ec491097cb5cb6cd6c7374, type: 3}
-  conversation: Bathroom Mirror
+  conversation: Bathroom Trash
