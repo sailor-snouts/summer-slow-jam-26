@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3379098474752810164}
   - component: {fileID: 3907629656564424640}
   - component: {fileID: 1180296567111560957}
-  - component: {fileID: 1087314182527948673}
   - component: {fileID: 7107361273269225988}
   - component: {fileID: 6334832398293480291}
   - component: {fileID: 5396418762958997940}
@@ -54,6 +53,7 @@ MonoBehaviour:
   fitColliderToSprite: 1
   data: {fileID: 11400000, guid: 7279b9a6ce47406893d1db6b1d29218a, type: 2}
   applyToDialogueActor: 1
+  defaultFacing: 0
 --- !u!114 &3907629656564424640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2611074ff5c174d448d2c3fd0bff76a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.NpcController
-  startMode: 0
+  startMode: 1
 --- !u!114 &1180296567111560957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,99 +83,6 @@ MonoBehaviour:
   blockingLayers:
     serializedVersion: 2
     m_Bits: 55
-  spriteFacesRight: 1
-  facingDeadzone: 0.01
---- !u!114 &1087314182527948673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7980294182807469959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb6760d89056a24ca1ff8a1dd390ba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Wander
-  moveTimeRange: {x: 0, y: 10}
-  moveTimeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  pauseTimeRange: {x: 0, y: 10}
-  pauseTimeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  speedRange: {x: 0, y: 1}
-  speedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  restrictArea: 1
-  areaSize: {x: 6, y: 6}
-  areaCenterOffset: {x: 0, y: 0}
-  edgeLookahead: 0.2
 --- !u!212 &7107361273269225988
 SpriteRenderer:
   serializedVersion: 2
@@ -265,7 +172,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
