@@ -38,5 +38,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Outfits.unity
     guid: 18db589e8fb48164cbaa1055f164b60c
+  - enabled: 1
+    path: Assets/Scenes/DevRobert.unity
+    guid: 2adc547d268a1394c9888ac821a5cda3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
