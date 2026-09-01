@@ -21,8 +21,10 @@ namespace Game
         [SerializeField, Tooltip("Only auto-start this conversation once per play session (won't replay if the scene reloads).")]
         private bool playOnce = true;
 
-        // Conversations that have already auto-played this session (by title). Static so it survives
-        // scene reloads; cleared on play start.
+        // Conversations that have already auto-played this session (by title). Static, so it PERSISTS
+        // across scene changes (leaving a scene and coming back won't replay). It is only cleared on
+        // play start by ResetState below (and by domain reload) - so a fresh Play run replays it, but
+        // nothing during a single run does.
         private static readonly HashSet<string> played = new();
 
         private bool holdingLock;
@@ -40,9 +42,17 @@ namespace Game
                 return;
             }
 
-            // Play-once: skip entirely (don't even lock) if this conversation already auto-played.
-            if (playOnce && !string.IsNullOrEmpty(npc.Conversation) && played.Contains(npc.Conversation))
-                return;
+            string conversation = npc.Conversation;
+
+            // Play-once: skip entirely (don't even lock) if this conversation already auto-played this
+            // session, and otherwise mark it played NOW - the moment we commit - so even leaving the
+            // scene during the delay still counts as played and it won't replay on return.
+            if (playOnce && !string.IsNullOrEmpty(conversation))
+            {
+                if (played.Contains(conversation))
+                    return;
+                played.Add(conversation);
+            }
 
             // Lock movement for the whole delay so the player can't wander off before the conversation
             // begins; once it starts, the conversation's own lock (isConversationActive) takes over.
@@ -53,9 +63,6 @@ namespace Game
 
         private void Begin()
         {
-            if (playOnce && !string.IsNullOrEmpty(npc.Conversation))
-                played.Add(npc.Conversation);
-
             // Same path as the player walking up and interacting: the NPC is the conversant, the player
             // is the actor, the NPC freezes, and player input locks until the conversation ends.
             Transform player = PlayerCharacter.Current != null ? PlayerCharacter.Current.transform : null;

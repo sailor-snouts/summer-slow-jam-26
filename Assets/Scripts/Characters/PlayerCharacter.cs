@@ -20,8 +20,20 @@ namespace Game
 
         private bool usingA = true;
 
+        // Which character the player last chose, remembered across scene loads (static). The player is
+        // a per-scene prefab instance, so this survives the swap choice between scenes. It's cleared on
+        // play start (ResetSession, plus domain reload), so it lasts the play session only.
+        private static CharacterData sessionCharacter;
+
         /// <summary>The player character currently in control (for game code and the dialogue system).</summary>
         public static PlayerCharacter Current { get; private set; }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetSession()
+        {
+            Current = null;
+            sessionCharacter = null;
+        }
 
         /// <summary>The active player's data (name, stats, portrait), or null if no player is active.</summary>
         public static CharacterData CurrentData => Current != null ? Current.Active : null;
@@ -33,6 +45,15 @@ namespace Game
         {
             base.OnEnable();
             Current = this;
+
+            // Restore the character chosen earlier this session so the player stays who they were
+            // across scene loads. If nothing's remembered (or it doesn't match this player's options),
+            // keep the serialized default.
+            if (sessionCharacter == characterB)
+                usingA = false;
+            else if (sessionCharacter == characterA)
+                usingA = true;
+
             Apply();
         }
 
@@ -96,6 +117,7 @@ namespace Game
             if (active == null)
                 return;
 
+            sessionCharacter = active;             // remember for the session (survives scene loads)
             SetData(active);                       // sprite + DialogueActor (inherited from Character)
             SkillCheck.DefaultCharacter = active;  // stats for skill checks / dialogue
         }

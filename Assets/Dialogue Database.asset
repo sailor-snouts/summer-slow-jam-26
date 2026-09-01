@@ -6124,7 +6124,9 @@ MonoBehaviour:
         Variable["isEthan"]
         = false;
 
-        Variable["isErin"] = true'
+        Variable["isErin"] = true
+
+        SetPlayer("Erin Quennell")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6941,7 +6943,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 276.28864, y: 0}
+    canvasScrollPosition: {x: 30.927734, y: 222.68033}
     canvasZoom: 0.97
   - id: 5
     fields:
@@ -10807,8 +10809,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 496.42593}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 0, y: 273.08554}
+    canvasZoom: 0.9100001
   - id: 7
     fields:
     - title: Title
