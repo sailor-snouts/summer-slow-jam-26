@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BGM
   m_EditorClassIdentifier: JamTemplate.Audio::JamTemplate.Audio.AudioEvent
   category: 1
-  volume: 1
+  volume: 0
   pitchVariation: 0
   clip: {fileID: 0}
   fmodEvent:

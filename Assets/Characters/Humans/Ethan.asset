@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e370bded2b64d4fb1d82dff327c84a2, type: 3}
+  m_Name: Ethan
+  m_EditorClassIdentifier: 
+  dialogueActor: Ethan Hermann Jr.
+  conversation: 
+  profilePicture: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
+  spriteDown: {fileID: 618132922273033386, guid: 8e1b42927e7143c408a33031c43bef3e, type: 3}
+  spriteUp: {fileID: 3450931843423542605, guid: 0acfde572c354d74aafe5f1cab4cfb77, type: 3}
+  spriteLeft: {fileID: -2976290146165211658, guid: a762b64d57cf0ec4b99c7589d44e98fc, type: 3}
+  spriteRight: {fileID: -2733520804602361432, guid: 7c5a53dae88518641a076b2e4df33aaf, type: 3}
+  drive: 2
+  willpower: 3
+  observation: 3
+  empathy: 3
+  vigor: 3
+  endurance: 3
+  agility: 3
+  technique: 3
+  charm: 3
+  taunt: 3
+  bonhomie: 3
+  hostility: 4
+  masculine: 7
