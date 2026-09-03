@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e370bded2b64d4fb1d82dff327c84a2, type: 3}
+  m_Name: Erin
+  m_EditorClassIdentifier: 
+  dialogueActor: Erin Quennell
+  conversation: 
+  profilePicture: {fileID: 2847520428423177803, guid: b500daf21571aff408c4480db11f0aff, type: 3}
+  spriteDown: {fileID: -7947274618880134499, guid: ea1f1c44d79dbde4aa1e827d56af1678, type: 3}
+  spriteUp: {fileID: -3993644141826697479, guid: d316f94b8ff87214fa0f2f1d902ca313, type: 3}
+  spriteLeft: {fileID: 2744720777520711065, guid: b3241097182cade40a804de0b75956f6, type: 3}
+  spriteRight: {fileID: -4170151739546370786, guid: 7274269d1fbbb45469301a80c46cc0d5, type: 3}
+  drive: 4
+  willpower: 3
+  observation: 3
+  empathy: 3
+  vigor: 3
+  endurance: 3
+  agility: 3
+  technique: 3
+  charm: 3
+  taunt: 3
+  bonhomie: 3
+  hostility: 2
+  masculine: 3
