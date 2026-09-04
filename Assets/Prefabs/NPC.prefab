@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &76601302932135485
 Transform:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0024422407}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 10}
+  m_Size: {x: 0.5359812, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &7980294182807469959
 GameObject:
@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6334832398293480291}
   - component: {fileID: 5396418762958997940}
   - component: {fileID: 9063531595370041332}
+  - component: {fileID: 6439021701036605464}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character
   fitColliderToSprite: 1
-  data: {fileID: 11400000, guid: 7279b9a6ce47406893d1db6b1d29218a, type: 2}
+  data: {fileID: 11400000, guid: fd4b866d471bb3641845a754fefe18d4, type: 2}
   applyToDialogueActor: 1
   defaultFacing: 0
 --- !u!114 &3907629656564424640
@@ -211,12 +212,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6623591779945596923, guid: 2520833535ac3bb4c8db84f5f4f1f12e, type: 3}
+  m_Sprite: {fileID: 1691377203916232407, guid: eb013c68f2014c440b70757c7350a639, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.54, y: 1.82}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -259,13 +260,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.02, y: 1.11}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.1, y: 1.82}
+    newSize: {x: 0.54, y: 1.82}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.02, y: 1.11}
+  m_Size: {x: 1.1, y: 1.82}
   m_EdgeRadius: 0
 --- !u!50 &5396418762958997940
 Rigidbody2D:
@@ -375,3 +376,18 @@ MonoBehaviour:
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
   selectedDatabase: {fileID: 11400000, guid: ee3b6b3de6be4b4439ecdf844bf114a8, type: 2}
+--- !u!114 &6439021701036605464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980294182807469959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfb66c342bf418429755b0a0753dac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.AutoStartConversation
+  npc: {fileID: 0}
+  delay: 0
+  playOnce: 1
