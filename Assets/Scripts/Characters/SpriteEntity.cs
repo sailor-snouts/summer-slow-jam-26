@@ -19,6 +19,13 @@ namespace Game
         [Tooltip("Resize the BoxCollider2D to match the sprite whenever it changes.")]
         [SerializeField] private bool fitColliderToSprite = true;
 
+        [Header("Depth sorting")]
+        [Tooltip("Draw a lower world Y on top of a higher one (pseudo top-down depth), by setting sortingOrder from Y.")]
+        [SerializeField] private bool sortByYPosition = true;
+
+        [Tooltip("Y sorting granularity: sortingOrder = round(-y * this). Higher gives finer steps.")]
+        [SerializeField] private int sortPrecision = 100;
+
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D box;
 
@@ -68,6 +75,24 @@ namespace Game
                     box.offset = sprite.bounds.center;
                 }
             }
+        }
+
+        // Pseudo top-down depth: a lower world Y draws on top of a higher one. Runs after movement
+        // (LateUpdate) and in the editor (ExecuteAlways); only writes sortingOrder when it changes, so
+        // it does not dirty the scene every frame. Sorts within this renderer's sorting layer - keep
+        // ground/background art on a lower layer (or a very low Order in Layer) so it stays behind.
+        private void LateUpdate()
+        {
+            if (!sortByYPosition)
+                return;
+            if (spriteRenderer == null)
+                spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer == null)
+                return;
+
+            int order = Mathf.RoundToInt(-transform.position.y * sortPrecision);
+            if (spriteRenderer.sortingOrder != order)
+                spriteRenderer.sortingOrder = order;
         }
 
 #if UNITY_EDITOR
