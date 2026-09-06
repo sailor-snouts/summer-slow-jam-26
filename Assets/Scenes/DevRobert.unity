@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfb66c342bf418429755b0a0753dac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.AutoStartConversation
-  npc: {fileID: 0}
+  npc: {fileID: 7838589976725265204}
   delay: 0
   playOnce: 1
 --- !u!1001 &584989178
@@ -2000,6 +2000,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 494490344}
   m_SourcePrefab: {fileID: 100100000, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
+--- !u!114 &7838589976725265204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9063531595370041332, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
+  m_PrefabInstance: {fileID: 7838589976725265203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494490334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54118f5128f912d47a8f2a53765b35be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.DialogueInteractable
 --- !u!1001 &8604001286337377342
 PrefabInstance:
   m_ObjectHideFlags: 0

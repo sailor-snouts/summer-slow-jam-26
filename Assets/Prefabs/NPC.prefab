@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 6334832398293480291}
   - component: {fileID: 5396418762958997940}
   - component: {fileID: 9063531595370041332}
-  - component: {fileID: 6439021701036605464}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -130,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae8a69d094e9084bb50220b6f77deab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character
-  fitColliderToSprite: 0
   sortByYPosition: 1
   sortPrecision: 100
   data: {fileID: 11400000, guid: fd4b866d471bb3641845a754fefe18d4, type: 2}
@@ -378,18 +376,3 @@ MonoBehaviour:
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
   selectedDatabase: {fileID: 11400000, guid: ee3b6b3de6be4b4439ecdf844bf114a8, type: 2}
---- !u!114 &6439021701036605464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7980294182807469959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dfb66c342bf418429755b0a0753dac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.AutoStartConversation
-  npc: {fileID: 0}
-  delay: 0
-  playOnce: 1
