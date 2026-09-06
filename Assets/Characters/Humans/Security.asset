@@ -15,7 +15,10 @@ MonoBehaviour:
   dialogueActor: Security Guard
   conversation: Security Guard + Dawn
   profilePicture: {fileID: -6540025759944713752, guid: 108f4da69be791543a05981d5b901399, type: 3}
-  worldSprite: {fileID: 1691377203916232407, guid: eb013c68f2014c440b70757c7350a639, type: 3}
+  spriteDown: {fileID: 21300000, guid: eb013c68f2014c440b70757c7350a639, type: 3}
+  spriteUp: {fileID: 0}
+  spriteLeft: {fileID: 0}
+  spriteRight: {fileID: 0}
   drive: 1
   willpower: 1
   observation: 1

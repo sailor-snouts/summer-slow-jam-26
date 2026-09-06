@@ -15,10 +15,10 @@ MonoBehaviour:
   dialogueActor: Erin Quennell
   conversation: 
   profilePicture: {fileID: 2847520428423177803, guid: b500daf21571aff408c4480db11f0aff, type: 3}
-  spriteDown: {fileID: -7947274618880134499, guid: ea1f1c44d79dbde4aa1e827d56af1678, type: 3}
-  spriteUp: {fileID: -3993644141826697479, guid: d316f94b8ff87214fa0f2f1d902ca313, type: 3}
-  spriteLeft: {fileID: 2744720777520711065, guid: b3241097182cade40a804de0b75956f6, type: 3}
-  spriteRight: {fileID: -4170151739546370786, guid: 7274269d1fbbb45469301a80c46cc0d5, type: 3}
+  spriteDown: {fileID: 21300000, guid: ea1f1c44d79dbde4aa1e827d56af1678, type: 3}
+  spriteUp: {fileID: 21300000, guid: d316f94b8ff87214fa0f2f1d902ca313, type: 3}
+  spriteLeft: {fileID: 21300000, guid: b3241097182cade40a804de0b75956f6, type: 3}
+  spriteRight: {fileID: 21300000, guid: 7274269d1fbbb45469301a80c46cc0d5, type: 3}
   drive: 4
   willpower: 3
   observation: 3

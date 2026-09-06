@@ -3,11 +3,10 @@ using UnityEngine;
 namespace Game
 {
     /// <summary>
-    /// Base for a scene thing that shows a sprite taken from a data asset and keeps a
-    /// <see cref="BoxCollider2D"/> fitted to that sprite - updating live in the editor. Subclasses
-    /// supply the sprite through <see cref="CurrentSprite"/> (a <see cref="Character"/> uses its
-    /// world sprite, an <see cref="InteractableObject"/> uses its object sprite), so the SpriteRenderer /
-    /// collider plumbing lives here once instead of in each.
+    /// Base for a scene thing that shows a sprite taken from a data asset, updating live in the editor.
+    /// Subclasses supply the sprite through <see cref="CurrentSprite"/> (a <see cref="Character"/> uses
+    /// its world sprite, an <see cref="InteractableObject"/> uses its object sprite), so the
+    /// SpriteRenderer plumbing lives here once instead of in each.
     /// </summary>
     // ExecuteAlways: refresh the sprite in edit mode too.
     [ExecuteAlways]
@@ -16,9 +15,6 @@ namespace Game
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class SpriteEntity : MonoBehaviour
     {
-        [Tooltip("Resize the BoxCollider2D to match the sprite whenever it changes.")]
-        [SerializeField] private bool fitColliderToSprite = true;
-
         [Header("Depth sorting")]
         [Tooltip("Draw a lower world Y on top of a higher one (pseudo top-down depth), by setting sortingOrder from Y.")]
         [SerializeField] private bool sortByYPosition = true;
@@ -27,7 +23,6 @@ namespace Game
         [SerializeField] private int sortPrecision = 100;
 
         private SpriteRenderer spriteRenderer;
-        private BoxCollider2D box;
 
         /// <summary>The sprite to display - supplied by the subclass from its data asset.</summary>
         protected abstract Sprite CurrentSprite { get; }
@@ -53,7 +48,7 @@ namespace Game
         }
 #endif
 
-        /// <summary>Shows <see cref="CurrentSprite"/> on this object's SpriteRenderer and refits the collider.</summary>
+        /// <summary>Shows <see cref="CurrentSprite"/> on this object's SpriteRenderer.</summary>
         protected void RefreshSprite()
         {
             if (spriteRenderer == null)
@@ -61,20 +56,7 @@ namespace Game
             if (spriteRenderer == null)
                 return;
 
-            Sprite sprite = CurrentSprite;
-            spriteRenderer.sprite = sprite;
-
-            // Keep the collider matching the sprite, so it actually has a shape to block/hit with.
-            if (fitColliderToSprite && sprite != null)
-            {
-                if (box == null)
-                    box = GetComponent<BoxCollider2D>();
-                if (box != null)
-                {
-                    box.size = sprite.bounds.size;
-                    box.offset = sprite.bounds.center;
-                }
-            }
+            spriteRenderer.sprite = CurrentSprite;
         }
 
         // Pseudo top-down depth: a lower world Y draws on top of a higher one. Runs after movement
