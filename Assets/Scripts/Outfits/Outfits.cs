@@ -89,11 +89,14 @@ namespace Game
         public static int EffectiveFeminine(CharacterData character)
             => character != null ? Mathf.Max(0, character.Feminine + FeminineModifier(character)) : 0;
 
-        /// <summary>The character's worn world sprite, or null when nothing is equipped.</summary>
-        public static Sprite WornSprite(CharacterData character)
+        /// <summary>
+        /// The character's worn world sprite for a facing direction, or null when nothing is equipped
+        /// (or the equipped outfit has no sprite for that facing).
+        /// </summary>
+        public static Sprite WornSprite(CharacterData character, Facing4 facing)
         {
             OutfitData outfit = GetEquipped(character);
-            return outfit != null ? outfit.GetSprite(character) : null;
+            return outfit != null ? outfit.GetSprite(facing) : null;
         }
     }
 }

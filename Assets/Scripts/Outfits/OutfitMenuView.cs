@@ -110,7 +110,8 @@ namespace Game
         private void RefreshPreview(CharacterData character)
         {
             OutfitData equipped = Outfits.GetEquipped(character);
-            Sprite worn = Outfits.WornSprite(character);
+            // Preview shows the front-facing (Down) look for a stable thumbnail.
+            Sprite worn = Outfits.WornSprite(character, Facing4.Down);
 
             if (previewImage != null)
             {

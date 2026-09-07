@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 
 namespace Game
 {
@@ -16,8 +17,13 @@ namespace Game
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("displayName"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("sprite"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("characterSprites"), true);
+
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Outfit sprites (by facing)", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("look.down"), new GUIContent("Down"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("look.up"), new GUIContent("Up"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("look.left"), new GUIContent("Left"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("look.right"), new GUIContent("Right"));
 
             DrawCategory("Brain", "drive", "willpower", "observation", "empathy");
             DrawCategory("Brawn", "vigor", "endurance", "agility", "technique");

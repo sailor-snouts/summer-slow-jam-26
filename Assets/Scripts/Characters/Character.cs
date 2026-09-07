@@ -55,7 +55,7 @@ namespace Game
                     return null;
                 if (Application.isPlaying)
                 {
-                    Sprite worn = Outfits.WornSprite(data);
+                    Sprite worn = Outfits.WornSprite(data, currentFacing);
                     if (worn != null)
                         return worn;
                     return data.GetSprite(currentFacing);

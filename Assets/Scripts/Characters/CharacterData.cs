@@ -1,6 +1,5 @@
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -76,13 +75,10 @@ namespace Game
         [Tooltip("Headshot / portrait shown in dialogue (the Dialogue System actor's picture).")]
         [SerializeField] private Sprite profilePicture;
 
-        // World sprites by facing direction. Down is the default; the old single worldSprite migrates
-        // into spriteDown. Unset directions fall back to Down, then the portrait (see GetSprite).
-        [FormerlySerializedAs("worldSprite")]
-        [SerializeField] private Sprite spriteDown;
-        [SerializeField] private Sprite spriteUp;
-        [SerializeField] private Sprite spriteLeft;
-        [SerializeField] private Sprite spriteRight;
+        // The character's default appearance: the outfit whose directional sprites it wears when no
+        // other outfit is equipped. Unset directions on the outfit fall back to Down, then the
+        // portrait (see GetSprite).
+        [SerializeField] private OutfitData defaultOutfit;
 
         // Brain
         [SerializeField, Range(MinValue, MaxValue)] private int drive = MinValue;
@@ -121,16 +117,8 @@ namespace Game
         /// </summary>
         public Sprite GetSprite(Facing4 facing)
         {
-            Sprite chosen = facing switch
-            {
-                Facing4.Up => spriteUp,
-                Facing4.Left => spriteLeft,
-                Facing4.Right => spriteRight,
-                _ => spriteDown,
-            };
-            if (chosen != null)
-                return chosen;
-            return spriteDown != null ? spriteDown : profilePicture;
+            Sprite chosen = defaultOutfit != null ? defaultOutfit.GetSprite(facing) : null;
+            return chosen != null ? chosen : profilePicture;
         }
 
         /// <summary>Conversation started when the player interacts with this character.</summary>

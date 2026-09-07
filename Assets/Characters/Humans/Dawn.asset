@@ -15,10 +15,7 @@ MonoBehaviour:
   dialogueActor: Dawn Neumann
   conversation: Dawn Neumann
   profilePicture: {fileID: -6918936916868373012, guid: 843abfeb152e4ac45ac43d5d54917658, type: 3}
-  spriteDown: {fileID: 21300000, guid: 91d2a9da4fcb327439ea3adc725526a4, type: 3}
-  spriteUp: {fileID: 0}
-  spriteLeft: {fileID: 0}
-  spriteRight: {fileID: 0}
+  defaultOutfit: {fileID: 11400000, guid: f6396b6d0c785e44cb2e1d4d3879a4bf, type: 2}
   drive: 1
   willpower: 1
   observation: 1

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
@@ -21,28 +20,14 @@ namespace Game
         public const int MinGenderModifier = -5;
         public const int MaxGenderModifier = 5;
 
-        /// <summary>A worn look for one specific character (overrides the default sprite).</summary>
-        [Serializable]
-        public struct CharacterSprite
-        {
-            [Tooltip("Character this look is for.")]
-            public CharacterData character;
-
-            [Tooltip("How that character looks wearing this outfit.")]
-            public Sprite sprite;
-        }
-
         [Tooltip("Name shown in the outfit menu. Falls back to the asset name if blank.")]
         [SerializeField] private string displayName;
 
         [Tooltip("Short flavor text shown in the menu.")]
         [SerializeField, TextArea] private string description;
 
-        [Tooltip("Default worn look - used for any character without a specific look below.")]
-        [SerializeField] private Sprite sprite;
-
-        [Tooltip("Optional per-character worn looks. Characters not listed use the default sprite.")]
-        [SerializeField] private List<CharacterSprite> characterSprites = new();
+        [Tooltip("The outfit's worn look, per facing direction. Every character wearing it shows this.")]
+        [SerializeField] private DirectionalSprites look;
 
         // Brain
         [SerializeField, Range(MinModifier, MaxModifier)] private int drive;
@@ -80,14 +65,9 @@ namespace Game
         /// <summary>This outfit's feminine modifier (added to the wearer's feminine value).</summary>
         public int FeminineModifier => feminine;
 
-        /// <summary>The worn look for a character - their specific sprite if listed, else the default.</summary>
-        public Sprite GetSprite(CharacterData character)
-        {
-            foreach (CharacterSprite entry in characterSprites)
-                if (entry.character == character && entry.sprite != null)
-                    return entry.sprite;
-            return sprite;
-        }
+        /// <summary>The outfit's worn sprite for a facing direction. May be null if that facing (and
+        /// Down) isn't authored.</summary>
+        public Sprite GetSprite(Facing4 facing) => look.Get(facing);
 
         /// <summary>This outfit's modifier for one stat (0 if unmodified).</summary>
         public int Modifier(Stat stat) => stat switch
