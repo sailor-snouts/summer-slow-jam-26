@@ -15,10 +15,10 @@ MonoBehaviour:
   displayName: 
   description: 
   look:
-    down: {fileID: 21300000, guid: 8e1b42927e7143c408a33031c43bef3e, type: 3}
-    up: {fileID: 21300000, guid: 0acfde572c354d74aafe5f1cab4cfb77, type: 3}
-    left: {fileID: 21300000, guid: a762b64d57cf0ec4b99c7589d44e98fc, type: 3}
-    right: {fileID: 21300000, guid: 7c5a53dae88518641a076b2e4df33aaf, type: 3}
+    down: {fileID: 21300000, guid: d316f94b8ff87214fa0f2f1d902ca313, type: 3}
+    up: {fileID: 21300000, guid: ea1f1c44d79dbde4aa1e827d56af1678, type: 3}
+    left: {fileID: 21300000, guid: b3241097182cade40a804de0b75956f6, type: 3}
+    right: {fileID: 21300000, guid: 7274269d1fbbb45469301a80c46cc0d5, type: 3}
   drive: 0
   willpower: 0
   observation: 0

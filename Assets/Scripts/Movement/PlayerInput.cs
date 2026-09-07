@@ -29,6 +29,12 @@ namespace Game
         /// <summary>Releases one manual lock added with <see cref="Lock"/> (never drops below zero).</summary>
         public static void Unlock() => manualLocks = Mathf.Max(0, manualLocks - 1);
 
+        /// <summary>
+        /// Editor/testing: drops every manual lock at once. Does not touch conversation or menu locks -
+        /// those clear when the conversation ends or the overlay closes.
+        /// </summary>
+        public static void ClearManualLocks() => manualLocks = 0;
+
         // Clear the manual lock count on play start so it can't leak across sessions (works with
         // domain reload disabled too).
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]

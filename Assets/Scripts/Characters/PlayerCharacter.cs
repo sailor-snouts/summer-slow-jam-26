@@ -1,22 +1,19 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Game
 {
     /// <summary>
-    /// The player's character: a <see cref="Character"/> that swaps its identity (sprite + stats)
-    /// between two <see cref="CharacterData"/> on a key press. While active it is the skill-check /
-    /// dialogue "player" - query <see cref="Current"/> / <see cref="CurrentData"/> to find out which
-    /// character the player currently is.
+    /// The player's character: a <see cref="Character"/> that is one of two <see cref="CharacterData"/>.
+    /// Which one is active is chosen from dialogue (see <see cref="SetActiveByName"/>, e.g. the Mirror
+    /// conversation) and remembered for the session. While active it is the skill-check / dialogue
+    /// "player" - query <see cref="Current"/> / <see cref="CurrentData"/> to find out which character
+    /// the player currently is.
     /// </summary>
     public class PlayerCharacter : Character
     {
-        [Header("Swap")]
+        [Header("Characters")]
         [SerializeField] private CharacterData characterA;
         [SerializeField] private CharacterData characterB;
-
-        [SerializeField, Tooltip("Key that swaps the active character.")]
-        private Key swapKey = Key.Tab;
 
         private bool usingA = true;
 
@@ -64,21 +61,7 @@ namespace Game
                 Current = null;
         }
 
-        protected override void Update()
-        {
-            base.Update(); // directional facing from movement
-
-            if (!Application.isPlaying)
-                return;
-
-            if (PlayerInput.Locked)
-                return; // no character swapping mid-conversation
-
-            if (Keyboard.current != null && Keyboard.current[swapKey].wasPressedThisFrame)
-                Swap();
-        }
-
-        /// <summary>Switch to the other character.</summary>
+        /// <summary>Switch to the other character. Used by the inspector's play-mode testing button.</summary>
         public void Swap()
         {
             usingA = !usingA;
