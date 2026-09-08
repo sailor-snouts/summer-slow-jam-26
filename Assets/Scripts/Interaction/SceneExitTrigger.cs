@@ -24,6 +24,9 @@ namespace Game
         [Tooltip("Scene to load when the player enters, picked from Build Settings.")]
         private string scene;
 
+        [SerializeField, Tooltip("Which entrance (SceneEntrance id) in the target scene to place the player at. Leave blank to use that scene's authored player position.")]
+        private string entranceId;
+
         private bool triggered;
 
         // Newly added colliders start as triggers - a doorway shouldn't block the player.
@@ -53,6 +56,8 @@ namespace Game
             }
 
             triggered = true; // guard against re-entering the trigger before the load completes
+            // Tell the next scene where to put the player; the arriving PlayerCharacter reads this.
+            SceneTransition.PendingEntrance = entranceId;
             MenuSceneRouter.Load(scene);
         }
 

@@ -102,6 +102,13 @@ namespace Game
             }
         }
 
+        /// <summary>Faces the character a set direction and refreshes its sprite (e.g. on scene arrival).</summary>
+        public void SetFacing(Facing4 facing)
+        {
+            currentFacing = facing;
+            RefreshSprite();
+        }
+
         // Pick the cardinal direction closest to a movement vector (dominant axis; ties go vertical).
         private static Facing4 FromVector(Vector2 v)
         {

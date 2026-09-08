@@ -61,6 +61,38 @@ namespace Game
                 Current = null;
         }
 
+        // Runs after every object in the loaded scene is awake, so all SceneEntrances exist. If an exit
+        // asked for a specific entrance, move there; otherwise stay at the scene's authored position.
+        private void Start()
+        {
+            if (!Application.isPlaying)
+                return;
+            PlaceAtPendingEntrance();
+        }
+
+        private void PlaceAtPendingEntrance()
+        {
+            string id = SceneTransition.PendingEntrance;
+            if (string.IsNullOrEmpty(id))
+                return;
+
+            SceneTransition.PendingEntrance = null; // consume it so it applies to this arrival only
+
+            SceneEntrance[] entrances = FindObjectsByType<SceneEntrance>(FindObjectsInactive.Include);
+            foreach (SceneEntrance entrance in entrances)
+            {
+                if (entrance.Id != id)
+                    continue;
+                transform.position = entrance.transform.position;
+                SetFacing(entrance.Facing);
+                return;
+            }
+
+            Debug.LogWarning(
+                $"[PlayerCharacter] No SceneEntrance with id '{id}' in this scene; " +
+                "staying at the authored start position.", this);
+        }
+
         /// <summary>Switch to the other character. Used by the inspector's play-mode testing button.</summary>
         public void Swap()
         {
