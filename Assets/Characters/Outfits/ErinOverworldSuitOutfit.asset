@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99163e5d4de8a894dac4e181af99de9c, type: 3}
   m_Name: ErinOverworldSuitOutfit
   m_EditorClassIdentifier: Assembly-CSharp::Game.OutfitData
-  displayName: 
+  displayName: Overcoat
   description: 
   look:
-    down: {fileID: 21300000, guid: d316f94b8ff87214fa0f2f1d902ca313, type: 3}
-    up: {fileID: 21300000, guid: ea1f1c44d79dbde4aa1e827d56af1678, type: 3}
+    down: {fileID: 21300000, guid: ea1f1c44d79dbde4aa1e827d56af1678, type: 3}
+    up: {fileID: 21300000, guid: d316f94b8ff87214fa0f2f1d902ca313, type: 3}
     left: {fileID: 21300000, guid: b3241097182cade40a804de0b75956f6, type: 3}
     right: {fileID: 21300000, guid: 7274269d1fbbb45469301a80c46cc0d5, type: 3}
   drive: 0

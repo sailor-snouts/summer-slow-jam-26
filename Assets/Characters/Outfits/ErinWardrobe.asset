@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18145c45ef10f6242a433246ad02df9c, type: 3}
-  m_Name: Wardrobe
+  m_Name: ErinWardrobe
   m_EditorClassIdentifier: Assembly-CSharp::Game.Wardrobe
   outfits:
-  - {fileID: 11400000, guid: 544158ea51b00ae459829d7cd99b1e05, type: 2}
-  - {fileID: 11400000, guid: f068c90515411954e86ef0f83d6aa3e9, type: 2}
-  - {fileID: 11400000, guid: 495a44acf2c45954a9de6cfad2ab4206, type: 2}
+  - {fileID: 11400000, guid: 545e8c8b4efb44447b7969ab04589ad2, type: 2}
+  - {fileID: 11400000, guid: 6bdf21f96d2e0b0459519be1eb69e6eb, type: 2}

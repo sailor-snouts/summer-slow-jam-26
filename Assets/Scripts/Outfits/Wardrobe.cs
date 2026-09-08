@@ -4,9 +4,10 @@ using UnityEngine;
 namespace Game
 {
     /// <summary>
-    /// The shared pool of outfits the player can choose from - the outfit menu lists these in order.
-    /// One wardrobe is shared by both playable characters; each character remembers which outfit it
-    /// has equipped (see <see cref="Outfits"/>). Create via Assets > Create > Game > Wardrobe.
+    /// A pool of outfits a character can choose from - the outfit menu lists these in order. Each
+    /// playable character points at their own wardrobe (see <see cref="CharacterData.Wardrobe"/>), and
+    /// remembers which outfit they have equipped (see <see cref="Outfits"/>). Create via
+    /// Assets > Create > Game > Wardrobe.
     /// </summary>
     [CreateAssetMenu(fileName = "Wardrobe", menuName = "Game/Wardrobe")]
     public class Wardrobe : ScriptableObject

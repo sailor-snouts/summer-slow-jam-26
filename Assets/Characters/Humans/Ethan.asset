@@ -16,6 +16,7 @@ MonoBehaviour:
   conversation: 
   profilePicture: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
   defaultOutfit: {fileID: 11400000, guid: 55dd52efa57f2504ca0d430e5e3dc733, type: 2}
+  wardrobe: {fileID: 11400000, guid: e4ddfa9613bb1e841a7e85253ec1c405, type: 2}
   drive: 2
   willpower: 3
   observation: 3

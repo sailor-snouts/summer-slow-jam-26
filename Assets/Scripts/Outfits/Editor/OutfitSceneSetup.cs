@@ -11,14 +11,12 @@ namespace Game
     /// Creates the outfit menu scene from Tools > Game > Create Outfit Scene - an additive overlay
     /// with the Disco Elysium layout: stats on the left, the dressed character in the center, outfit
     /// choices on the right, and a Close button. The panels are plain scene objects, so restyle them
-    /// freely; the row/button contents are rebuilt at runtime by <see cref="OutfitMenuView"/>.
-    /// Also makes sure a Wardrobe asset exists and is wired in.
+    /// freely; the row/button contents are rebuilt at runtime by <see cref="OutfitMenuView"/>, which
+    /// reads the active character's own <see cref="Wardrobe"/> - so no wardrobe is wired in here.
     /// </summary>
     internal static class OutfitSceneSetup
     {
         internal const string ScenePath = "Assets/Scenes/Outfits.unity";
-        private const string WardrobeFolder = "Assets/Outfits";
-        private const string WardrobePath = WardrobeFolder + "/Wardrobe.asset";
 
         [MenuItem("Tools/Game/Create Outfit Scene")]
         private static void OpenOrCreate() =>
@@ -74,7 +72,6 @@ namespace Game
             // Wire the view.
             var view = canvas.gameObject.AddComponent<OutfitMenuView>();
             var so = new SerializedObject(view);
-            so.FindProperty("wardrobe").objectReferenceValue = EnsureWardrobe();
             so.FindProperty("statsContainer").objectReferenceValue = statsContainer;
             so.FindProperty("previewImage").objectReferenceValue = previewImage;
             so.FindProperty("previewName").objectReferenceValue = nameText;
@@ -110,22 +107,6 @@ namespace Game
             rect.anchorMax = anchorMax;
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
-        }
-
-        /// <summary>Loads the shared Wardrobe asset, creating an empty one on first run.</summary>
-        private static Wardrobe EnsureWardrobe()
-        {
-            var wardrobe = AssetDatabase.LoadAssetAtPath<Wardrobe>(WardrobePath);
-            if (wardrobe != null)
-                return wardrobe;
-
-            if (!AssetDatabase.IsValidFolder(WardrobeFolder))
-                AssetDatabase.CreateFolder("Assets", "Outfits");
-            wardrobe = ScriptableObject.CreateInstance<Wardrobe>();
-            AssetDatabase.CreateAsset(wardrobe, WardrobePath);
-            AssetDatabase.SaveAssets();
-            Debug.Log($"[OutfitSceneSetup] Created empty wardrobe at {WardrobePath} - add your Outfit assets to it.");
-            return wardrobe;
         }
     }
 }

@@ -18,9 +18,6 @@ namespace Game
         private const string GainColor = "#8CD98C";
         private const string LossColor = "#E08A8A";
 
-        [Tooltip("The outfit pool shown on the right.")]
-        [SerializeField] private Wardrobe wardrobe;
-
         [Header("Left - stats")]
         [SerializeField, Tooltip("Rows are generated under this at runtime (needs a VerticalLayoutGroup).")]
         private RectTransform statsContainer;
@@ -144,13 +141,20 @@ namespace Game
                     Destroy(child.gameObject);
             }
 
-            OutfitData equipped = Outfits.GetEquipped(character);
-            AddOutfitButton(character, null, equipped == null);
+            // Each playable character brings their own wardrobe, so the list follows whoever is active.
+            Wardrobe wardrobe = character != null ? character.Wardrobe : null;
             if (wardrobe == null)
                 return;
+
+            // The outfit the character currently has on - shown pre-selected. Falls back to their
+            // default outfit if nothing's been equipped yet (there is no "none" option any more).
+            OutfitData current = Outfits.GetEquipped(character);
+            if (current == null && character != null)
+                current = character.DefaultOutfit;
+
             foreach (OutfitData outfit in wardrobe.Outfits)
                 if (outfit != null)
-                    AddOutfitButton(character, outfit, equipped == outfit);
+                    AddOutfitButton(character, outfit, outfit == current);
         }
 
         private void AddOutfitButton(CharacterData character, OutfitData outfit, bool isEquipped)
@@ -168,7 +172,7 @@ namespace Game
 
             var label = button.GetComponentInChildren<TMP_Text>();
             if (label != null)
-                label.text = outfit != null ? outfit.DisplayName : "None";
+                label.text = outfit.DisplayName;
 
             var image = button.GetComponent<Image>();
             if (image != null)

@@ -80,6 +80,9 @@ namespace Game
         // portrait (see GetSprite).
         [SerializeField] private OutfitData defaultOutfit;
 
+        [Tooltip("Outfits this character can choose from in the outfit menu. Each playable character has their own wardrobe; leave null for characters that can't change outfits.")]
+        [SerializeField] private Wardrobe wardrobe;
+
         // Brain
         [SerializeField, Range(MinValue, MaxValue)] private int drive = MinValue;
         [SerializeField, Range(MinValue, MaxValue)] private int willpower = MinValue;
@@ -107,6 +110,12 @@ namespace Game
 
         /// <summary>Dialogue headshot / portrait.</summary>
         public Sprite ProfilePicture => profilePicture;
+
+        /// <summary>The outfits this character can choose from in the outfit menu (may be null).</summary>
+        public Wardrobe Wardrobe => wardrobe;
+
+        /// <summary>The outfit the character wears by default - their starting look (may be null).</summary>
+        public OutfitData DefaultOutfit => defaultOutfit;
 
         /// <summary>Default in-world sprite (facing down) - used for menus and previews.</summary>
         public Sprite WorldSprite => GetSprite(Facing4.Down);

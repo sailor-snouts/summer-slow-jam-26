@@ -20,7 +20,8 @@ namespace Game
             EditorGUILayout.PropertyField(serializedObject.FindProperty("profilePicture"));
 
             EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("defaultOutfit"), new GUIContent("Outfit"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("defaultOutfit"), new GUIContent("Default Outfit"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("wardrobe"));
 
             DrawCategory("Brain", "drive", "willpower", "observation", "empathy");
             DrawCategory("Brawn", "vigor", "endurance", "agility", "technique");

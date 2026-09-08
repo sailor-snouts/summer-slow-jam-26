@@ -133,6 +133,13 @@ namespace Game
                 return;
 
             sessionCharacter = active;             // remember for the session (survives scene loads)
+
+            // The character is always wearing something (there's no "none" any more). If they haven't
+            // chosen an outfit yet this session, start them in their default one so the worn outfit is
+            // always well-defined - the menu opens with it selected and its modifiers apply.
+            if (Outfits.GetEquipped(active) == null && active.DefaultOutfit != null)
+                Outfits.Equip(active, active.DefaultOutfit);
+
             SetData(active);                       // sprite + DialogueActor (inherited from Character)
             SkillCheck.DefaultCharacter = active;  // stats for skill checks / dialogue
         }
