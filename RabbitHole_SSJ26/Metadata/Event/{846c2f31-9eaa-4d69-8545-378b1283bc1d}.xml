@@ -105,7 +105,7 @@
 	<object class="MixerBusPanner" id="{71cc24b8-092e-4cdd-9dc0-93efac9541fc}" />
 	<object class="SingleSound" id="{277ff2fe-ddfd-46fe-94da-383c778e00c0}">
 		<property name="length">
-			<value>120.00002083333334</value>
+			<value>160</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{33a9cc02-9cbc-4d02-ac4e-1ecfde1a7038}</destination>
@@ -114,7 +114,7 @@
 			<destination>{da139fc9-e050-4b5b-a221-74803f0d3b02}</destination>
 		</relationship>
 		<relationship name="audioFile">
-			<destination>{d273e6a5-c303-4f00-b7db-20bf0646bd2e}</destination>
+			<destination>{d3d09d8f-a9e1-42b8-88a4-1637648f96ac}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{b99ffc0f-bd8b-48fb-8fc9-84256c54d133}">
@@ -136,7 +136,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>120.00002083333334</value>
+			<value>160</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{70aabc5b-8580-4984-957a-c4006f1d8532}</destination>
@@ -183,12 +183,12 @@
 			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>-1.00000048</value>
+			<value>-0.457194835</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{e9bbfa1d-6f18-4fd6-8fbe-721a24d9d57c}">
 		<property name="position">
-			<value>0.90000000000000002</value>
+			<value>0.10000000000000001</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -196,18 +196,18 @@
 	</object>
 	<object class="AutomationPoint" id="{fb897bfd-ac3f-468e-9347-ce8a193afaf2}">
 		<property name="position">
-			<value>119</value>
+			<value>159.90000000000001</value>
 		</property>
 		<property name="value">
 			<value>1</value>
 		</property>
 		<property name="curveShape">
-			<value>1</value>
+			<value>0.752900422</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{ca0b12ff-41f0-4623-8ddd-69e35b92735f}">
 		<property name="position">
-			<value>120.00002083333334</value>
+			<value>160</value>
 		</property>
 		<property name="value">
 			<value>0</value>

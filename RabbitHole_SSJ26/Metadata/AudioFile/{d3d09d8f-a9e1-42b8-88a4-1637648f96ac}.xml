@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d3d09d8f-a9e1-42b8-88a4-1637648f96ac}">
+		<property name="assetPath">
+			<value>therabbithole.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>160</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{240b8809-13a2-4d90-9fb4-d378fe7c7f71}</destination>
+		</relationship>
+	</object>
+</objects>
