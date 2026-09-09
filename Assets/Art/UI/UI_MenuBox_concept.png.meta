@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ae7afea2e547fd94a94a4f4b404fe744
+guid: f26bcda6c8db6384f93a020f336afd4b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6710635557890581362
-    second: UI_MenuBox_concept2_0
+      213: 3141467565501600563
+    second: UI_MenuBox_concept_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,24 +109,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_MenuBox_concept2_0
+      name: UI_MenuBox_concept_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +128,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8c93dab3880fd2a0800000000000000
-      internalID: -6710635557890581362
+      spriteID: 333522b4b1cb89b20800000000000000
+      internalID: 3141467565501600563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_MenuBox_concept2_1
+      name: UI_MenuBox_concept_1
       rect:
         serializedVersion: 2
         x: 41
@@ -163,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 774c1f86c0e889f47b01db3ef4c420e5
-      internalID: 1506967731
+      spriteID: 0428c2c3a4902764dba11bfb88052992
+      internalID: 5596731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_MenuBox_concept2_2
+      name: UI_MenuBox_concept_2
       rect:
         serializedVersion: 2
         x: 82
@@ -185,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d05aeb5ec16214409cc410e6b41d42d
-      internalID: -434467352
+      spriteID: 916ed2b8fe2709949a953b5c51d57d02
+      internalID: 1933838490
       vertices: []
       indices: 
       edges: []
@@ -195,7 +182,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5033f5e19e8cf584a987f0449a75b7b9
+    spriteID: 56351d8874165774d807ddb0df705833
     internalID: 0
     vertices: []
     indices: 
@@ -207,9 +194,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":41.0,"y":40.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      UI_MenuBox_concept2_0: -6710635557890581362
-      UI_MenuBox_concept2_1: 1506967731
-      UI_MenuBox_concept2_2: -434467352
+      UI_MenuBox_concept_0: 3141467565501600563
+      UI_MenuBox_concept_1: 5596731
+      UI_MenuBox_concept_2: 1933838490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
