@@ -180,7 +180,7 @@ MonoBehaviour:
         buttonName: 
         inputAction: {fileID: 0}
       actorSubtitlePanelOverrides: []
-    dialogueUI: {fileID: 101180, guid: 5ba51781a19f8a843abeb2d304d0d26e, type: 3}
+    dialogueUI: {fileID: 101180, guid: 6add81303bad0144da4589bee2770f91, type: 3}
     defaultCanvas: {fileID: 22325660}
     localizationSettings:
       language: 
@@ -194,7 +194,7 @@ MonoBehaviour:
       skipPCSubtitleAfterResponseMenu: 1
       subtitleCharsPerSecond: 30
       minSubtitleSeconds: 2
-      continueButton: 0
+      continueButton: 1
       requireContinueOnLastLine: 0
       richTextEmphases: 1
       convertPipesToLineBreaks: 1
