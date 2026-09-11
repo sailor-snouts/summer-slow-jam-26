@@ -3395,7 +3395,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Passthrough
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 28
+        destinationConversationID: 3
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 4
       conditionsString: (Variable["WasFrankVigorCheck"] == true) and (Variable["WasFrankBonhomieCheck"]
         == true) and (Variable["WasFrankTauntCheck"] == true)
       userScript: Variable["FrankInParty"] = true
@@ -3409,7 +3415,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 8.805115, y: 591.4441}
+    canvasScrollPosition: {x: 58.49048, y: 831.13055}
     canvasZoom: 1.06
   - id: 3
     fields:
