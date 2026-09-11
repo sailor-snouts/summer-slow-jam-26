@@ -38,7 +38,7 @@ MonoBehaviour:
   - id: 18
     fields:
     - title: Name
-      value: You
+      value: E
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
@@ -46,7 +46,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: Placeholder for reoccurring branching dialogue choices.
+      value: Player E Neutral/Placeholder for reoccurring branching dialogue choices.
       type: 0
       typeString: CustomFieldType_Text
     - title: IsPlayer
@@ -1674,7 +1674,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 166.16107, y: 28.49649}
+    canvasScrollPosition: {x: 79.494446, y: 44.25403}
     canvasZoom: 1.1
   - id: 2
     fields:
@@ -2396,7 +2396,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 500.4845
+        x: 499.60736
         y: 555.9648
         width: 160
         height: 30
@@ -2876,7 +2876,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -2924,7 +2924,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 508.021
+        x: 508.7536
         y: 1049.9553
         width: 160
         height: 30
@@ -3123,7 +3123,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 18
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -3169,8 +3169,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 628.6941
-        y: 1297.8304
+        x: 631.181
+        y: 1296.9534
         width: 160
         height: 30
     - id: 25
@@ -3306,7 +3306,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 18
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -3408,8 +3408,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.7600002
+    canvasScrollPosition: {x: 0, y: 745.1664}
+    canvasZoom: 0.9100001
   - id: 3
     fields:
     - title: Title
@@ -3555,7 +3555,7 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 1
         destinationConversationID: 3
-        destinationDialogueID: 2
+        destinationDialogueID: 31
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3567,73 +3567,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 157.33334
         y: 99.33333
-        width: 160
-        height: 30
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 18
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: ...
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 3
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 3
-        originDialogueID: 2
-        destinationConversationID: 3
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      - originConversationID: 3
-        originDialogueID: 2
-        destinationConversationID: 3
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      - originConversationID: 3
-        originDialogueID: 2
-        destinationConversationID: 3
-        destinationDialogueID: 7
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 156.00006
-        y: 164
         width: 160
         height: 30
     - id: 3
@@ -3687,7 +3620,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 50.00003
+        x: 50.647278
         y: 277.33334
         width: 160
         height: 30
@@ -3732,7 +3665,7 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 4
         destinationConversationID: 3
-        destinationDialogueID: 2
+        destinationDialogueID: 31
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3742,7 +3675,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 47.333374
+        x: 46.03888
         y: 334.6667
         width: 160
         height: 30
@@ -3797,8 +3730,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 240.00006
-        y: 273.3333
+        x: 237.41107
+        y: 271.39154
         width: 160
         height: 30
     - id: 6
@@ -3842,7 +3775,7 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 6
         destinationConversationID: 3
-        destinationDialogueID: 2
+        destinationDialogueID: 31
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -5207,6 +5140,73 @@ MonoBehaviour:
         y: 1031.5275
         width: 160
         height: 30
+    - id: 31
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 18
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: ...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 31
+        destinationConversationID: 3
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 3
+        originDialogueID: 31
+        destinationConversationID: 3
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      - originConversationID: 3
+        originDialogueID: 31
+        destinationConversationID: 3
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 154.74432
+        y: 171.33978
+        width: 160
+        height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1.03
@@ -5698,8 +5698,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You pull out a sleek device, looks like a classic pen with two retractable
-          switched.
+        value: (You pull out a sleek device, looks like a classic pen with two retractable
+          switched.)
         type: 0
         typeString: 
       - title: Sequence
@@ -5727,7 +5727,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 369.4563
+        x: 367.39444
         y: 275.04202
         width: 160
         height: 30
@@ -6264,9 +6264,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You pull out an ID card from your pocket, different from what you
+        value: (You pull out an ID card from your pocket, different from what you
           handed to the Bouncer. Taking a closer look, it's not much different than
-          your own ID photo.
+          your own ID photo.)
         type: 0
         typeString: 
       - title: Sequence
@@ -6943,7 +6943,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 30.927734, y: 222.68033}
+    canvasScrollPosition: {x: 111.34021, y: 0}
     canvasZoom: 0.97
   - id: 5
     fields:
@@ -9361,7 +9361,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 35.664978, y: 1330.4238}
+    canvasScrollPosition: {x: 1.2944946, y: 0}
     canvasZoom: 1.03
   - id: 6
     fields:
@@ -9490,8 +9490,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You glance into the trash can, filled with used paper towels, toilet
-          paper, and other waste.
+        value: (You glance into the trash can, filled with used paper towels, toilet
+          paper, and other waste.)
         type: 0
         typeString: 
       - title: Sequence
@@ -9520,8 +9520,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 156.6861
-        y: 117.33333
+        x: 157.41873
+        y: 116.60074
         width: 160
         height: 30
     - id: 2
@@ -9547,7 +9547,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There seems to be something else buried underneath.
+        value: (There seems to be something else buried underneath.)
         type: 0
         typeString: 
       - title: Sequence
@@ -9718,7 +9718,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You glance inside and see a glimpse of red fabric.
+        value: (You glance inside and see a glimpse of red fabric.)
         type: 0
         typeString: 
       - title: Sequence
@@ -9779,7 +9779,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'You struggle to spot anything unusual. [END]'
+        value: '(You struggle to spot anything unusual.) [END]'
         type: 0
         typeString: 
       - title: Sequence
@@ -9889,8 +9889,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You reach into the disgusting depths of the bin and pull out a beautiful
-          red velvet halter dress.
+        value: (You reach into the disgusting depths of the bin and pull out a beautiful
+          red velvet halter dress.)
         type: 0
         typeString: 
       - title: Sequence
@@ -9994,8 +9994,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Upon closer inspection, you see a stain of some unknown substance
-          and grime on it.
+        value: (Upon closer inspection, you see a stain of some unknown substance
+          and grime on it.)
         type: 0
         typeString: 
       - title: Sequence
@@ -10023,8 +10023,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 164.10683
-        y: 599.0678
+        x: 162.64163
+        y: 599.8004
         width: 160
         height: 30
     - id: 11
@@ -10105,7 +10105,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: What should be done about this?
+        value: (What should be done about this?)
         type: 0
         typeString: 
       - title: Sequence
@@ -10380,8 +10380,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You begin to scrub it off in the sink with a fresh paper towel but
-          it seems to struggle to come out.
+        value: (You begin to scrub it off in the sink with a fresh paper towel but
+          it seems to struggle to come out.)
         type: 0
         typeString: 
       - title: Sequence
@@ -10415,7 +10415,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 171.19911
+        x: 171.9317
         y: 887.7203
         width: 160
         height: 30
@@ -10503,8 +10503,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You endure through the tedious task and now the dress looks almost
-          spotless.
+        value: (You endure through the tedious task and now the dress looks almost
+          spotless.)
         type: 0
         typeString: 
       - title: Sequence
@@ -10559,7 +10559,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You can now wear the velvet dress.
+        value: (You can now wear the velvet dress.)
         type: 0
         typeString: 
       - title: Sequence
@@ -10585,7 +10585,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 164.81612
-        y: 1180.2734
+        y: 1181.0061
         width: 160
         height: 30
     - id: 21
@@ -10611,7 +10611,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You continue to struggle getting the stain out.
+        value: (You continue to struggle getting the stain out.)
         type: 0
         typeString: 
       - title: Sequence
@@ -10640,7 +10640,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 393.1849
-        y: 1106.8691
+        y: 1106.1366
         width: 160
         height: 30
     - id: 22
@@ -10721,7 +10721,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Try again?
+        value: (Try again?)
         type: 0
         typeString: 
       - title: Sequence
@@ -10809,7 +10809,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 273.08554}
+    canvasScrollPosition: {x: 19.047607, y: 632.96704}
     canvasZoom: 0.9100001
   - id: 7
     fields:
@@ -11329,7 +11329,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You see the guard's hands move in position, ready to cock his firearm.
+        value: (You see the guard's hands move in position, ready to cock his firearm.)
         type: 0
         typeString: 
       - title: Sequence
@@ -11660,8 +11660,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You see the guard's red eye glows glancing at Dawn. You recognize
-          this method, usually with older BCI methods connected with a robotic eye.
+        value: (You see the guard's red eye glows glancing at Dawn. You recognize
+          this method, usually with older BCI methods connected with a robotic eye.)
         type: 0
         typeString: 
       - title: Sequence
@@ -11771,8 +11771,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: His red eye moves onto you, feels as if your soul is being exposed
-          to people beyond your scope of knowledge.
+        value: (His red eye moves onto you, feels as if your soul is being exposed
+          to people beyond your scope of knowledge.)
         type: 0
         typeString: 
       - title: Sequence
@@ -12055,7 +12055,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: His glow fades and his firearm raises.
+        value: (His glow fades and his firearm raises.)
         type: 0
         typeString: 
       - title: Sequence
@@ -12734,8 +12734,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: He steps out of the way, weapon lowered, but maintains a soft glare
-          on you.
+        value: (He steps out of the way, weapon lowered, but maintains a soft glare
+          on you.)
         type: 0
         typeString: 
       - title: Sequence
@@ -12763,7 +12763,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1018.51074
+        x: 1017.8015
         y: 1246.667
         width: 160
         height: 30
@@ -12845,8 +12845,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You begin to follow Dawn to the staircase to explore the unknown depths
-          of The Underground.
+        value: (You begin to follow Dawn to the staircase to explore the unknown
+          depths of The Underground.)
         type: 0
         typeString: 
       - title: Sequence
@@ -12874,8 +12874,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1019.12244
-        y: 1362.6666
+        x: 1017.704
+        y: 1361.9574
         width: 160
         height: 30
     - id: 38
@@ -12901,7 +12901,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: This concludes this fragment of The Rabbit Hole. Thank you for playing!
+        value: (This concludes this fragment of The Rabbit Hole. Thank you for playing!)
         type: 0
         typeString: 
       - title: Sequence
@@ -12950,8 +12950,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: To discover Jackson Creed's murderer, as both Ethan Hermann and Erin
-          Quennell, more mystery awaits.
+        value: (To discover Jackson Creed's murderer, as both Ethan Hermann and Erin
+          Quennell, more mystery awaits.)
         type: 0
         typeString: 
       - title: Sequence
@@ -12984,7 +12984,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 239.12885, y: 474.66934}
+    canvasScrollPosition: {x: 36.879333, y: 883.6881}
     canvasZoom: 0.94000006
   syncInfo:
     syncActors: 0
