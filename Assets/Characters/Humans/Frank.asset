@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Frank
   m_EditorClassIdentifier: 
   dialogueActor: Frank Columbia
-  conversation: Bouncer+Frank
+  conversation: Frank
   profilePicture: {fileID: 4701117812578064336, guid: df97e1d330ce92e4ba4b34246d6cad6a, type: 3}
   defaultOutfit: {fileID: 11400000, guid: 216d0057681989545b47de764332e59d, type: 2}
+  wardrobe: {fileID: 0}
   drive: 1
   willpower: 1
   observation: 1
