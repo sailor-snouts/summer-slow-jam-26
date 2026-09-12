@@ -3,11 +3,6 @@ using UnityEngine.InputSystem;
 
 namespace Game
 {
-    /// <summary>
-    /// Throwaway harness: press a key in Play mode to roll and announce some dice, so you can
-    /// watch the HUD react and check the values in the Console. Delete or disable once the
-    /// dice system works.
-    /// </summary>
     public class DiceRollTester : MonoBehaviour
     {
         [SerializeField] private int count = 2;

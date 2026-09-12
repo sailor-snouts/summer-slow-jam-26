@@ -4,11 +4,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// Custom Inspector for <see cref="Wander"/>: draws each tunable as a min-max range slider
-    /// followed by its distribution curve, and hides the Area Size / Center Offset fields unless
-    /// Restrict Area is ticked.
-    /// </summary>
     [CustomEditor(typeof(Wander))]
     public class WanderEditor : Editor
     {
@@ -22,8 +17,6 @@ namespace Game
 
             EditorGUILayout.Space();
 
-            // Draw the remaining fields (the Area restriction block). Hide the area size/offset
-            // unless Restrict Area is on. Everything drawn above is excluded here.
             var handled = new List<string>
             {
                 "m_Script",
@@ -43,7 +36,6 @@ namespace Game
             serializedObject.ApplyModifiedProperties();
         }
 
-        // Distribution curves are always normalized to a 0..1 (X) by 0..1 (Y) box.
         private static readonly Rect CurveRange = new Rect(0f, 0f, 1f, 1f);
         private static readonly Color CurveColor = new Color(0.45f, 0.9f, 0.5f);
 
@@ -58,7 +50,6 @@ namespace Game
             EditorGUILayout.Space(2f);
         }
 
-        /// <summary>Draws a Vector2 (x = min, y = max) as a min-max slider with numeric fields.</summary>
         private void DrawRangeSlider(string propertyName, string label, float limitMin, float limitMax)
         {
             SerializedProperty prop = serializedObject.FindProperty(propertyName);

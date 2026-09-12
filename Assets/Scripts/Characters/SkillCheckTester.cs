@@ -3,11 +3,6 @@ using UnityEngine.InputSystem;
 
 namespace Game
 {
-    /// <summary>
-    /// Throwaway harness: press a key in Play mode to run a skill check against the default
-    /// (player) character and log the result. Watch the dice HUD pop the roll. Delete or
-    /// disable once you've confirmed the pipeline works.
-    /// </summary>
     public class SkillCheckTester : MonoBehaviour
     {
         [SerializeField] private Stat stat = Stat.Vigor;

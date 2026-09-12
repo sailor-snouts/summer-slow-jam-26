@@ -3,11 +3,6 @@ using UnityEngine.InputSystem;
 
 namespace Game
 {
-    /// <summary>
-    /// Reads movement input (WASD / arrows / left stick) and feeds it to this object's
-    /// <see cref="Mover"/>. This is the only piece that knows about input - swap it for an AI
-    /// driver on an NPC and the same <see cref="Mover"/> moves the same way.
-    /// </summary>
     [RequireComponent(typeof(Mover))]
     [DisallowMultipleComponent]
     public class PlayerController : MonoBehaviour
@@ -19,7 +14,6 @@ namespace Game
         {
             mover = GetComponent<Mover>();
 
-            // Defined in code so it's self-contained (no .inputactions asset wiring needed).
             moveAction = new InputAction("Move", InputActionType.Value, expectedControlType: "Vector2");
             moveAction.AddCompositeBinding("2DVector")
                 .With("Up", "<Keyboard>/w")

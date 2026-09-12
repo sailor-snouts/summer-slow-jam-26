@@ -4,12 +4,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// Adds play-mode testing buttons to the <see cref="PlayerCharacter"/> inspector: swap between the
-    /// two characters, and force-unlock gameplay input (drop manual locks and end any active
-    /// conversation). These are editor conveniences for play-testing - they only do anything in Play
-    /// mode, so they are disabled otherwise.
-    /// </summary>
     [CustomEditor(typeof(PlayerCharacter))]
     public class PlayerCharacterEditor : Editor
     {
@@ -29,8 +23,7 @@ namespace Game
 
                 if (GUILayout.Button("Unlock Movement"))
                 {
-                    // End anything holding the lock: stop an active conversation, then drop manual
-                    // locks. A menu overlay (outfit/settings) still needs closing on its own.
+                    // A menu overlay (outfit/settings) still needs closing on its own.
                     if (DialogueManager.isConversationActive)
                         DialogueManager.StopConversation();
                     PlayerInput.ClearManualLocks();

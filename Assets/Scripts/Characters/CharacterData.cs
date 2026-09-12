@@ -3,10 +3,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// The twelve character stats, four per <see cref="StatCategory"/>. A category's value is the
-    /// sum of its four stats (see <see cref="CharacterData.GetCategory"/>).
-    /// </summary>
     public enum Stat
     {
         // Brain
@@ -28,7 +24,6 @@ namespace Game
         Hostility,
     }
 
-    /// <summary>The three stat categories. A category's value is the sum of its four stats.</summary>
     public enum StatCategory
     {
         Brain,
@@ -36,7 +31,6 @@ namespace Game
         Beauty,
     }
 
-    /// <summary>A character's four facing directions. Down is the default (enum value 0).</summary>
     public enum Facing4
     {
         Down,
@@ -45,23 +39,12 @@ namespace Game
         Right,
     }
 
-    /// <summary>
-    /// A character definition asset: a name, the twelve stats (grouped into Brain / Brawn / Beauty),
-    /// and a profile picture. Make as many of these as you like (Assets > Create > Game > Character),
-    /// then point a scene <see cref="Character"/> at the one a GameObject should be.
-    ///
-    /// Stats are read-only at runtime - a ScriptableObject is shared by every reference, so
-    /// mutating it would change the asset for everyone (and persist in the editor). If a
-    /// character ever needs per-instance, changing stats, we'd add a runtime copy then.
-    /// </summary>
     [CreateAssetMenu(fileName = "Character", menuName = "Game/Character")]
     public class CharacterData : ScriptableObject
     {
-        /// <summary>Stat values are clamped to this inclusive range.</summary>
         public const int MinValue = 1;
         public const int MaxValue = 4;
 
-        /// <summary>Masculine + feminine always sum to this - the split is one slider's worth of points.</summary>
         public const int GenderTotal = 10;
 
         [Tooltip("Which Dialogue System actor this character is - also used as the character's name. Falls back to the asset name if blank.")]
@@ -75,9 +58,6 @@ namespace Game
         [Tooltip("Headshot / portrait shown in dialogue (the Dialogue System actor's picture).")]
         [SerializeField] private Sprite profilePicture;
 
-        // The character's default appearance: the outfit whose directional sprites it wears when no
-        // other outfit is equipped. Unset directions on the outfit fall back to Down, then the
-        // portrait (see GetSprite).
         [SerializeField] private OutfitData defaultOutfit;
 
         [Tooltip("Outfits this character can choose from in the outfit menu. Each playable character has their own wardrobe; leave null for characters that can't change outfits.")]
@@ -101,50 +81,36 @@ namespace Game
         [SerializeField, Range(MinValue, MaxValue)] private int bonhomie = MinValue;
         [SerializeField, Range(MinValue, MaxValue)] private int hostility = MinValue;
 
-        // Masculine / feminine split: we store only the masculine share (0..GenderTotal); feminine is
-        // the rest, so the two always sum to GenderTotal. The inspector edits it as a single slider.
+        // We store only the masculine share (0..GenderTotal); feminine is the rest, so the two always
+        // sum to GenderTotal.
         [SerializeField, Range(0, GenderTotal)] private int masculine = GenderTotal / 2;
 
-        /// <summary>The character's name - its Dialogue System actor (falls back to the asset name if unset).</summary>
         public string DisplayName => string.IsNullOrEmpty(dialogueActor) ? name : dialogueActor;
 
-        /// <summary>Dialogue headshot / portrait.</summary>
         public Sprite ProfilePicture => profilePicture;
 
-        /// <summary>The outfits this character can choose from in the outfit menu (may be null).</summary>
         public Wardrobe Wardrobe => wardrobe;
 
-        /// <summary>The outfit the character wears by default - their starting look (may be null).</summary>
         public OutfitData DefaultOutfit => defaultOutfit;
 
-        /// <summary>Default in-world sprite (facing down) - used for menus and previews.</summary>
         public Sprite WorldSprite => GetSprite(Facing4.Down);
 
-        /// <summary>
-        /// The world sprite for a facing direction. Falls back to the down sprite, then the portrait,
-        /// so a character always shows something even when some directions aren't authored.
-        /// </summary>
         public Sprite GetSprite(Facing4 facing)
         {
             Sprite chosen = defaultOutfit != null ? defaultOutfit.GetSprite(facing) : null;
             return chosen != null ? chosen : profilePicture;
         }
 
-        /// <summary>Conversation started when the player interacts with this character.</summary>
         public string Conversation => conversation;
 
-        // Category totals - the sum of the four stats in each (read-only).
         public int Brain => drive + willpower + observation + empathy;
         public int Brawn => vigor + endurance + agility + technique;
         public int Beauty => charm + taunt + bonhomie + hostility;
 
-        /// <summary>Masculine share of the <see cref="GenderTotal"/> points (0..10).</summary>
         public int Masculine => masculine;
 
-        /// <summary>Feminine share - the rest of the <see cref="GenderTotal"/> points.</summary>
         public int Feminine => GenderTotal - masculine;
 
-        /// <summary>Reads one of the twelve stats.</summary>
         public int Get(Stat stat) => stat switch
         {
             Stat.Drive => drive,
@@ -162,7 +128,6 @@ namespace Game
             _ => throw new System.ArgumentOutOfRangeException(nameof(stat), stat, "Unknown stat."),
         };
 
-        /// <summary>Reads a category total - the sum of its four stats.</summary>
         public int GetCategory(StatCategory category) => category switch
         {
             StatCategory.Brain => Brain,
@@ -172,9 +137,8 @@ namespace Game
         };
 
 #if UNITY_EDITOR
-        // Editing this asset (e.g. swapping its portrait) doesn't fire OnValidate on the scene
-        // Characters that reference it, so nudge them to re-read and update live. Also keep the
-        // masculine/feminine split within its point budget in case it's edited outside the slider.
+        // Editing this asset doesn't fire OnValidate on the scene Characters that reference it, so
+        // nudge them to re-read and update live. Clamp guards the split being edited outside the slider.
         private void OnValidate()
         {
             masculine = Mathf.Clamp(masculine, 0, GenderTotal);

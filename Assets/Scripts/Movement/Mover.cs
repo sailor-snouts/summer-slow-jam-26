@@ -2,15 +2,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// The ability to move. Drives a kinematic Rigidbody2D by casting its collider ahead each
-    /// physics step and stopping at (and sliding along) anything on the blocking layers - walls
-    /// and other characters. Because it never applies forces, nothing gets pushed: characters
-    /// block each other and the walls, but can't shove anything. A driver (<see cref="PlayerController"/>
-    /// or an AI like <see cref="Wander"/>) sets <see cref="MoveDirection"/>; this decides nothing about
-    /// where to go. It tracks <see cref="Facing"/> (the last heading) which the <see cref="Character"/>
-    /// turns into a directional sprite and interaction uses as its sweep direction.
-    /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     [DisallowMultipleComponent]
     public class Mover : MonoBehaviour
@@ -28,20 +19,14 @@ namespace Game
         private ContactFilter2D filter;
         private readonly RaycastHit2D[] hits = new RaycastHit2D[8];
 
-        /// <summary>
-        /// Desired movement direction, set by a driver (input or AI). Magnitude is clamped to 1,
-        /// so a value straight from a stick or a normalized direction both work; (0,0) = stop.
-        /// </summary>
         public Vector2 MoveDirection { get; set; }
 
-        /// <summary>Units per second at full input.</summary>
         public float MoveSpeed
         {
             get => moveSpeed;
             set => moveSpeed = Mathf.Max(0f, value);
         }
 
-        /// <summary>The last non-zero move direction (normalized), kept while idle - i.e. which way it's facing.</summary>
         public Vector2 Facing { get; private set; } = Vector2.down;
 
         private void Awake()
@@ -53,7 +38,6 @@ namespace Game
             filter.SetLayerMask(blockingLayers);
         }
 
-        // Top-down defaults when the Rigidbody2D is first added with this component.
         private void Reset()
         {
             var rb = GetComponent<Rigidbody2D>();
@@ -72,8 +56,7 @@ namespace Game
             UpdateFacing();
         }
 
-        // Move by delta, but stop at any blocking collider and slide the leftover along its
-        // surface. Two passes handles sliding into a corner. Never applies force.
+        // Two passes so the leftover can slide into a corner instead of sticking.
         private Vector2 CollideAndSlide(Vector2 delta)
         {
             Vector2 moved = Vector2.zero;
@@ -107,7 +90,6 @@ namespace Game
             return moved;
         }
 
-        // Remember the last real heading so we keep facing it while idle.
         private void UpdateFacing()
         {
             if (MoveDirection.sqrMagnitude > 1e-6f)

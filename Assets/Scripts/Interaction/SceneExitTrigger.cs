@@ -7,12 +7,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// Loads another scene when the player walks into this trigger - a doorway / level exit. Put it on
-    /// a GameObject with a trigger Collider2D and pick the target scene (must be in Build Settings). It
-    /// loads through the menu router, so it uses the same fade transition as the rest of the game.
-    /// Only the player triggers it, and it fires once.
-    /// </summary>
     [RequireComponent(typeof(Collider2D))]
     [DisallowMultipleComponent]
     public class SceneExitTrigger : MonoBehaviour
@@ -56,13 +50,11 @@ namespace Game
             }
 
             triggered = true; // guard against re-entering the trigger before the load completes
-            // Tell the next scene where to put the player; the arriving PlayerCharacter reads this.
             SceneTransition.PendingEntrance = entranceId;
             MenuSceneRouter.Load(scene);
         }
 
 #if UNITY_EDITOR
-        // Tint the trigger bounds so exits are easy to spot in the Scene view.
         private void OnDrawGizmos()
         {
             Collider2D col = GetComponent<Collider2D>();

@@ -4,13 +4,6 @@ using UnityEngine.UI;
 
 namespace Game
 {
-    /// <summary>
-    /// Drives the outfit menu, Disco Elysium style: left panel lists the current player character's
-    /// stats (base plus outfit modifiers), the center shows the character wearing the equipped
-    /// outfit, and the right panel lists the wardrobe - click an outfit to equip it. Lives on the
-    /// generated "Outfits" overlay scene (Tools > Game > Create Outfit Scene); the panel contents are
-    /// rebuilt at runtime, so restyle the panels freely.
-    /// </summary>
     public class OutfitMenuView : MonoBehaviour
     {
         private static readonly Color ButtonColor = new Color(0.15f, 0.17f, 0.22f, 1f);
@@ -55,8 +48,6 @@ namespace Game
             RefreshList(current);
         }
 
-        // ----- Left: stats -------------------------------------------------------------------
-
         private void RefreshStats(CharacterData character)
         {
             Clear(statsContainer);
@@ -70,7 +61,7 @@ namespace Game
             AddCategory(character, StatCategory.Brawn, Stat.Vigor, Stat.Endurance, Stat.Agility, Stat.Technique);
             AddCategory(character, StatCategory.Beauty, Stat.Charm, Stat.Taunt, Stat.Bonhomie, Stat.Hostility);
 
-            CreateRow(statsContainer, " ", 12, FontStyles.Normal); // spacer
+            CreateRow(statsContainer, " ", 12, FontStyles.Normal);
 
             int masc = Outfits.EffectiveMasculine(character);
             int fem = Outfits.EffectiveFeminine(character);
@@ -93,7 +84,6 @@ namespace Game
             }
         }
 
-        // " (+1)" in green, " (-2)" in red, empty when unmodified.
         private static string ModifierSuffix(int modifier)
         {
             if (modifier == 0)
@@ -101,8 +91,6 @@ namespace Game
             string color = modifier > 0 ? GainColor : LossColor;
             return $"  <color={color}>({(modifier > 0 ? "+" : "")}{modifier})</color>";
         }
-
-        // ----- Center: preview ---------------------------------------------------------------
 
         private void RefreshPreview(CharacterData character)
         {
@@ -126,8 +114,6 @@ namespace Game
                     : "Nothing equipped.";
         }
 
-        // ----- Right: outfit list ------------------------------------------------------------
-
         private void RefreshList(CharacterData character)
         {
             if (outfitsContainer == null || outfitButtonTemplate == null)
@@ -141,13 +127,10 @@ namespace Game
                     Destroy(child.gameObject);
             }
 
-            // Each playable character brings their own wardrobe, so the list follows whoever is active.
             Wardrobe wardrobe = character != null ? character.Wardrobe : null;
             if (wardrobe == null)
                 return;
 
-            // The outfit the character currently has on - shown pre-selected. Falls back to their
-            // default outfit if nothing's been equipped yet (there is no "none" option any more).
             OutfitData current = Outfits.GetEquipped(character);
             if (current == null && character != null)
                 current = character.DefaultOutfit;
@@ -180,8 +163,6 @@ namespace Game
 
             button.onClick.AddListener(() => Outfits.Equip(character, outfit));
         }
-
-        // ----- helpers -------------------------------------------------------------------------
 
         private static void Clear(RectTransform container)
         {

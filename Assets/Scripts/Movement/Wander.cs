@@ -2,16 +2,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// Simple NPC movement: amble in a random direction for a while, pause, then pick a new
-    /// direction - repeat. It only sets <see cref="Mover.MoveDirection"/>, so it's a drop-in
-    /// alternative to <see cref="PlayerController"/>: same Mover, a different "brain".
-    ///
-    /// Move time, pause time and speed each follow the same pattern: a range (min..max) sets the
-    /// bounds, and a distribution curve maps a uniform random 0..1 to where in that range the
-    /// value lands (curve Y: 0 = min, 1 = max). A linear curve = uniform across the range.
-    /// Optionally restricts wandering to a rectangle around the start position.
-    /// </summary>
     [RequireComponent(typeof(Mover))]
     [DisallowMultipleComponent]
     public class Wander : MonoBehaviour
@@ -55,10 +45,9 @@ namespace Game
         private void Awake()
         {
             mover = GetComponent<Mover>();
-            home = transform.position; // the area is centered here
+            home = transform.position;
         }
 
-        // Start paused, then begin the move/pause cycle.
         private void OnEnable() => StartPause();
 
         private void Update()
@@ -72,8 +61,7 @@ namespace Game
                     StartMove();
             }
 
-            // If the next step would carry it out of the area, abort this leg: pause now, and a
-            // fresh leg (new random direction) starts after the pause - i.e. run the cycle again.
+            // Abort this leg before it leaves the area; a fresh leg with a new direction starts after the pause.
             if (moving && restrictArea && WillExitArea())
                 StartPause();
 
@@ -101,15 +89,13 @@ namespace Game
             moving = false;
         }
 
-        // Lerp across [range.x, range.y], using the curve to shape the distribution of a uniform sample.
         private static float SampleRange(Vector2 range, AnimationCurve curve)
         {
             float t = Mathf.Clamp01(curve.Evaluate(Random.value));
             return Mathf.Lerp(range.x, range.y, t);
         }
 
-        // True if, at the current speed, the NPC would step outside the area within the look-ahead
-        // "skin". Only guards the inside to outside crossing, so if it's somehow already outside
+        // Only guards the inside to outside crossing, so if it's somehow already outside
         // (e.g. shoved by physics) it isn't trapped - a later leg wanders it back in.
         private bool WillExitArea()
         {

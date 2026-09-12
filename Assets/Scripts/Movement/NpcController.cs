@@ -2,27 +2,13 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// The NPC's available movement modes. Wander stays first so existing NPCs keep their saved mode;
-    /// add more as we build them (Patrol, Follow, ...).
-    /// </summary>
     public enum NpcWalkMode
     {
         Wander,
 
-        /// <summary>Don't move at all - a stationary NPC.</summary>
         None,
     }
 
-    /// <summary>
-    /// Drives an NPC by choosing which movement "brain" is active. Pick the starting mode in the
-    /// Inspector; the controller enables that mode's driver component and disables the others, so
-    /// exactly one is feeding the <see cref="Mover"/>. Call <see cref="SetWalkMode"/> to switch
-    /// at runtime. Add the driver components you want to use (e.g. <see cref="Wander"/>) alongside this.
-    ///
-    /// It also stops the NPC while the player is in conversation with it (see
-    /// <see cref="SetFrozen"/> / the OnConversation* hooks) so an NPC never wanders off mid-dialogue.
-    /// </summary>
     [RequireComponent(typeof(Mover))]
     [DisallowMultipleComponent]
     public class NpcController : MonoBehaviour
@@ -30,10 +16,8 @@ namespace Game
         [SerializeField, Tooltip("Which movement mode the NPC starts in.")]
         private NpcWalkMode startMode = NpcWalkMode.Wander;
 
-        /// <summary>The mode currently active.</summary>
         public NpcWalkMode CurrentMode { get; private set; }
 
-        /// <summary>True while movement is frozen (e.g. during a conversation with this NPC).</summary>
         public bool IsFrozen { get; private set; }
 
         private Mover mover;
@@ -42,34 +26,24 @@ namespace Game
 
         private void Start() => SetWalkMode(startMode);
 
-        /// <summary>Switches the active movement mode: enables that mode's driver, disables the rest.</summary>
         public void SetWalkMode(NpcWalkMode mode)
         {
             CurrentMode = mode;
             ApplyDrivers();
         }
 
-        /// <summary>
-        /// Freezes or resumes movement. While frozen, every driver is disabled and the Mover is
-        /// stopped this frame (not just left coasting on its last direction). Resuming restores the
-        /// current <see cref="CurrentMode"/>'s driver.
-        /// </summary>
         public void SetFrozen(bool value)
         {
             IsFrozen = value;
             ApplyDrivers();
         }
 
-        // Enable a driver only when it's the current mode and we're not frozen. None mode (and being
-        // frozen) leave every driver off.
         private void ApplyDrivers()
         {
             bool wander = !IsFrozen && CurrentMode == NpcWalkMode.Wander;
             SetDriver<Wander>(wander);
-            // Later, e.g.:  bool patrol = !IsFrozen && CurrentMode == NpcWalkMode.Patrol; SetDriver<Patrol>(patrol);
 
-            // With no driver feeding it (None mode or frozen), stop the Mover dead so it doesn't coast
-            // on its last heading. Extend this condition ("no driver active") as more drivers are added.
+            // With no driver feeding it, stop the Mover dead so it doesn't coast on its last heading.
             if (mover != null && !wander)
                 mover.MoveDirection = Vector2.zero;
         }
@@ -85,10 +59,7 @@ namespace Game
                     "component, but none is attached.", this);
         }
 
-        // The Dialogue System sends these to a conversation's participants (via SendMessage). The NPC
-        // is the conversant, so it gets them when the player starts/ends talking to it - freeze while
-        // the conversation is up, resume when it ends or is exited. Plain named methods: no Dialogue
-        // System reference needed.
+        // Invoked by the Dialogue System via SendMessage on conversation participants, so the names must match exactly.
         private void OnConversationStart(Transform actor) => SetFrozen(true);
         private void OnConversationEnd(Transform actor) => SetFrozen(false);
     }

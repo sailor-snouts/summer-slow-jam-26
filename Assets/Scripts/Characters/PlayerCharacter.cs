@@ -2,13 +2,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// The player's character: a <see cref="Character"/> that is one of two <see cref="CharacterData"/>.
-    /// Which one is active is chosen from dialogue (see <see cref="SetActiveByName"/>, e.g. the Mirror
-    /// conversation) and remembered for the session. While active it is the skill-check / dialogue
-    /// "player" - query <see cref="Current"/> / <see cref="CurrentData"/> to find out which character
-    /// the player currently is.
-    /// </summary>
     public class PlayerCharacter : Character
     {
         [Header("Characters")]
@@ -17,12 +10,9 @@ namespace Game
 
         private bool usingA = true;
 
-        // Which character the player last chose, remembered across scene loads (static). The player is
-        // a per-scene prefab instance, so this survives the swap choice between scenes. It's cleared on
-        // play start (ResetSession, plus domain reload), so it lasts the play session only.
+        // Static so the swap choice survives scene loads; cleared on play start so it lasts the session only.
         private static CharacterData sessionCharacter;
 
-        /// <summary>The player character currently in control (for game code and the dialogue system).</summary>
         public static PlayerCharacter Current { get; private set; }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -32,10 +22,8 @@ namespace Game
             sessionCharacter = null;
         }
 
-        /// <summary>The active player's data (name, stats, portrait), or null if no player is active.</summary>
         public static CharacterData CurrentData => Current != null ? Current.Active : null;
 
-        /// <summary>The CharacterData currently in control.</summary>
         public CharacterData Active => usingA ? characterA : characterB;
 
         protected override void OnEnable()
@@ -43,9 +31,7 @@ namespace Game
             base.OnEnable();
             Current = this;
 
-            // Restore the character chosen earlier this session so the player stays who they were
-            // across scene loads. If nothing's remembered (or it doesn't match this player's options),
-            // keep the serialized default.
+            // Restore the character chosen earlier this session; if nothing matches, keep the serialized default.
             if (sessionCharacter == characterB)
                 usingA = false;
             else if (sessionCharacter == characterA)
@@ -61,8 +47,7 @@ namespace Game
                 Current = null;
         }
 
-        // Runs after every object in the loaded scene is awake, so all SceneEntrances exist. If an exit
-        // asked for a specific entrance, move there; otherwise stay at the scene's authored position.
+        // Runs after every object in the loaded scene is awake, so all SceneEntrances exist.
         private void Start()
         {
             if (!Application.isPlaying)
@@ -93,17 +78,12 @@ namespace Game
                 "staying at the authored start position.", this);
         }
 
-        /// <summary>Switch to the other character. Used by the inspector's play-mode testing button.</summary>
         public void Swap()
         {
             usingA = !usingA;
             Apply();
         }
 
-        /// <summary>
-        /// Sets which character the player is by actor name (e.g. from the Mirror dialogue). Matches
-        /// against the two options' display names; returns true if one matched.
-        /// </summary>
         public bool SetActiveByName(string actorName)
         {
             if (characterA != null && characterA.DisplayName == actorName)
@@ -132,16 +112,15 @@ namespace Game
             if (active == null)
                 return;
 
-            sessionCharacter = active;             // remember for the session (survives scene loads)
+            sessionCharacter = active;
 
-            // The character is always wearing something (there's no "none" any more). If they haven't
-            // chosen an outfit yet this session, start them in their default one so the worn outfit is
-            // always well-defined - the menu opens with it selected and its modifiers apply.
+            // Start them in their default outfit if none is equipped yet, so the worn outfit is always
+            // well-defined and its modifiers apply.
             if (Outfits.GetEquipped(active) == null && active.DefaultOutfit != null)
                 Outfits.Equip(active, active.DefaultOutfit);
 
-            SetData(active);                       // sprite + DialogueActor (inherited from Character)
-            SkillCheck.DefaultCharacter = active;  // stats for skill checks / dialogue
+            SetData(active);
+            SkillCheck.DefaultCharacter = active;
         }
     }
 }

@@ -5,12 +5,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// Shows a dice roll on the HUD. Put this on the root of a Canvas you build in the editor,
-    /// and wire the references below. It listens for <see cref="DiceRoller.Rolled"/> and, for
-    /// each announced roll, spawns one cell per die, briefly flashes random faces, lands on the
-    /// real values, holds, then fades out. It never rolls anything itself - it only displays.
-    /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
     public class DiceHudView : MonoBehaviour
     {
@@ -40,7 +34,6 @@ namespace Game
         [Tooltip("How often the faces flash while settling.")]
         private float flashInterval = 0.05f;
 
-        // The TMP_Text on each spawned cell, so the coroutine can update faces without re-searching.
         private readonly List<TMP_Text> cells = new List<TMP_Text>();
         private Coroutine showRoutine;
 
@@ -48,17 +41,15 @@ namespace Game
         {
             if (group == null)
                 group = GetComponent<CanvasGroup>();
-            group.alpha = 0f; // start hidden
+            group.alpha = 0f;
         }
 
-        // Subscribe while enabled, unsubscribe when disabled. The event is static and outlives
-        // this object, so skipping the unsubscribe would leak and eventually call a destroyed view.
+        // The event is static and outlives this object, so skipping the unsubscribe would leak and call a destroyed view.
         private void OnEnable() => DiceRoller.Rolled += OnRolled;
         private void OnDisable() => DiceRoller.Rolled -= OnRolled;
 
         private void OnRolled(DiceRoll roll, string label) => Show(roll, label);
 
-        /// <summary>Displays a roll: rebuild cells, then run the reveal animation (restarting any in progress).</summary>
         public void Show(DiceRoll roll, string label = null)
         {
             BuildCells(roll);
@@ -87,7 +78,6 @@ namespace Game
         {
             group.alpha = 1f;
 
-            // 1) Settle: flash random faces on every cell, then land on the real values.
             float elapsed = 0f;
             float nextFlash = 0f;
             while (elapsed < settleDuration)
@@ -96,7 +86,7 @@ namespace Game
                 {
                     foreach (TMP_Text cell in cells)
                         if (cell != null)
-                            cell.text = UnityEngine.Random.Range(1, roll.Sides + 1).ToString(); // cosmetic only
+                            cell.text = UnityEngine.Random.Range(1, roll.Sides + 1).ToString();
                     nextFlash += flashInterval;
                 }
 
@@ -108,10 +98,8 @@ namespace Game
                 if (cells[i] != null)
                     cells[i].text = roll.Values[i].ToString();
 
-            // 2) Hold at full opacity.
             yield return WaitUnscaled(holdDuration);
 
-            // 3) Fade out.
             elapsed = 0f;
             while (elapsed < fadeDuration)
             {

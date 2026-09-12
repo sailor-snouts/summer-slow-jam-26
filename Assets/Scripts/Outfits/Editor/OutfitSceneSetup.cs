@@ -7,13 +7,6 @@ using UnityEngine.UI;
 
 namespace Game
 {
-    /// <summary>
-    /// Creates the outfit menu scene from Tools > Game > Create Outfit Scene - an additive overlay
-    /// with the Disco Elysium layout: stats on the left, the dressed character in the center, outfit
-    /// choices on the right, and a Close button. The panels are plain scene objects, so restyle them
-    /// freely; the row/button contents are rebuilt at runtime by <see cref="OutfitMenuView"/>, which
-    /// reads the active character's own <see cref="Wardrobe"/> - so no wardrobe is wired in here.
-    /// </summary>
     internal static class OutfitSceneSetup
     {
         internal const string ScenePath = "Assets/Scenes/Outfits.unity";
@@ -36,11 +29,9 @@ namespace Game
             header.alignment = TextAlignmentOptions.Left;
             SetAnchors(headerRect, new Vector2(0.03f, 0.88f), new Vector2(0.45f, 0.98f));
 
-            // Left: stats rows are generated at runtime under this layout container.
             RectTransform statsContainer = CreatePanel(canvas, "Stats Panel",
                 new Vector2(0.03f, 0.06f), new Vector2(0.28f, 0.86f));
 
-            // Center: character preview with name above and outfit description below.
             var nameText = MenuSceneBuilder.CreateText(canvas, "Character Name", "Character", 40, FontStyle.Bold);
             SetAnchors((RectTransform)nameText.transform, new Vector2(0.32f, 0.86f), new Vector2(0.62f, 0.94f));
 
@@ -56,7 +47,6 @@ namespace Game
             var description = MenuSceneBuilder.CreateText(canvas, "Outfit Description", "Nothing equipped.", 26, FontStyle.Normal);
             SetAnchors((RectTransform)description.transform, new Vector2(0.32f, 0.06f), new Vector2(0.62f, 0.26f));
 
-            // Right: scrolling outfit list. Buttons are cloned from an inactive template at runtime.
             ScrollRect scroll = MenuSceneBuilder.CreateScrollView(canvas);
             SetAnchors((RectTransform)scroll.transform, new Vector2(0.66f, 0.16f), new Vector2(0.97f, 0.86f));
 
@@ -64,12 +54,10 @@ namespace Game
             template.name = "Outfit Button Template";
             template.gameObject.SetActive(false);
 
-            // Bottom right: Close (Escape and the I key close it too, via the overlay stack).
             RectTransform buttons = MenuSceneBuilder.CreateButtonColumn(canvas, "Bottom Buttons");
             SetAnchors(buttons, new Vector2(0.66f, 0.04f), new Vector2(0.97f, 0.14f));
             MenuSceneBuilder.CreateButton(buttons, "Close", MenuAction.CloseSelf, string.Empty);
 
-            // Wire the view.
             var view = canvas.gameObject.AddComponent<OutfitMenuView>();
             var so = new SerializedObject(view);
             so.FindProperty("statsContainer").objectReferenceValue = statsContainer;
@@ -81,7 +69,6 @@ namespace Game
             so.ApplyModifiedPropertiesWithoutUndo();
         }
 
-        /// <summary>An anchored container with a top-aligned vertical layout for runtime-built rows.</summary>
         private static RectTransform CreatePanel(RectTransform canvas, string name, Vector2 anchorMin, Vector2 anchorMax)
         {
             var go = new GameObject(name, typeof(RectTransform), typeof(VerticalLayoutGroup));

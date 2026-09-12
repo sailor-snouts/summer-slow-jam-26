@@ -3,12 +3,6 @@ using UnityEngine.InputSystem;
 
 namespace Game
 {
-    /// <summary>
-    /// On a key press, sweeps a circle in the player's movement/facing direction (like an Unreal
-    /// sphere-sweep): the circle begins at <see cref="startDistance"/> in front of the player and
-    /// travels to <see cref="maxDistance"/>. The first <see cref="IInteractable"/> it hits is used -
-    /// so you must be facing the target and within the band to interact with it.
-    /// </summary>
     [RequireComponent(typeof(Mover))]
     [DisallowMultipleComponent]
     public class PlayerInteractor : MonoBehaviour
@@ -67,7 +61,7 @@ namespace Game
             {
                 RaycastHit2D hit = hits[i];
                 if (hit.collider == null || hit.collider.transform == transform)
-                    continue; // skip ourselves
+                    continue;
 
                 var interactable = hit.collider.GetComponentInParent<IInteractable>();
                 if (interactable == null)
@@ -84,8 +78,6 @@ namespace Game
         }
 
 #if UNITY_EDITOR
-        // Editor-only reticle: draws the swept circle (two ends + the line it travels) in the Scene
-        // view. Yellow = nothing in reach; green + marker = an interactable is hit.
         private void OnDrawGizmos()
         {
             Vector2 facing = (Application.isPlaying && mover != null) ? mover.Facing : Vector2.right;
@@ -120,11 +112,11 @@ namespace Game
 
             Gizmos.color = hitInteractable ? Color.green : new Color(1f, 1f, 0f, 0.6f);
             float r = Mathf.Max(0.05f, castRadius);
-            Vector2 side = new Vector2(-facing.y, facing.x) * r; // perpendicular, scaled to the radius
+            Vector2 side = new Vector2(-facing.y, facing.x) * r;
 
-            Gizmos.DrawWireSphere(start, r);             // where the sweep begins
-            Gizmos.DrawWireSphere(end, r);               // where it ends
-            Gizmos.DrawLine(start + side, end + side);   // the two edges of the swept circle
+            Gizmos.DrawWireSphere(start, r);
+            Gizmos.DrawWireSphere(end, r);
+            Gizmos.DrawLine(start + side, end + side);
             Gizmos.DrawLine(start - side, end - side);
             if (hitInteractable)
                 Gizmos.DrawWireSphere(marker, r);

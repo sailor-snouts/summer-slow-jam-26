@@ -3,11 +3,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// Custom Inspector for <see cref="CharacterData"/>: draws the twelve stats grouped under their
-    /// category headings (Brain / Brawn / Beauty), each group followed by a read-only total - the
-    /// sum of its four stats - plus the masculine/feminine split as a single 10-point slider.
-    /// </summary>
     [CustomEditor(typeof(CharacterData))]
     public class CharacterDataEditor : Editor
     {
@@ -32,12 +27,6 @@ namespace Game
             serializedObject.ApplyModifiedProperties();
         }
 
-        /// <summary>
-        /// One slider for the masculine/feminine split of <see cref="CharacterData.GenderTotal"/> points:
-        /// far left = all masculine (10/0), far right = all feminine (0/10), middle = 5/5. We store the
-        /// masculine share, but drive the slider by the feminine share so left-to-right reads
-        /// masculine to feminine.
-        /// </summary>
         private void DrawGenderSlider()
         {
             const int total = CharacterData.GenderTotal;
@@ -54,7 +43,6 @@ namespace Game
             masculine.intValue = total - newFeminine;
         }
 
-        /// <summary>Draws a category heading, its four stat sliders, and a disabled total field.</summary>
         private void DrawCategory(string category, params string[] statFields)
         {
             EditorGUILayout.Space();

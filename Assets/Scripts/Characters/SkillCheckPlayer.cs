@@ -2,10 +2,6 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// Marks this object's selected <see cref="Character"/> as the default "player" used by skill
-    /// checks that don't name a character (notably dialogue checks). Put it on your player.
-    /// </summary>
     [RequireComponent(typeof(Character))]
     [DisallowMultipleComponent]
     public class SkillCheckPlayer : MonoBehaviour

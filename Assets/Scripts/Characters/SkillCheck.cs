@@ -2,25 +2,10 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// A skill check: roll dice and add one of a character's stats - or a whole category total.
-    /// <see cref="Roll"/> returns the total (to compare against a difficulty); <see cref="Try"/> does
-    /// the comparison for you. Usable from code (pass the <see cref="CharacterData"/>) or dialogue
-    /// (uses <see cref="DefaultCharacter"/>). Rolling goes through the scene's <see cref="DiceRoller"/>,
-    /// so it shares the seeded random and can show on the dice HUD.
-    /// </summary>
     public static class SkillCheck
     {
-        /// <summary>
-        /// The character used when a check doesn't name one (e.g. dialogue checks) - "the player".
-        /// Set it once; <see cref="SkillCheckPlayer"/> is a drop-in way to do that from the player object.
-        /// </summary>
         public static CharacterData DefaultCharacter { get; set; }
 
-        /// <summary>
-        /// Rolls <paramref name="count"/>d<paramref name="sides"/> and adds <paramref name="character"/>'s
-        /// <paramref name="stat"/>, returning the total. Fires the dice HUD event when <paramref name="showRoll"/> is true.
-        /// </summary>
         public static int Roll(CharacterData character, Stat stat, int count, int sides, bool showRoll = true)
         {
             if (character == null)
@@ -28,14 +13,9 @@ namespace Game
                 Debug.LogError("[SkillCheck] No character given and DefaultCharacter isn't set - returning 0.");
                 return 0;
             }
-            // Effective stat: base value plus the equipped outfit's modifier.
             return RollCore(character, Outfits.EffectiveStat(character, stat), stat.ToString(), count, sides, showRoll);
         }
 
-        /// <summary>
-        /// Rolls <paramref name="count"/>d<paramref name="sides"/> and adds <paramref name="character"/>'s
-        /// <paramref name="category"/> total (the sum of its four stats), returning the total.
-        /// </summary>
         public static int Roll(CharacterData character, StatCategory category, int count, int sides, bool showRoll = true)
         {
             if (character == null)
@@ -43,35 +23,27 @@ namespace Game
                 Debug.LogError("[SkillCheck] No character given and DefaultCharacter isn't set - returning 0.");
                 return 0;
             }
-            // Effective category: base total plus the equipped outfit's modifiers.
             return RollCore(character, Outfits.EffectiveCategory(character, category), category.ToString(), count, sides, showRoll);
         }
 
-        /// <summary>Roll + stat for <see cref="DefaultCharacter"/> (the dialogue/player default).</summary>
         public static int Roll(Stat stat, int count, int sides, bool showRoll = true)
             => Roll(DefaultCharacter, stat, count, sides, showRoll);
 
-        /// <summary>Roll + category total for <see cref="DefaultCharacter"/> (the dialogue/player default).</summary>
         public static int Roll(StatCategory category, int count, int sides, bool showRoll = true)
             => Roll(DefaultCharacter, category, count, sides, showRoll);
 
-        /// <summary>True if roll + stat meets <paramref name="requirement"/>.</summary>
         public static bool Try(CharacterData character, Stat stat, int count, int sides, int requirement, bool showRoll = true)
             => Roll(character, stat, count, sides, showRoll) >= requirement;
 
-        /// <summary>True if roll + category total meets <paramref name="requirement"/>.</summary>
         public static bool Try(CharacterData character, StatCategory category, int count, int sides, int requirement, bool showRoll = true)
             => Roll(character, category, count, sides, showRoll) >= requirement;
 
-        /// <summary>Skill check against <see cref="DefaultCharacter"/>.</summary>
         public static bool Try(Stat stat, int count, int sides, int requirement, bool showRoll = true)
             => Roll(stat, count, sides, showRoll) >= requirement;
 
-        /// <summary>Category check against <see cref="DefaultCharacter"/>.</summary>
         public static bool Try(StatCategory category, int count, int sides, int requirement, bool showRoll = true)
             => Roll(category, count, sides, showRoll) >= requirement;
 
-        /// <summary>Shared roll: dice + <paramref name="modifier"/>, logged and (optionally) shown on the HUD.</summary>
         private static int RollCore(CharacterData character, int modifier, string label, int count, int sides, bool showRoll)
         {
             if (DiceRoller.Instance == null)

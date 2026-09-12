@@ -2,16 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
-    /// <summary>
-    /// A character in the scene. Pick which character this GameObject is with the
-    /// <see cref="data"/> selector (a <see cref="CharacterData"/> asset). It shows the
-    /// character's world sprite on this object's <see cref="SpriteRenderer"/> - updating
-    /// live in the editor - and, at runtime, copies the name + portrait onto a Pixel Crushers
-    /// <c>DialogueActor</c> so dialogue uses the selected character's identity. The portrait
-    /// (profile picture) is separate and used only for dialogue.
-    /// </summary>
-    // DefaultExecutionOrder: set the DialogueActor's name/portrait before the Dialogue System reads
-    // them. (Sprite refresh / collider fitting is inherited from SpriteEntity.)
+    // DefaultExecutionOrder: set the DialogueActor's name before the Dialogue System reads it.
     [ExecuteAlways]
     [DefaultExecutionOrder(-100)]
     // RequireComponent isn't inherited from SpriteEntity, so restate the sprite/collider parts here.
@@ -23,7 +14,7 @@ namespace Game
         [Tooltip("Which character this GameObject is.")]
         [SerializeField] private CharacterData data;
 
-        [Tooltip("At runtime, copy the character's name + portrait onto a DialogueActor on this object.")]
+        [Tooltip("At runtime, copy the character's name onto a DialogueActor on this object so dialogue addresses it as that actor.")]
         [SerializeField] private bool applyToDialogueActor = true;
 
         [Tooltip("Which way the character faces to begin with - and what the editor preview shows.")]
@@ -32,21 +23,14 @@ namespace Game
         private Mover mover;
         private Facing4 currentFacing = Facing4.Down;
 
-        /// <summary>The selected character definition (name, stats, portrait).</summary>
         public CharacterData Data => data;
 
-        /// <summary>The character's name (from the selected data), or the object name if none is set.</summary>
         public string Name => data != null ? data.DisplayName : name;
 
-        /// <summary>The character's profile picture, or null if none.</summary>
         public Sprite ProfilePicture => data != null ? data.ProfilePicture : null;
 
-        /// <summary>Reads one of the character's stats.</summary>
         public int GetStat(Stat stat) => data != null ? data.Get(stat) : CharacterData.MinValue;
 
-        // A character's world sprite is its equipped outfit's worn look (runtime only), or its own
-        // directional sprite for the way it's facing. Edit mode previews the serialized defaultFacing;
-        // at runtime the facing follows movement (see Update).
         protected override Sprite CurrentSprite
         {
             get
@@ -64,7 +48,6 @@ namespace Game
             }
         }
 
-        /// <summary>Swaps which character this object is at runtime - refreshes the sprite (and DialogueActor).</summary>
         public void SetData(CharacterData newData)
         {
             data = newData;
@@ -78,13 +61,11 @@ namespace Game
             mover = GetComponent<Mover>();
             currentFacing = defaultFacing;
 
-            // Runtime only: push identity to the DialogueActor (don't dirty it in edit mode).
+            // Don't dirty the DialogueActor in edit mode.
             if (Application.isPlaying && applyToDialogueActor && data != null)
                 ApplyToDialogueActor();
         }
 
-        // Runtime: face the way we're moving, swapping the directional sprite when the facing changes.
-        // Idle keeps the last facing. (virtual so PlayerCharacter can extend it for swap input.)
         protected virtual void Update()
         {
             if (!Application.isPlaying || mover == null)
@@ -102,14 +83,12 @@ namespace Game
             }
         }
 
-        /// <summary>Faces the character a set direction and refreshes its sprite (e.g. on scene arrival).</summary>
         public void SetFacing(Facing4 facing)
         {
             currentFacing = facing;
             RefreshSprite();
         }
 
-        // Pick the cardinal direction closest to a movement vector (dominant axis; ties go vertical).
         private static Facing4 FromVector(Vector2 v)
         {
             if (Mathf.Abs(v.x) > Mathf.Abs(v.y))
@@ -117,8 +96,6 @@ namespace Game
             return v.y > 0f ? Facing4.Up : Facing4.Down;
         }
 
-        // Re-pull the sprite when this character's outfit changes. Subscribed symmetrically in
-        // enable/disable; the event only fires at runtime.
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -138,16 +115,13 @@ namespace Game
 
         private void ApplyToDialogueActor()
         {
-            // Create the DialogueActor on demand so you don't have to add/configure it by hand -
-            // its identity comes entirely from the CharacterData. Fully-qualified to bind the base
-            // type (and avoid the wrapper/namespace clash).
+            // Fully-qualified to bind the base type (avoid the wrapper/namespace clash). Portrait is NOT
+            // set here on purpose: dialogue portraits come from the Dialogue Editor, not CharacterData.
             var dialogueActor = GetComponent<PixelCrushers.DialogueSystem.DialogueActor>();
             if (dialogueActor == null)
                 dialogueActor = gameObject.AddComponent<PixelCrushers.DialogueSystem.DialogueActor>();
 
-            dialogueActor.actor = data.DisplayName; // dialogue addresses this object as that actor
-            if (data.ProfilePicture != null)
-                dialogueActor.spritePortrait = data.ProfilePicture;
+            dialogueActor.actor = data.DisplayName;
         }
     }
 }
