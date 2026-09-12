@@ -38,7 +38,7 @@ MonoBehaviour:
   - id: 18
     fields:
     - title: Name
-      value: E
+      value: Ethan Hermann Jr.
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
@@ -46,7 +46,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: Player E Neutral/Placeholder for reoccurring branching dialogue choices.
+      value: Non-player Ethan for internal dialogue.
       type: 0
       typeString: CustomFieldType_Text
     - title: IsPlayer
@@ -54,7 +54,29 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 23
+    fields:
+    - title: Name
+      value: Erin Quennell
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: Non-player Erin for internal dialogue.
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 2847520428423177803, guid: b500daf21571aff408c4480db11f0aff, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 1
@@ -76,7 +98,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 3
@@ -98,7 +120,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 2847520428423177803, guid: b500daf21571aff408c4480db11f0aff, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 4
@@ -120,7 +142,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 4701117812578064336, guid: df97e1d330ce92e4ba4b34246d6cad6a, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 20
@@ -142,7 +164,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -6918936916868373012, guid: 843abfeb152e4ac45ac43d5d54917658, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 5
@@ -164,7 +186,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -4889887851962213709, guid: 0f16beaa872455c43b143f5ac861b9f9, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 2
@@ -186,7 +208,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -6623591779945596923, guid: 2520833535ac3bb4c8db84f5f4f1f12e, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 21
@@ -208,7 +230,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -6540025759944713752, guid: 108f4da69be791543a05981d5b901399, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 6
@@ -231,7 +253,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -2372311616740948646, guid: 6e1bf1f5326d9a44e92f87adae10bc08, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 7
@@ -253,7 +275,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 4384558718663795004, guid: 8a179da2af4800341ba67d31660c66fd, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 8
@@ -276,7 +298,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -155641909169210914, guid: 85fc04743c8db0f41a010183d7422fe1, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 9
@@ -299,7 +321,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -5824021843397177413, guid: 12801f8cabfafd24ea2165a51d197809, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 10
@@ -321,7 +343,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -6583590262878116903, guid: c8abe474b173d6d4f9c12df27753d526, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 11
@@ -344,7 +366,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 3488301826464022791, guid: 37c1d63b3a72baf45a122f063a52ebc9, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 12
@@ -366,7 +388,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 3621337224563445833, guid: b51e37f8e8e9ab747b9475c2caf4a86e, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 13
@@ -389,7 +411,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 2561821247813773952, guid: fdf10096a794bc24289df228ec8a3d5d, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 14
@@ -411,7 +433,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 9111962250586777772, guid: f2cd4488707575d459b019c1a063f855, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 15
@@ -433,7 +455,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 8884450956226027453, guid: 24879d0e819b15c4882c59b30279b80f, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 16
@@ -456,7 +478,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 7705578672260969256, guid: d70cfe7ccdb7c1e4691e4731d0dcb808, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 17
@@ -479,7 +501,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 6117351776812575515, guid: b537cfe9e455358488bb5e182d0c0b0d, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 19
@@ -5628,7 +5650,7 @@ MonoBehaviour:
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(1, 6) >= 5
+      conditionsString: WillpowerCheck(1, 6) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5741,7 +5763,7 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: DriveCheck(1, 6) >= 5
+      conditionsString: DriveCheck(1, 6) >= 3
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5796,14 +5818,14 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: TechniqueCheck(1, 6) >= 5
+      conditionsString: TechniqueCheck(1, 6) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 554.5695
+        x: 553.88226
         y: 384.10345
         width: 160
         height: 30
@@ -5852,7 +5874,7 @@ MonoBehaviour:
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      conditionsString: EnduranceCheck(1, 6) >= 5
+      conditionsString: EnduranceCheck(1, 6) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6307,15 +6329,21 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6) >= 5
+      - originConversationID: 4
+        originDialogueID: 19
+        destinationConversationID: 4
+        destinationDialogueID: 21
+        isConnector: 0
+        priority: 2
+      conditionsString: ObservationCheck(1, 6) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 477.80334
-        y: 753.9329
+        x: 477.11603
+        y: 753.24567
         width: 160
         height: 30
     - id: 20
@@ -6907,7 +6935,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 204.81097, y: 0}
+    canvasScrollPosition: {x: 170.44672, y: 0}
     canvasZoom: 0.97
   - id: 5
     fields:
@@ -9331,7 +9359,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1.2944946, y: 0}
+    canvasScrollPosition: {x: 5.8251953, y: 1599.9983}
     canvasZoom: 1.03
   - id: 6
     fields:
