@@ -540,6 +540,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &719179738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7980294182807469959, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
+  m_PrefabInstance: {fileID: 1771254886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &719179747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719179738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46380f2b9d8f7d0408fa2c4ffca92d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.NpcWalkAfterConversation
+  waypoints:
+  - {fileID: 2035693506}
+  arriveDistance: 0.15
+  walkSpeed: 2
+  startDelay: 5
+  lockPlayerUntilArrived: 1
+  destroyOnArrive: 0
+  maxWalkSeconds: 12
 --- !u!1 &833110860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,7 +2009,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7980294182807469959, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 719179747}
   m_SourcePrefab: {fileID: 100100000, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
 --- !u!1 &1844316911
 GameObject:
@@ -2198,6 +2226,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 320, y: 48.91179, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2035693505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2035693506}
+  m_Layer: 0
+  m_Name: BouncerPath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2035693506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035693505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.45, y: -2.28436, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2614,6 +2673,7 @@ MonoBehaviour:
   - {fileID: 368076640}
   arriveDistance: 0.15
   walkSpeed: 3
+  startDelay: 0
   lockPlayerUntilArrived: 1
   destroyOnArrive: 1
   maxWalkSeconds: 12
@@ -2712,7 +2772,9 @@ SceneRoots:
   - {fileID: 2116187036}
   - {fileID: 1790318022301987986}
   - {fileID: 7838589976725265203}
+  - {fileID: 1339054140}
   - {fileID: 1771254886}
+  - {fileID: 2035693506}
   - {fileID: 1752561091}
   - {fileID: 584989178}
   - {fileID: 1145601501}
@@ -2722,4 +2784,3 @@ SceneRoots:
   - {fileID: 2009799397}
   - {fileID: 1844316914}
   - {fileID: 506968277}
-  - {fileID: 1339054140}

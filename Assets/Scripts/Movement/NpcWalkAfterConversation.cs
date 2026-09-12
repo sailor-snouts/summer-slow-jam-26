@@ -16,6 +16,9 @@ namespace Game
         [SerializeField, Min(0f), Tooltip("Walk speed along the path. 0 keeps the Mover's own speed.")]
         private float walkSpeed = 0f;
 
+        [SerializeField, Min(0f), Tooltip("Seconds to wait after the conversation ends before the NPC starts walking. The player stays locked during the wait.")]
+        private float startDelay = 0f;
+
         [SerializeField, Tooltip("Keep the player locked until the NPC finishes the path (that is the whole point of this beat).")]
         private bool lockPlayerUntilArrived = true;
 
@@ -28,6 +31,8 @@ namespace Game
         private Mover mover;
         private NpcController npc;
         private bool walking;
+        private bool pending;
+        private float delayTimer;
         private bool holdingLock;
         private int index;
         private float walkTimer;
@@ -79,7 +84,15 @@ namespace Game
 
             resumeMode = npc != null ? npc.CurrentMode : NpcWalkMode.None;
             if (npc != null)
-                npc.SetWalkMode(NpcWalkMode.None); // stop wandering; we drive the Mover along the path
+                npc.SetWalkMode(NpcWalkMode.None); // stop wandering; NPC stands still through the delay, then we drive it
+
+            delayTimer = startDelay;
+            pending = true;
+        }
+
+        private void BeginWalk()
+        {
+            pending = false;
 
             if (walkSpeed > 0f)
             {
@@ -95,6 +108,14 @@ namespace Game
 
         private void Update()
         {
+            if (pending)
+            {
+                delayTimer -= Time.deltaTime;
+                if (delayTimer <= 0f)
+                    BeginWalk();
+                return;
+            }
+
             if (!walking)
                 return;
 
@@ -135,6 +156,7 @@ namespace Game
         private void Arrive()
         {
             walking = false;
+            pending = false;
 
             if (mover != null)
                 mover.MoveDirection = Vector2.zero;
@@ -159,7 +181,8 @@ namespace Game
         private void OnDisable()
         {
             walking = false;
-            ReleaseLock(); // never strand the player locked if we're disabled mid-walk
+            pending = false;
+            ReleaseLock(); // never strand the player locked if we're disabled mid-walk or mid-delay
         }
 
         private void ReleaseLock()
