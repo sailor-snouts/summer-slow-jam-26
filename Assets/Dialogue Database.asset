@@ -57,28 +57,6 @@ MonoBehaviour:
     spritePortrait: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
     alternatePortraits: []
     spritePortraits: []
-  - id: 3
-    fields:
-    - title: Name
-      value: Erin Quennell
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: Pictures
-      value: '[]'
-      type: 3
-      typeString: CustomFieldType_Files
-    - title: Description
-      value: Player E - Female Form
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: IsPlayer
-      value: True
-      type: 2
-      typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
-    spritePortrait: {fileID: 2847520428423177803, guid: b500daf21571aff408c4480db11f0aff, type: 3}
-    alternatePortraits: []
-    spritePortraits: []
   - id: 18
     fields:
     - title: Name
@@ -99,6 +77,28 @@ MonoBehaviour:
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
     spritePortrait: {fileID: -5207231376880429019, guid: 83332f3fad768484c8ae303d7a35d155, type: 3}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 3
+    fields:
+    - title: Name
+      value: Erin Quennell
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: Player E - Female Form
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 2847520428423177803, guid: b500daf21571aff408c4480db11f0aff, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 23
@@ -6935,7 +6935,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 160.28369}
     canvasZoom: 0.94000006
   - id: 5
     fields:
@@ -12596,7 +12596,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 239.04828
+        x: 238.29071
         y: 272.24353
         width: 160
         height: 30
@@ -12664,7 +12664,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 21
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -12921,8 +12921,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1078.9058
-        y: 198.55342
+        x: 1079.6632
+        y: 199.31102
         width: 160
         height: 30
     - id: 13
@@ -14327,7 +14327,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 2.272705, y: 0}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.8800001
   syncInfo:
     syncActors: 0
