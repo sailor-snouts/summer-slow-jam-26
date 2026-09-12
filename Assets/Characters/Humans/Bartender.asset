@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Bartender
   m_EditorClassIdentifier: 
   dialogueActor: Bartender
-  conversation: Bartender1
+  conversation: Bartender
   profilePicture: {fileID: -6623591779945596923, guid: 2520833535ac3bb4c8db84f5f4f1f12e, type: 3}
   defaultOutfit: {fileID: 11400000, guid: 58d8bf20dbf594149bbe383e8682c018, type: 2}
+  wardrobe: {fileID: 0}
   drive: 1
   willpower: 1
   observation: 1
