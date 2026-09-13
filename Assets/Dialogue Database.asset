@@ -9744,8 +9744,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 436.86743
-        y: 193.89001
+        x: 543.78564
+        y: 188.85858
         width: 160
         height: 30
     - id: 5
@@ -9846,7 +9846,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 6
+        destinationConversationID: 6
+        destinationDialogueID: 25
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -9998,7 +10004,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You fail to grab what was inside.
+        value: (You fail to grab what was inside.)
         type: 0
         typeString: 
       - title: Sequence
@@ -10012,7 +10018,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 9
+        destinationConversationID: 6
+        destinationDialogueID: 26
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -10020,8 +10032,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 406.474
-        y: 539.00116
+        x: 429.11542
+        y: 547.8061
         width: 160
         height: 30
     - id: 10
@@ -10067,6 +10079,12 @@ MonoBehaviour:
         originDialogueID: 10
         destinationConversationID: 6
         destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 10
+        destinationConversationID: 6
+        destinationDialogueID: 12
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -10296,8 +10314,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 397.62604
-        y: 449.80118
+        x: 452.972
+        y: 425.27286
         width: 160
         height: 30
     - id: 15
@@ -10685,6 +10703,12 @@ MonoBehaviour:
         destinationDialogueID: 22
         isConnector: 0
         priority: 2
+      - originConversationID: 6
+        originDialogueID: 21
+        destinationConversationID: 6
+        destinationDialogueID: 23
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -10740,15 +10764,15 @@ MonoBehaviour:
         destinationDialogueID: 23
         isConnector: 0
         priority: 2
-      conditionsString: VigorCheck(1, 6) >= 9
+      conditionsString: VigorCheck(1, 6) >= 6
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 607.23474
-        y: 1105.0961
+        x: 601.37396
+        y: 1176.1582
         width: 160
         height: 30
     - id: 23
@@ -10861,9 +10885,131 @@ MonoBehaviour:
         y: 966.79816
         width: 160
         height: 30
+    - id: 25
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 18
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: (Try Again?)
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 25
+        destinationConversationID: 6
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 25
+        destinationConversationID: 6
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 429.77505
+        y: 282.20547
+        width: 160
+        height: 30
+    - id: 26
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 18
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: (Try Again?)
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 26
+        destinationConversationID: 6
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 26
+        destinationConversationID: 6
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 623.7736
+        y: 502.20117
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 411.81406}
-    canvasZoom: 0.7900002
+    canvasScrollPosition: {x: 0, y: 495.9721}
+    canvasZoom: 0.9100001
   - id: 7
     fields:
     - title: Title
