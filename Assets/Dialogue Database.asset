@@ -5537,7 +5537,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 782.40265
+        x: 783.82117
         y: 281.107
         width: 160
         height: 30
@@ -5989,7 +5989,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1200.0743
-        y: 281.1275
+        y: 281.8367
         width: 160
         height: 30
     - id: 13
@@ -6571,8 +6571,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 284.09247
-        y: 915.8826
+        x: 283.3832
+        y: 920.1379
         width: 160
         height: 30
     - id: 23
@@ -6834,7 +6834,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 972.6919
+        x: 971.98267
         y: 349.195
         width: 160
         height: 30
@@ -6986,7 +6986,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 248.2269}
     canvasZoom: 0.94000006
   - id: 5
     fields:
@@ -8417,7 +8417,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 682.68604
+        x: 683.3333
         y: 1232.1962
         width: 160
         height: 30
@@ -8927,7 +8927,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1017.6686
+        x: 1018.3158
         y: 1401.5059
         width: 160
         height: 30
@@ -9364,7 +9364,7 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 41
         destinationConversationID: 5
-        destinationDialogueID: 37
+        destinationDialogueID: 38
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -9430,7 +9430,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 47.89662, y: 957.2833}
+    canvasScrollPosition: {x: 0, y: 1283.4978}
     canvasZoom: 1.03
   - id: 6
     fields:
