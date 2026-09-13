@@ -2016,6 +2016,7 @@ MonoBehaviour:
   startDelay: 0
   lockPlayerUntilArrived: 1
   destroyOnArrive: 0
+  persistDespawn: 0
   maxWalkSeconds: 5
 --- !u!1001 &1771254886
 PrefabInstance:
@@ -2762,6 +2763,7 @@ MonoBehaviour:
   startDelay: 0
   lockPlayerUntilArrived: 1
   destroyOnArrive: 1
+  persistDespawn: 1
   maxWalkSeconds: 12
 --- !u!1001 &8604001286337377342
 PrefabInstance:

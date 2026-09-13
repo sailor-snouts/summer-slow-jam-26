@@ -1,6 +1,5 @@
 using JamTemplate.Game;
 using JamTemplate.Menus;
-using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace Game
@@ -10,12 +9,10 @@ namespace Game
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Bind()
         {
-            // Suppress the pause toggle while a conversation or menu overlay is up, so Escape doesn't
-            // open the pause menu on top of them.
-            PauseHotkey.SuppressProvider = () =>
-                DialogueManager.isConversationActive || MenuSceneRouter.HasOpenOverlay;
+            // Only a menu overlay (e.g. Settings) suppresses the pause toggle - Escape closes it first.
+            // A conversation does NOT suppress, so Escape opens the pause menu over it, like in gameplay.
+            PauseHotkey.SuppressProvider = () => MenuSceneRouter.HasOpenOverlay;
 
-            // Intentionally does NOT end a conversation - one with nothing layered over it ignores Escape.
             PauseHotkey.OnSuppressedPress = () =>
             {
                 if (MenuSceneRouter.HasOpenOverlay)
