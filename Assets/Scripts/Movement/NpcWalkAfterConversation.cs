@@ -26,6 +26,9 @@ namespace Game
         [SerializeField, Tooltip("Destroy this GameObject once it reaches the end of the path.")]
         private bool destroyOnArrive;
 
+        [SerializeField, Tooltip("Remember the despawn for the rest of the session (keyed by this GameObject's name), so returning to this scene removes the actor right away. Needs Destroy On Arrive.")]
+        private bool persistDespawn;
+
         [SerializeField, Min(0f), Tooltip("Safety: give up and return control after this many seconds if the path can't be finished (0 = no limit).")]
         private float maxWalkSeconds = 12f;
 
@@ -57,6 +60,13 @@ namespace Game
 
         private void Awake()
         {
+            // Already despawned earlier this session? Remove it before it can render on scene re-entry.
+            if (persistDespawn && SessionDespawns.IsDespawned(gameObject.name))
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             mover = GetComponent<Mover>();
             npc = GetComponent<NpcController>();
         }
@@ -172,6 +182,8 @@ namespace Game
 
             if (destroyOnArrive)
             {
+                if (persistDespawn)
+                    SessionDespawns.MarkDespawned(gameObject.name);
                 Destroy(gameObject);
                 return;
             }
