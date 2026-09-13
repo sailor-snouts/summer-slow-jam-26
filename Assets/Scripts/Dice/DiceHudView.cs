@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -25,9 +26,12 @@ namespace Game
         [Tooltip("The label / total line, e.g. 'Attack - 9'. Optional.")]
         private TMP_Text labelText;
 
+        [SerializeField]
+        [Tooltip("Button the player clicks to close the HUD.")]
+        private Button closeButton;
+
         [Header("Timing (seconds)")]
         [SerializeField] private float settleDuration = 0.4f;
-        [SerializeField] private float holdDuration = 1.5f;
         [SerializeField] private float fadeDuration = 0.4f;
 
         [SerializeField]
@@ -36,15 +40,18 @@ namespace Game
 
         private readonly List<TMP_Text> cells = new List<TMP_Text>();
         private Coroutine showRoutine;
+        private Coroutine hideRoutine;
 
         private void Awake()
         {
             if (group == null)
                 group = GetComponent<CanvasGroup>();
-            group.alpha = 0f;
+            SetVisible(false);
+
+            if (closeButton != null)
+                closeButton.onClick.AddListener(Hide);
         }
 
-        // The event is static and outlives this object, so skipping the unsubscribe would leak and call a destroyed view.
         private void OnEnable() => DiceRoller.Rolled += OnRolled;
         private void OnDisable() => DiceRoller.Rolled -= OnRolled;
 
@@ -56,9 +63,27 @@ namespace Game
             if (labelText != null)
                 labelText.text = string.IsNullOrEmpty(label) ? roll.Total.ToString() : $"{label}: {roll.Total}";
 
+            if (hideRoutine != null)
+            {
+                StopCoroutine(hideRoutine);
+                hideRoutine = null;
+            }
             if (showRoutine != null)
                 StopCoroutine(showRoutine);
             showRoutine = StartCoroutine(ShowRoutine(roll));
+        }
+
+        // Wired to the close button; also callable from elsewhere.
+        public void Hide()
+        {
+            if (showRoutine != null)
+            {
+                StopCoroutine(showRoutine);
+                showRoutine = null;
+            }
+            if (hideRoutine != null)
+                StopCoroutine(hideRoutine);
+            hideRoutine = StartCoroutine(HideRoutine());
         }
 
         private void BuildCells(DiceRoll roll)
@@ -76,7 +101,7 @@ namespace Game
 
         private IEnumerator ShowRoutine(DiceRoll roll)
         {
-            group.alpha = 1f;
+            SetVisible(true);
 
             float elapsed = 0f;
             float nextFlash = 0f;
@@ -98,27 +123,31 @@ namespace Game
                 if (cells[i] != null)
                     cells[i].text = roll.Values[i].ToString();
 
-            yield return WaitUnscaled(holdDuration);
+            // Stays up until the player closes it - no auto hold/fade.
+            showRoutine = null;
+        }
 
-            elapsed = 0f;
+        private IEnumerator HideRoutine()
+        {
+            group.interactable = false;
+            group.blocksRaycasts = false;
+
+            float elapsed = 0f;
             while (elapsed < fadeDuration)
             {
                 elapsed += Time.unscaledDeltaTime;
                 group.alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
                 yield return null;
             }
-            group.alpha = 0f;
-            showRoutine = null;
+            SetVisible(false);
+            hideRoutine = null;
         }
 
-        private static IEnumerator WaitUnscaled(float seconds)
+        private void SetVisible(bool visible)
         {
-            float elapsed = 0f;
-            while (elapsed < seconds)
-            {
-                elapsed += Time.unscaledDeltaTime;
-                yield return null;
-            }
+            group.alpha = visible ? 1f : 0f;
+            group.interactable = visible;
+            group.blocksRaycasts = visible;
         }
     }
 }
