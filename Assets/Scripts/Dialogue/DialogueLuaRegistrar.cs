@@ -27,6 +27,7 @@ namespace Game
             Lua.RegisterFunction("IsPlayer", this, GetType().GetMethod(nameof(IsPlayer)));
             Lua.RegisterFunction("SetPlayer", this, GetType().GetMethod(nameof(SetPlayer)));
             Lua.RegisterFunction("UnlockOutfit", this, GetType().GetMethod(nameof(UnlockOutfit)));
+            Lua.RegisterFunction("NpcWalk", this, GetType().GetMethod(nameof(NpcWalk)));
             Lua.RegisterFunction("Masculine", this, GetType().GetMethod(nameof(Masculine)));
             Lua.RegisterFunction("Feminine", this, GetType().GetMethod(nameof(Feminine)));
             foreach (string functionName in CheckFunctions)
@@ -39,6 +40,7 @@ namespace Game
             Lua.UnregisterFunction("IsPlayer");
             Lua.UnregisterFunction("SetPlayer");
             Lua.UnregisterFunction("UnlockOutfit");
+            Lua.UnregisterFunction("NpcWalk");
             Lua.UnregisterFunction("Masculine");
             Lua.UnregisterFunction("Feminine");
             foreach (string functionName in CheckFunctions)
@@ -84,6 +86,22 @@ namespace Game
             }
 
             Outfits.Unlock(character, outfit);
+        }
+
+        // NpcWalk("Bouncer") - arms that NPC's path walk to run once this conversation ends.
+        public void NpcWalk(string npcName)
+        {
+            NpcWalkAfterConversation[] walkers = FindObjectsByType<NpcWalkAfterConversation>(FindObjectsInactive.Include);
+            foreach (NpcWalkAfterConversation walker in walkers)
+            {
+                Character character = walker.GetComponent<Character>();
+                if (character != null && character.Name == npcName)
+                {
+                    walker.Arm();
+                    return;
+                }
+            }
+            Debug.LogWarning($"[DialogueLuaRegistrar] NpcWalk: no NpcWalkAfterConversation on a character named '{npcName}'.");
         }
 
         private static OutfitData FindOutfit(CharacterData character, string outfitName)

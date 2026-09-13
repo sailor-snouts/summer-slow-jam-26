@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace Game
@@ -7,7 +8,7 @@ namespace Game
     [DisallowMultipleComponent]
     public class NpcWalkAfterConversation : MonoBehaviour
     {
-        [SerializeField, Tooltip("Points the NPC walks through in order once the conversation ends. Empty = do nothing.")]
+        [SerializeField, Tooltip("Points the NPC walks through in order. Armed from a dialogue node via NpcWalk(...); the walk runs once the conversation ends. Empty = do nothing.")]
         private List<Transform> waypoints = new();
 
         [SerializeField, Min(0f), Tooltip("How close (world units) counts as reaching a waypoint.")]
@@ -30,8 +31,9 @@ namespace Game
 
         private Mover mover;
         private NpcController npc;
-        private bool walking;
+        private bool armed;
         private bool pending;
+        private bool walking;
         private float delayTimer;
         private bool holdingLock;
         private int index;
@@ -59,14 +61,14 @@ namespace Game
             npc = GetComponent<NpcController>();
         }
 
-        // OnConversationStart / OnConversationEnd are SendMessage'd by the Dialogue System - names must match exactly.
-        private void OnConversationStart(Transform actor)
+        // Called from a dialogue node's Lua (NpcWalk("Bouncer")). Locks the player now, while the
+        // conversation still holds them, so there is no free frame when the walk takes over.
+        public void Arm()
         {
-            if (!HasPath)
+            if (!HasPath || armed || pending || walking)
                 return;
 
-            // Take the lock now, while the conversation is already holding the player, so there is no
-            // free frame between the conversation ending and the walk starting.
+            armed = true;
             if (lockPlayerUntilArrived && !holdingLock)
             {
                 PlayerInput.Lock();
@@ -74,40 +76,18 @@ namespace Game
             }
         }
 
-        private void OnConversationEnd(Transform actor)
+        private void Update()
         {
-            if (!HasPath)
+            if (armed)
             {
-                ReleaseLock();
+                if (!DialogueManager.isConversationActive) // wait for the conversation to close
+                {
+                    armed = false;
+                    StartWalk();
+                }
                 return;
             }
 
-            resumeMode = npc != null ? npc.CurrentMode : NpcWalkMode.None;
-            if (npc != null)
-                npc.SetWalkMode(NpcWalkMode.None); // stop wandering; NPC stands still through the delay, then we drive it
-
-            delayTimer = startDelay;
-            pending = true;
-        }
-
-        private void BeginWalk()
-        {
-            pending = false;
-
-            if (walkSpeed > 0f)
-            {
-                cachedSpeed = mover.MoveSpeed;
-                speedCached = true;
-                mover.MoveSpeed = walkSpeed;
-            }
-
-            index = 0;
-            walkTimer = 0f;
-            walking = true;
-        }
-
-        private void Update()
-        {
             if (pending)
             {
                 delayTimer -= Time.deltaTime;
@@ -153,10 +133,37 @@ namespace Game
             Arrive();
         }
 
+        private void StartWalk()
+        {
+            resumeMode = npc != null ? npc.CurrentMode : NpcWalkMode.None;
+            if (npc != null)
+                npc.SetWalkMode(NpcWalkMode.None); // stop wandering; NPC stands still through the delay, then we drive it
+
+            delayTimer = startDelay;
+            pending = true;
+        }
+
+        private void BeginWalk()
+        {
+            pending = false;
+
+            if (walkSpeed > 0f)
+            {
+                cachedSpeed = mover.MoveSpeed;
+                speedCached = true;
+                mover.MoveSpeed = walkSpeed;
+            }
+
+            index = 0;
+            walkTimer = 0f;
+            walking = true;
+        }
+
         private void Arrive()
         {
             walking = false;
             pending = false;
+            armed = false;
 
             if (mover != null)
                 mover.MoveDirection = Vector2.zero;
@@ -180,8 +187,9 @@ namespace Game
 
         private void OnDisable()
         {
-            walking = false;
+            armed = false;
             pending = false;
+            walking = false;
             ReleaseLock(); // never strand the player locked if we're disabled mid-walk or mid-delay
         }
 

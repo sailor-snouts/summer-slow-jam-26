@@ -74,3 +74,6 @@ MonoBehaviour:
   - functionName: Game/UnlockOutfit
     parameters: 0300000002000000
     returnValue: 0
+  - functionName: Game/NpcWalk
+    parameters: 03000000
+    returnValue: 0
