@@ -2454,6 +2454,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dice Roller
       objectReference: {fileID: 0}
+    - target: {fileID: 5956056243557673940, guid: a45630bc515565048a7763dd21d00099, type: 3}
+      propertyPath: hudPrefab
+      value: 
+      objectReference: {fileID: 2683228624124210630, guid: c78add6346af5a041a358b039d3b6db6, type: 3}
     - target: {fileID: 8441292850374675125, guid: a45630bc515565048a7763dd21d00099, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

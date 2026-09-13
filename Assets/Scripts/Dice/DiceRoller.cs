@@ -20,6 +20,11 @@ namespace Game
         [Tooltip("The seed used when 'Use Fixed Seed' is on.")]
         private int seed = 12345;
 
+        [Header("HUD")]
+        [SerializeField]
+        [Tooltip("Dice HUD prefab shown when a roll is announced. Spawned once if the scene has none. Leave empty to not auto-spawn.")]
+        private GameObject hudPrefab;
+
         // System.Random (not UnityEngine.Random) so the sequence is owned here, seedable, and free of global state.
         private System.Random random;
 
@@ -33,6 +38,10 @@ namespace Game
 
             Instance = this;
             random = useFixedSeed ? new System.Random(seed) : new System.Random();
+
+            // Make sure a dice HUD exists to show rolls, so skill checks display everywhere the roller is.
+            if (hudPrefab != null && FindAnyObjectByType<DiceHudView>() == null)
+                Instantiate(hudPrefab);
         }
 
         private void OnDestroy()
