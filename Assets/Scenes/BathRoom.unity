@@ -1378,29 +1378,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1662232120397194014, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662232120397194014, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: m_Size.y
-      value: 1.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662232120397194014, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3426804198841940271, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7357251913294822223, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8e1b42927e7143c408a33031c43bef3e, type: 3}
-    - target: {fileID: 7357251913294822223, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: m_SortingOrder
-      value: 127
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
