@@ -26,6 +26,16 @@ namespace Game
 
         public CharacterData Active => usingA ? characterA : characterB;
 
+        // Finds one of this player's two characters (Erin/Ethan) by actor name, active or not.
+        public CharacterData OptionByName(string actorName)
+        {
+            if (characterA != null && characterA.DisplayName == actorName)
+                return characterA;
+            if (characterB != null && characterB.DisplayName == actorName)
+                return characterB;
+            return null;
+        }
+
         protected override void OnEnable()
         {
             base.OnEnable();

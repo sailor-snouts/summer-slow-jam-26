@@ -71,3 +71,6 @@ MonoBehaviour:
   - functionName: Game/SetPlayer
     parameters: 03000000
     returnValue: 0
+  - functionName: Game/UnlockOutfit
+    parameters: 0300000002000000
+    returnValue: 0

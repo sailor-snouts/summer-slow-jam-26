@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Wardrobe
   outfits:
   - {fileID: 11400000, guid: 55dd52efa57f2504ca0d430e5e3dc733, type: 2}
+  - {fileID: 11400000, guid: f429811821bbe2745ae79ddf24bdc386, type: 2}

@@ -26,6 +26,7 @@ namespace Game
         {
             Lua.RegisterFunction("IsPlayer", this, GetType().GetMethod(nameof(IsPlayer)));
             Lua.RegisterFunction("SetPlayer", this, GetType().GetMethod(nameof(SetPlayer)));
+            Lua.RegisterFunction("UnlockOutfit", this, GetType().GetMethod(nameof(UnlockOutfit)));
             Lua.RegisterFunction("Masculine", this, GetType().GetMethod(nameof(Masculine)));
             Lua.RegisterFunction("Feminine", this, GetType().GetMethod(nameof(Feminine)));
             foreach (string functionName in CheckFunctions)
@@ -37,6 +38,7 @@ namespace Game
         {
             Lua.UnregisterFunction("IsPlayer");
             Lua.UnregisterFunction("SetPlayer");
+            Lua.UnregisterFunction("UnlockOutfit");
             Lua.UnregisterFunction("Masculine");
             Lua.UnregisterFunction("Feminine");
             foreach (string functionName in CheckFunctions)
@@ -55,6 +57,44 @@ namespace Game
                 PlayerCharacter.Current.SetActiveByName(actorName);
             else
                 Debug.LogWarning($"[DialogueLuaRegistrar] SetPlayer('{actorName}') called but there's no active PlayerCharacter.");
+        }
+
+        // UnlockOutfit("Erin Quennell", "Overcoat") - makes that outfit selectable in the outfit menu.
+        public void UnlockOutfit(string characterName, string outfitName)
+        {
+            PlayerCharacter player = PlayerCharacter.Current;
+            if (player == null)
+            {
+                Debug.LogWarning($"[DialogueLuaRegistrar] UnlockOutfit('{characterName}', '{outfitName}') called but there's no active PlayerCharacter.");
+                return;
+            }
+
+            CharacterData character = player.OptionByName(characterName);
+            if (character == null)
+            {
+                Debug.LogWarning($"[DialogueLuaRegistrar] UnlockOutfit: no player character named '{characterName}'.");
+                return;
+            }
+
+            OutfitData outfit = FindOutfit(character, outfitName);
+            if (outfit == null)
+            {
+                Debug.LogWarning($"[DialogueLuaRegistrar] UnlockOutfit: no outfit named '{outfitName}' in {character.DisplayName}'s wardrobe.");
+                return;
+            }
+
+            Outfits.Unlock(character, outfit);
+        }
+
+        private static OutfitData FindOutfit(CharacterData character, string outfitName)
+        {
+            Wardrobe wardrobe = character.Wardrobe;
+            if (wardrobe == null)
+                return null;
+            foreach (OutfitData outfit in wardrobe.Outfits)
+                if (outfit != null && (outfit.DisplayName == outfitName || outfit.name == outfitName))
+                    return outfit;
+            return null;
         }
 
         // Effective values in 0..10 to compare, not dice rolls - e.g. Feminine() >= 7.

@@ -7,6 +7,7 @@ namespace Game
     public static class Outfits
     {
         private static readonly Dictionary<CharacterData, OutfitData> equipped = new();
+        private static readonly Dictionary<CharacterData, HashSet<OutfitData>> unlocked = new();
 
         public static event Action<CharacterData> Changed;
 
@@ -15,7 +16,35 @@ namespace Game
         private static void ResetState()
         {
             equipped.Clear();
+            unlocked.Clear();
             Changed = null;
+        }
+
+        // A character's default outfit is always available; everything else must be unlocked by script.
+        public static bool IsUnlocked(CharacterData character, OutfitData outfit)
+        {
+            if (character == null || outfit == null)
+                return false;
+            if (outfit == character.DefaultOutfit)
+                return true;
+            return unlocked.TryGetValue(character, out HashSet<OutfitData> set) && set.Contains(outfit);
+        }
+
+        public static void Unlock(CharacterData character, OutfitData outfit)
+        {
+            if (character == null || outfit == null)
+                return;
+
+            if (!unlocked.TryGetValue(character, out HashSet<OutfitData> set))
+            {
+                set = new HashSet<OutfitData>();
+                unlocked[character] = set;
+            }
+            if (!set.Add(outfit))
+                return;
+
+            Debug.Log($"[Outfits] Unlocked {outfit.DisplayName} for {character.DisplayName}.");
+            Changed?.Invoke(character);
         }
 
         public static OutfitData GetEquipped(CharacterData character)

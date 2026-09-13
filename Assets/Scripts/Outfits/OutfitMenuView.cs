@@ -136,7 +136,7 @@ namespace Game
                 current = character.DefaultOutfit;
 
             foreach (OutfitData outfit in wardrobe.Outfits)
-                if (outfit != null)
+                if (outfit != null && Outfits.IsUnlocked(character, outfit))
                     AddOutfitButton(character, outfit, outfit == current);
         }
 
