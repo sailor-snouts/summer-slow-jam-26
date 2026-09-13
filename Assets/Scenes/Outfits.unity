@@ -369,7 +369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f3bab0d6989224bafdd628aee24958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.OutfitMenuView
-  wardrobe: {fileID: 11400000, guid: a7b78dc16368f0743bf2c1b97c9dba16, type: 2}
   statsContainer: {fileID: 556063344}
   previewImage: {fileID: 2098624009}
   previewName: {fileID: 719528506}
@@ -1438,7 +1437,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1448,10 +1447,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 172fc6f8b7b8ce444a300bf80e2d750e, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8264dc14707d90746b99681e0df61c73, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 172fc6f8b7b8ce444a300bf80e2d750e, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: b0a8bf3e520c4724caaca7790db27c3c, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1476,15 +1475,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15, g: 0.17, b: 0.22, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b0a8bf3e520c4724caaca7790db27c3c, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
