@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 5443033546367196784}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.45824, y: -7.01189, z: -10}
+  m_LocalPosition: {x: -7.61824, y: -7.28189, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -303,10 +303,10 @@ MonoBehaviour:
   Composition:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
-      Enabled: 1
+      Enabled: 0
       Size: {x: 0.5, y: 0.5}
     HardLimits:
-      Enabled: 1
+      Enabled: 0
       Size: {x: 0.9, y: 0.9}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
