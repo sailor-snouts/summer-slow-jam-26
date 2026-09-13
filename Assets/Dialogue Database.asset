@@ -9350,7 +9350,7 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 41
         destinationConversationID: 5
-        destinationDialogueID: 37
+        destinationDialogueID: 38
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -9394,6 +9394,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: EventGuid
+        value: 6f464d7f-7260-457c-9024-34d64e09459a
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -9409,13 +9413,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 533.9851
+        x: 534.82904
         y: 1930.8969
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1.03
+    canvasScrollPosition: {x: 156.297, y: 1183.901}
+    canvasZoom: 0.7900001
   - id: 6
     fields:
     - title: Title
