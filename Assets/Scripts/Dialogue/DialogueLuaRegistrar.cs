@@ -120,23 +120,23 @@ namespace Game
         public double Feminine() => Outfits.EffectiveFeminine(PlayerCharacter.CurrentData);
 
         // One method per stat and per category so each is its own Conditions dropdown entry.
-        public double DriveCheck(double count, double sides) => SkillCheck.Roll(Stat.Drive, (int)count, (int)sides, showRoll: true);
-        public double WillpowerCheck(double count, double sides) => SkillCheck.Roll(Stat.Willpower, (int)count, (int)sides, showRoll: true);
-        public double ObservationCheck(double count, double sides) => SkillCheck.Roll(Stat.Observation, (int)count, (int)sides, showRoll: true);
-        public double EmpathyCheck(double count, double sides) => SkillCheck.Roll(Stat.Empathy, (int)count, (int)sides, showRoll: true);
+        public double DriveCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Drive, (int)count, (int)sides, showRoll: showUi);
+        public double WillpowerCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Willpower, (int)count, (int)sides, showRoll: showUi);
+        public double ObservationCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Observation, (int)count, (int)sides, showRoll: showUi);
+        public double EmpathyCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Empathy, (int)count, (int)sides, showRoll: showUi);
 
-        public double VigorCheck(double count, double sides) => SkillCheck.Roll(Stat.Vigor, (int)count, (int)sides, showRoll: true);
-        public double EnduranceCheck(double count, double sides) => SkillCheck.Roll(Stat.Endurance, (int)count, (int)sides, showRoll: true);
-        public double AgilityCheck(double count, double sides) => SkillCheck.Roll(Stat.Agility, (int)count, (int)sides, showRoll: true);
-        public double TechniqueCheck(double count, double sides) => SkillCheck.Roll(Stat.Technique, (int)count, (int)sides, showRoll: true);
+        public double VigorCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Vigor, (int)count, (int)sides, showRoll: showUi);
+        public double EnduranceCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Endurance, (int)count, (int)sides, showRoll: showUi);
+        public double AgilityCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Agility, (int)count, (int)sides, showRoll: showUi);
+        public double TechniqueCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Technique, (int)count, (int)sides, showRoll: showUi);
 
-        public double CharmCheck(double count, double sides) => SkillCheck.Roll(Stat.Charm, (int)count, (int)sides, showRoll: true);
-        public double TauntCheck(double count, double sides) => SkillCheck.Roll(Stat.Taunt, (int)count, (int)sides, showRoll: true);
-        public double BonhomieCheck(double count, double sides) => SkillCheck.Roll(Stat.Bonhomie, (int)count, (int)sides, showRoll: true);
-        public double HostilityCheck(double count, double sides) => SkillCheck.Roll(Stat.Hostility, (int)count, (int)sides, showRoll: true);
+        public double CharmCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Charm, (int)count, (int)sides, showRoll: showUi);
+        public double TauntCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Taunt, (int)count, (int)sides, showRoll: showUi);
+        public double BonhomieCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Bonhomie, (int)count, (int)sides, showRoll: showUi);
+        public double HostilityCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(Stat.Hostility, (int)count, (int)sides, showRoll: showUi);
 
-        public double BrainCheck(double count, double sides) => SkillCheck.Roll(StatCategory.Brain, (int)count, (int)sides, showRoll: true);
-        public double BrawnCheck(double count, double sides) => SkillCheck.Roll(StatCategory.Brawn, (int)count, (int)sides, showRoll: true);
-        public double BeautyCheck(double count, double sides) => SkillCheck.Roll(StatCategory.Beauty, (int)count, (int)sides, showRoll: true);
+        public double BrainCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(StatCategory.Brain, (int)count, (int)sides, showRoll: showUi);
+        public double BrawnCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(StatCategory.Brawn, (int)count, (int)sides, showRoll: showUi);
+        public double BeautyCheck(double count, double sides, bool showUi = false) => SkillCheck.Roll(StatCategory.Beauty, (int)count, (int)sides, showRoll: showUi);
     }
 }

@@ -1068,7 +1068,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: DriveCheck(2, 6) >= 4
+      conditionsString: DriveCheck(2, 6, false) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1684,7 +1684,7 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(1, 6) >= 6
+      conditionsString: WillpowerCheck(1, 6, false) >= 6
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2074,7 +2074,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: DriveCheck(2, 6) >= 16
+      conditionsString: DriveCheck(2, 6, false) >= 16
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2358,7 +2358,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: HostilityCheck(1, 6) >= 7
+      conditionsString: HostilityCheck(1, 6, false) >= 7
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2580,7 +2580,7 @@ MonoBehaviour:
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6) >= 6
+      conditionsString: ObservationCheck(1, 6, false) >= 6
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2904,7 +2904,7 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(1, 6) >= 3
+      conditionsString: WillpowerCheck(1, 6, false) >= 3
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3033,7 +3033,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: VigorCheck(2, 6) >= 12
+      conditionsString: VigorCheck(2, 6, false) >= 12
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3100,7 +3100,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: BonhomieCheck(2, 6) >= 10
+      conditionsString: BonhomieCheck(2, 6, false) >= 10
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3167,7 +3167,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: TauntCheck(2, 6) >= 11
+      conditionsString: TauntCheck(2, 6, false) >= 11
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -4010,7 +4010,7 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: EmpathyCheck(1, 6) >= 8
+      conditionsString: EmpathyCheck(1, 6, false) >= 8
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -4127,7 +4127,7 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: EnduranceCheck(1, 6) >= 7
+      conditionsString: EnduranceCheck(1, 6, false) >= 7
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -4243,7 +4243,7 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      conditionsString: CharmCheck(2, 6) >= 12
+      conditionsString: CharmCheck(2, 6, false) >= 12
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -4414,7 +4414,7 @@ MonoBehaviour:
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
-      conditionsString: AgilityCheck(2, 6) >= 11
+      conditionsString: AgilityCheck(2, 6, false) >= 11
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5701,7 +5701,7 @@ MonoBehaviour:
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(1, 6) >= 4
+      conditionsString: WillpowerCheck(1, 6, false) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5814,7 +5814,7 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: DriveCheck(1, 6) >= 3
+      conditionsString: DriveCheck(1, 6, false) >= 3
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5869,7 +5869,7 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: TechniqueCheck(1, 6) >= 4
+      conditionsString: TechniqueCheck(1, 6, false) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5925,7 +5925,7 @@ MonoBehaviour:
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      conditionsString: EnduranceCheck(1, 6) >= 4
+      conditionsString: EnduranceCheck(1, 6, false) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6386,7 +6386,7 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6) >= 4
+      conditionsString: ObservationCheck(1, 6, false) >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6441,7 +6441,7 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      conditionsString: TauntCheck(1, 6) >= 7
+      conditionsString: TauntCheck(1, 6, false) >= 7
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7209,7 +7209,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6) >= 5
+      conditionsString: ObservationCheck(1, 6, false) >= 5
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7711,7 +7711,7 @@ MonoBehaviour:
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      conditionsString: AgilityCheck(1, 6) >= 8
+      conditionsString: AgilityCheck(1, 6, false) >= 8
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8178,7 +8178,7 @@ MonoBehaviour:
         destinationDialogueID: 22
         isConnector: 0
         priority: 2
-      conditionsString: CharmCheck(2, 6) >= 12
+      conditionsString: CharmCheck(2, 6, false) >= 12
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8698,7 +8698,7 @@ MonoBehaviour:
         destinationDialogueID: 36
         isConnector: 0
         priority: 2
-      conditionsString: CharmCheck(1, 6) >= 7
+      conditionsString: CharmCheck(1, 6, false) >= 7
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8753,7 +8753,7 @@ MonoBehaviour:
         destinationDialogueID: 36
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(2, 6) >= 10
+      conditionsString: WillpowerCheck(2, 6, false) >= 10
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9814,7 +9814,7 @@ MonoBehaviour:
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(2, 6) >= 8
+      conditionsString: ObservationCheck(2, 6, false) >= 8
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9986,7 +9986,7 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: TechniqueCheck(2, 6) >= 9
+      conditionsString: TechniqueCheck(2, 6, false) >= 9
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -10158,7 +10158,7 @@ MonoBehaviour:
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6) >= 9
+      conditionsString: ObservationCheck(1, 6, false) >= 9
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -10612,7 +10612,7 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      conditionsString: EnduranceCheck(2, 6) >= 10
+      conditionsString: EnduranceCheck(2, 6, false) >= 10
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -10787,7 +10787,7 @@ MonoBehaviour:
         destinationDialogueID: 23
         isConnector: 0
         priority: 2
-      conditionsString: VigorCheck(1, 6) >= 9
+      conditionsString: VigorCheck(1, 6, false) >= 9
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -11517,7 +11517,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: HostilityCheck(2, 6) >= 20
+      conditionsString: HostilityCheck(2, 6, false) >= 20
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -12536,7 +12536,7 @@ MonoBehaviour:
         destinationDialogueID: 31
         isConnector: 0
         priority: 2
-      conditionsString: EmpathyCheck(2, 6) >= 9
+      conditionsString: EmpathyCheck(2, 6, false) >= 9
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -12646,7 +12646,7 @@ MonoBehaviour:
         destinationDialogueID: 31
         isConnector: 0
         priority: 2
-      conditionsString: DriveCheck(2, 6) >= 12
+      conditionsString: DriveCheck(2, 6, false) >= 12
       userScript: 
       onExecute:
         m_PersistentCalls:

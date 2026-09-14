@@ -23,49 +23,49 @@ MonoBehaviour:
     parameters:
     returnValue: 2
   - functionName: Game/DriveCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/WillpowerCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/ObservationCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/EmpathyCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/VigorCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/EnduranceCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/AgilityCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/TechniqueCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/CharmCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/TauntCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/BonhomieCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/HostilityCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/BrainCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/BrawnCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   - functionName: Game/BeautyCheck
-    parameters: 0100000001000000
+    parameters: 010000000100000000000000
     returnValue: 2
   scriptFunctions:
   - functionName: Game/SetPlayer
