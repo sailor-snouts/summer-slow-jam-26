@@ -77,8 +77,9 @@ namespace Game
 
             int count = Physics2D.CircleCast(castOrigin, castRadius, facing, filter, hits, castLength);
 
+            Vector2 playerPos = transform.position;
             IInteractable best = null;
-            float bestDistance = float.MaxValue;
+            float bestSqr = float.MaxValue;
 
             for (int i = 0; i < count; i++)
             {
@@ -90,10 +91,13 @@ namespace Game
                 if (interactable == null)
                     continue;
 
-                if (hit.distance < bestDistance)
+                // Of everything in the facing sweep, pick the one physically closest to the player
+                // (distance to its collider), not the smallest cast-ray distance.
+                float sqr = ((Vector2)hit.collider.ClosestPoint(playerPos) - playerPos).sqrMagnitude;
+                if (sqr < bestSqr)
                 {
                     best = interactable;
-                    bestDistance = hit.distance;
+                    bestSqr = sqr;
                 }
             }
 
