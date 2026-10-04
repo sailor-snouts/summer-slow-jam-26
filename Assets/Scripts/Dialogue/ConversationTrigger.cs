@@ -7,6 +7,10 @@ namespace Game
     // our interaction calls TryStart directly.
     public abstract class ConversationTrigger : DialogueSystemTrigger, IInteractable
     {
+        protected virtual string DefaultVerb => "interact";
+
+        public string InteractVerb => DefaultVerb;
+
         public void Interact(Transform initiator)
         {
             if (DialogueManager.isConversationActive)

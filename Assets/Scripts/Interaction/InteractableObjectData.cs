@@ -13,9 +13,14 @@ namespace Game
         [ConversationPopup]
         [SerializeField] private string conversation;
 
+        [Tooltip("Verb shown in the control hint (e.g. 'look at mirror'). Blank uses 'interact'.")]
+        [SerializeField] private string interactVerb;
+
         public Sprite Sprite => sprite;
 
         public string Conversation => conversation;
+
+        public string InteractVerb => interactVerb;
 
 #if UNITY_EDITOR
         // Editing this asset (e.g. swapping its sprite) doesn't fire OnValidate on the scene

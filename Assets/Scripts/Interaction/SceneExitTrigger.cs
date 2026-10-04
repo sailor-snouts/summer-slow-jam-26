@@ -9,21 +9,26 @@ namespace Game
 {
     [RequireComponent(typeof(Collider2D))]
     [DisallowMultipleComponent]
-    public class SceneExitTrigger : MonoBehaviour
+    public class SceneExitTrigger : MonoBehaviour, IInteractable
     {
         [SerializeField]
 #if ODIN_INSPECTOR
         [ValueDropdown(nameof(GetSceneNames))]
 #endif
-        [Tooltip("Scene to load when the player enters, picked from Build Settings.")]
+        [Tooltip("Scene to load when the player interacts, picked from Build Settings.")]
         private string scene;
+
+        [SerializeField, Tooltip("Name of the place this leads to, shown in the hint: 'go to <zone>'.")]
+        private string zoneName;
 
         [SerializeField, Tooltip("Which entrance (SceneEntrance id) in the target scene to place the player at. Leave blank to use that scene's authored player position.")]
         private string entranceId;
 
         private bool triggered;
 
-        // Newly added colliders start as triggers - a doorway shouldn't block the player.
+        public string InteractVerb => string.IsNullOrEmpty(zoneName) ? "enter" : $"go to {zoneName}";
+
+        // Collider is a trigger so it doesn't block the player and the interaction cast can still hit it.
         private void Reset()
         {
             Collider2D col = GetComponent<Collider2D>();
@@ -31,12 +36,10 @@ namespace Game
                 col.isTrigger = true;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        public void Interact(Transform initiator)
         {
             if (triggered)
                 return;
-            if (other.GetComponentInParent<PlayerCharacter>() == null)
-                return; // only the player changes the scene
 
             if (string.IsNullOrEmpty(scene))
             {
@@ -49,7 +52,7 @@ namespace Game
                 return;
             }
 
-            triggered = true; // guard against re-entering the trigger before the load completes
+            triggered = true; // guard against a second interaction before the load completes
             SceneTransition.PendingEntrance = entranceId;
             MenuSceneRouter.Load(scene);
         }

@@ -26,6 +26,11 @@ namespace Game
         private ContactFilter2D filter;
         private readonly RaycastHit2D[] hits = new RaycastHit2D[16];
 
+        // The interact verb to hint right now ("talk"), or null when nothing is in reach. The key is
+        // drawn as an animated icon in the HUD, so only the verb travels here. Raised when it changes.
+        public static string CurrentVerb { get; private set; }
+        public static event System.Action<string> HintChanged;
+
         private void Awake()
         {
             mover = GetComponent<Mover>();
@@ -35,18 +40,36 @@ namespace Game
 
         private void Update()
         {
+            UpdateHint();
+
             if (PlayerInput.Locked)
                 return; // can't start another interaction while a conversation is up
 
             if (Keyboard.current != null && Keyboard.current[interactKey].wasPressedThisFrame)
-                TryInteract();
+                FindBest()?.Interact(transform);
         }
 
-        private void TryInteract()
+        private void OnDisable() => SetHint(null);
+
+        private void UpdateHint()
+        {
+            IInteractable best = PlayerInput.Locked ? null : FindBest();
+            SetHint(best != null ? best.InteractVerb : null);
+        }
+
+        private static void SetHint(string verb)
+        {
+            if (verb == CurrentVerb)
+                return;
+            CurrentVerb = verb;
+            HintChanged?.Invoke(verb);
+        }
+
+        private IInteractable FindBest()
         {
             Vector2 facing = mover.Facing;
             if (facing.sqrMagnitude < 1e-6f)
-                return; // no facing established yet
+                return null; // no facing established yet
             facing.Normalize();
 
             Vector2 castOrigin = (Vector2)transform.position + facing * startDistance;
@@ -74,7 +97,7 @@ namespace Game
                 }
             }
 
-            best?.Interact(transform);
+            return best;
         }
 
 #if UNITY_EDITOR

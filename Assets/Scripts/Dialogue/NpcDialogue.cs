@@ -5,6 +5,16 @@ namespace Game
     [RequireComponent(typeof(Character))]
     public class NpcDialogue : ConversationTrigger
     {
+        protected override string DefaultVerb
+        {
+            get
+            {
+                Character character = GetComponent<Character>();
+                string displayName = character != null ? character.Name : null;
+                return string.IsNullOrEmpty(displayName) ? "talk" : $"talk to {displayName}";
+            }
+        }
+
         protected override string GetConversation()
         {
             Character character = GetComponent<Character>();
