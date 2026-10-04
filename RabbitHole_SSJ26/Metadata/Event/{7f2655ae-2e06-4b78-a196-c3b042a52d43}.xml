@@ -5,7 +5,7 @@
 			<value>SFX_UI_Select</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{5efcbda6-8454-4f02-b5f5-f9dd4a96c590}</destination>
