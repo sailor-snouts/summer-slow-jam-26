@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b968316fe8416514ea7cb0a46279560f
+guid: c98e2a79aece2094795a944cb55ce3e1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4966501498252269072
-    second: rh_bathroom_render_final_0
+      213: -540584360406168867
+    second: rh_bathroom_render_final3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rh_bathroom_render_final_0
+      name: rh_bathroom_render_final3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 1280
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01695cb8cce8ce440800000000000000
-      internalID: 4966501498252269072
+      spriteID: ddacbda63657f78f0800000000000000
+      internalID: -540584360406168867
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rh_bathroom_render_final_0: 4966501498252269072
+      rh_bathroom_render_final3_0: -540584360406168867
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

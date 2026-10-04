@@ -12,6 +12,9 @@ namespace Game
         [SerializeField, Tooltip("Layers that block movement - walls and other characters.")]
         private LayerMask blockingLayers = ~0;
 
+        [SerializeField, Tooltip("Keep this mover inside the scene's WalkableArea. Turn off for NPCs that walk out through doorways.")]
+        private bool confineToWalkableArea = true;
+
         // Small gap kept from surfaces so the cast doesn't start already overlapping.
         private const float Skin = 0.02f;
 
@@ -51,7 +54,12 @@ namespace Game
             Vector2 velocity = Vector2.ClampMagnitude(MoveDirection, 1f) * moveSpeed;
             Vector2 delta = velocity * Time.fixedDeltaTime;
             if (delta != Vector2.zero)
-                body.MovePosition(body.position + CollideAndSlide(delta));
+            {
+                Vector2 target = body.position + CollideAndSlide(delta);
+                if (confineToWalkableArea && WalkableArea.Current != null)
+                    target = WalkableArea.Current.Clamp(target);
+                body.MovePosition(target);
+            }
 
             UpdateFacing();
         }
