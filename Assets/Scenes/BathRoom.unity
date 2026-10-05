@@ -1047,22 +1047,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4751703715797009123, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: castRadius
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4751703715797009123, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: minFacingDot
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4751703715797009123, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: interactRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7357251913294822223, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
-      propertyPath: m_SortingOrder
-      value: 127
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
