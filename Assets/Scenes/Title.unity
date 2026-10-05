@@ -1247,8 +1247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &618913356
@@ -1555,8 +1553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &956722319
@@ -1849,8 +1845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &1382787540
@@ -2019,8 +2013,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &1384843748
@@ -2218,8 +2210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &1640931697
@@ -2375,8 +2365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &1646950564
@@ -2495,7 +2483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1700826733
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2511,9 +2499,9 @@ RectTransform:
   - {fileID: 501517544}
   m_Father: {fileID: 538659862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -220}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 360, y: 72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700826734
@@ -2546,8 +2534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &1700826736
@@ -2569,7 +2555,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2579,10 +2565,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 172fc6f8b7b8ce444a300bf80e2d750e, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8264dc14707d90746b99681e0df61c73, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 172fc6f8b7b8ce444a300bf80e2d750e, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: b0a8bf3e520c4724caaca7790db27c3c, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2607,15 +2593,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15, g: 0.17, b: 0.22, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b0a8bf3e520c4724caaca7790db27c3c, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

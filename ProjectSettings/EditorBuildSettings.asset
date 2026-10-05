@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Bar.unity
     guid: 2adc547d268a1394c9888ac821a5cda3
   - enabled: 1
-    path: Assets/Scenes/Bathroom.unity
+    path: Assets/Scenes/BathRoom.unity
     guid: a7cf03aca78ec6142a12f5cff0a3a236
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: d433c0600390601479c6708ed8479571
-  - enabled: 1
+  - enabled: 0
     path: Assets/Features/Core/Scenes/Credits.unity
     guid: a78e098d510d723468d0b03df9abb177
   - enabled: 1
