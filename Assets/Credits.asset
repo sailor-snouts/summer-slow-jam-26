@@ -15,22 +15,15 @@ MonoBehaviour:
   rolePrefab: {fileID: 8421986006683320743, guid: 07b54ab21c81d0743a263ee10c05c2a2, type: 3}
   namesPrefab: {fileID: 7799451861512841692, guid: e8adaf3b7e83899488f5cabc25ba59fb, type: 3}
   sections:
-  - role: Design
+  - role: Ace Naomi Luke (she/her)
     names:
-    - Ace Luke
-  - role: Art
+    - Game Designer, Writer, Audio Designer
+  - role: Robert Parker (they/them)
     names:
-    - meowve
-    - Jessica Jansen
-  - role: Animation
+    - Programmer
+  - role: Jessica Jansen (she/her)
     names:
-    - Jessica Jansen
-  - role: Programming
+    - Character Artist & Animator
+  - role: Maeve (they/them)
     names:
-    - Robert Parker
-  - role: Music & Sound
-    names:
-    - Ace Luke
-  - role: Writing
-    names:
-    - Ace Luke
+    - Environmental Artist + Skill Portrait Artist
