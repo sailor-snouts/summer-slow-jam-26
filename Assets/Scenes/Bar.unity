@@ -1735,6 +1735,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Path
+      value: event:/SFX_UI_Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Guid.Data1
+      value: 2133218734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Guid.Data2
+      value: 1266167302
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Guid.Data3
+      value: -1329359199
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Guid.Data4
+      value: 1127064898
+      objectReference: {fileID: 0}
     - target: {fileID: 5763613982075389844, guid: 571126c19f51ec64b9580287e026282d, type: 3}
       propertyPath: m_Name
       value: Fmod Audio Manager

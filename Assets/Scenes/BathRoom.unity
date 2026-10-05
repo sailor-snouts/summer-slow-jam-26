@@ -212,6 +212,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
+--- !u!1 &356308150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3020953466918203816, guid: a45630bc515565048a7763dd21d00099, type: 3}
+  m_PrefabInstance: {fileID: 2116187036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +934,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Path
+      value: event:/SFX_UI_Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Guid.Data1
+      value: 2133218734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Guid.Data2
+      value: 1266167302
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Guid.Data3
+      value: -1329359199
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiClickEvent.Guid.Data4
+      value: 1127064898
+      objectReference: {fileID: 0}
     - target: {fileID: 5763613982075389844, guid: 571126c19f51ec64b9580287e026282d, type: 3}
       propertyPath: m_Name
       value: Fmod Audio Manager
@@ -950,6 +975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dice Roller
       objectReference: {fileID: 0}
+    - target: {fileID: 5956056243557673940, guid: a45630bc515565048a7763dd21d00099, type: 3}
+      propertyPath: hudPrefab
+      value: 
+      objectReference: {fileID: 356308150}
     - target: {fileID: 8441292850374675125, guid: a45630bc515565048a7763dd21d00099, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1062,11 +1091,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 74706131305687436, guid: 5b0867cdb46f6bf4d9d88720fb7b28c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.61824
+      value: -7.09824
       objectReference: {fileID: 0}
     - target: {fileID: 74706131305687436, guid: 5b0867cdb46f6bf4d9d88720fb7b28c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.28189
+      value: -10.551889
       objectReference: {fileID: 0}
     - target: {fileID: 2170735349073886118, guid: 5b0867cdb46f6bf4d9d88720fb7b28c1, type: 3}
       propertyPath: m_LocalPosition.x
