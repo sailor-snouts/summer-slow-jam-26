@@ -212,11 +212,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
---- !u!1 &356308150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3020953466918203816, guid: a45630bc515565048a7763dd21d00099, type: 3}
-  m_PrefabInstance: {fileID: 2116187036}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +973,7 @@ PrefabInstance:
     - target: {fileID: 5956056243557673940, guid: a45630bc515565048a7763dd21d00099, type: 3}
       propertyPath: hudPrefab
       value: 
-      objectReference: {fileID: 356308150}
+      objectReference: {fileID: 2683228624124210630, guid: c78add6346af5a041a358b039d3b6db6, type: 3}
     - target: {fileID: 8441292850374675125, guid: a45630bc515565048a7763dd21d00099, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

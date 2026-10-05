@@ -7547,6 +7547,12 @@ MonoBehaviour:
         destinationDialogueID: 45
         isConnector: 0
         priority: 2
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -7554,8 +7560,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 308.6667
-        y: 84.66667
+        x: 661.131
+        y: 67.96318
         width: 160
         height: 30
     - id: 1
@@ -7608,15 +7614,16 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["FemFitNeed"] == false or IsPlayer("Ethan Hermann
+        Jr.")  == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 309.33334
-        y: 163.33336
+        x: 197.09708
+        y: 189.49373
         width: 160
         height: 30
     - id: 2
@@ -7792,14 +7799,15 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: Variable["isErin"] == true and (Variable["isEthan"] == false)
+      conditionsString: Variable["isErin"] == true and Variable["DawnInParty"] ==
+        false
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 742.6668
+        x: 740.979
         y: 330.0001
         width: 160
         height: 30
@@ -8877,8 +8885,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 683.3333
-        y: 1232.1962
+        x: 692.616
+        y: 1162.9978
         width: 160
         height: 30
     - id: 25
@@ -9220,7 +9228,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 608.0053
+        x: 608.8492
         y: 1401.8202
         width: 160
         height: 30
@@ -9438,11 +9446,11 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 34
         destinationConversationID: 5
-        destinationDialogueID: 25
+        destinationDialogueID: 33
         isConnector: 0
         priority: 2
-      conditionsString: (Variable["FemFitNeed"] == true) and (Variable["FemFitFound"]
-        == true) and (Variable["isErin"] == true)
+      conditionsString: (Variable["FemFitNeed"] == true) and (IsPlayer("Erin Quennell") 
+        == true)  and Variable["DawnInParty"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9531,7 +9539,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: So, you wanna join Volo Inanis Liberatio, but first, self-intros.
+        value: So, you wanna join Nullum Genus Fati, but first, self-intros.
         type: 0
         typeString: 
       - title: Sequence
@@ -9559,7 +9567,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 549.69916
+        x: 550.543
         y: 1591.6333
         width: 160
         height: 30
@@ -9941,8 +9949,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1011.6201
-        y: 218.211
+        x: 1289.0391
+        y: 203.15729
         width: 160
         height: 30
     - id: 44
@@ -9991,8 +9999,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1242.8436
-        y: 219.89876
+        x: 1520.2626
+        y: 205.68892
         width: 160
         height: 30
     - id: 45
@@ -10041,12 +10049,12 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1478.2866
-        y: 214.83537
+        x: 1755.7056
+        y: 199.78166
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1.6877441, y: 1269.1978}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.7900002
   - id: 6
     fields:
@@ -10203,8 +10211,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: (Actor["Ethan_Hermann_Jr."].IsPlayer == true) or (Actor["Erin_Quennell"].IsPlayer
-        == true)
+      conditionsString: Variable["ObtainDress"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -11690,9 +11697,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: '(Variable["ObtainDress"] == true) and (Actor["Ethan_Hermann_Jr."].IsPlayer
-        == true) or (Variable["ObtainDress"] == true) and (Actor["Erin_Quennell"].IsPlayer
-        == true) '
+      conditionsString: Variable["ObtainDress"] == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -11700,12 +11705,12 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 537.1571
-        y: 82.749146
+        y: 82.06186
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 8.934692, y: 0}
+    canvasZoom: 0.97
   - id: 7
     fields:
     - title: Title
@@ -11890,8 +11895,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: (IsPlayer("Ethan Hermann Jr.")  == true) or (IsPlayer("Erin
-        Quennell")  == true)
+      conditionsString: Variable["DawnInParty"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -11899,7 +11903,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 173.80466
-        y: 97.132065
+        y: 96.25488
         width: 160
         height: 30
     - id: 2
@@ -12381,22 +12385,16 @@ MonoBehaviour:
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      - originConversationID: 7
-        originDialogueID: 10
-        destinationConversationID: 7
-        destinationDialogueID: 17
-        isConnector: 0
-        priority: 2
-      conditionsString: (Feminine() >= 8) and (Actor["Erin_Quennell"].IsPlayer ==
-        true) and (Variable["DawnInParty"] == true) and (Feminine() >= 8)
+      conditionsString: Actor["Erin_Quennell"].IsPlayer == true and Variable["DawnInParty"]
+        == true and Feminine() >= 8
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 993.3128
-        y: 106.415085
+        x: 981.03217
+        y: 130.09926
         width: 160
         height: 30
     - id: 11
@@ -12754,7 +12752,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Sir, please, she's with me. She's wanting to join VIL. Is this really
+        value: Sir, please, she's with me. She's wanting to join NUL. Is this really
           necessary?
         type: 0
         typeString: 
@@ -13949,8 +13947,8 @@ MonoBehaviour:
         destinationDialogueID: 42
         isConnector: 0
         priority: 2
-      conditionsString: (Feminine() >= 8) and (Actor["Erin_Quennell"].IsPlayer ==
-        true) and (Variable["DawnInParty"] == true) and (Feminine() <= 8)
+      conditionsString: Variable["DawnInParty"] == true and IsPlayer("Erin Quennell") 
+        == true and Feminine() <= 8
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -14054,8 +14052,8 @@ MonoBehaviour:
         destinationDialogueID: 44
         isConnector: 0
         priority: 2
-      conditionsString: Variable["DawnInParty"] == true and (IsPlayer("Ethan Hermann
-        Jr.")  == true) and (Feminine() <= 5)
+      conditionsString: Variable["DawnInParty"] == true and IsPlayer("Ethan Hermann
+        Jr.")  == true and Feminine() < 5
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -14138,7 +14136,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: ...
         type: 0
         typeString: 
       - title: Sequence
@@ -14159,16 +14157,16 @@ MonoBehaviour:
         destinationDialogueID: 46
         isConnector: 0
         priority: 2
-      conditionsString: Variable["DawnInParty"] == true and (IsPlayer("Ethan Hermann
-        Jr.")  == true) and (Feminine() >= 5)
+      conditionsString: Variable["DawnInParty"] == true and IsPlayer("Ethan Hermann
+        Jr."  == true) and Feminine() >= 5
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1928.7028
-        y: 101.00456
+        x: 1923.4395
+        y: 98.37297
         width: 160
         height: 30
     - id: 46
@@ -14222,7 +14220,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 271.27798, y: 752.456}
+    canvasScrollPosition: {x: 739.4735, y: 0}
     canvasZoom: 0.7600002
   syncInfo:
     syncActors: 0
