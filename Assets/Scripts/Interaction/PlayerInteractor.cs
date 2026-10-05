@@ -7,11 +7,8 @@ namespace Game
     [DisallowMultipleComponent]
     public class PlayerInteractor : MonoBehaviour
     {
-        [SerializeField, Range(0f, 5f), Tooltip("Where the swept circle begins, in front of the player.")]
-        private float startDistance = 0.25f;
-
-        [SerializeField, Range(0f, 5f), Tooltip("Where the swept circle ends.")]
-        private float maxDistance = 1.5f;
+        [SerializeField, Range(0f, 5f), Tooltip("How far (world units) the cast reaches in the facing direction.")]
+        private float interactRange = 1.5f;
 
         [SerializeField, Range(0f, 2f), Tooltip("Radius of the swept circle - a fatter sweep is more forgiving to aim.")]
         private float castRadius = 0.4f;
@@ -65,6 +62,7 @@ namespace Game
             HintChanged?.Invoke(verb);
         }
 
+        // Cast in the facing direction and take the first interactable the sweep reaches.
         private IInteractable FindBest()
         {
             Vector2 facing = mover.Facing;
@@ -72,14 +70,10 @@ namespace Game
                 return null; // no facing established yet
             facing.Normalize();
 
-            Vector2 castOrigin = (Vector2)transform.position + facing * startDistance;
-            float castLength = Mathf.Max(0f, maxDistance - startDistance);
+            int count = Physics2D.CircleCast(transform.position, castRadius, facing, filter, hits, interactRange);
 
-            int count = Physics2D.CircleCast(castOrigin, castRadius, facing, filter, hits, castLength);
-
-            Vector2 playerPos = transform.position;
-            IInteractable best = null;
-            float bestSqr = float.MaxValue;
+            IInteractable first = null;
+            float firstDistance = float.MaxValue;
 
             for (int i = 0; i < count; i++)
             {
@@ -87,57 +81,33 @@ namespace Game
                 if (hit.collider == null || hit.collider.transform == transform)
                     continue;
 
-                var interactable = hit.collider.GetComponentInParent<IInteractable>();
+                IInteractable interactable = hit.collider.GetComponentInParent<IInteractable>();
                 if (interactable == null)
                     continue;
 
-                // Of everything in the facing sweep, pick the one physically closest to the player
-                // (distance to its collider), not the smallest cast-ray distance.
-                float sqr = ((Vector2)hit.collider.ClosestPoint(playerPos) - playerPos).sqrMagnitude;
-                if (sqr < bestSqr)
+                if (hit.distance < firstDistance) // first (nearest) hit along the cast
                 {
-                    best = interactable;
-                    bestSqr = sqr;
+                    first = interactable;
+                    firstDistance = hit.distance;
                 }
             }
 
-            return best;
+            return first;
         }
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            Vector2 facing = (Application.isPlaying && mover != null) ? mover.Facing : Vector2.right;
+            Vector2 facing = (Application.isPlaying && mover != null) ? mover.Facing : Vector2.down;
             if (facing.sqrMagnitude < 1e-6f)
-                facing = Vector2.right;
+                facing = Vector2.down;
             facing.Normalize();
 
-            Vector2 start = (Vector2)transform.position + facing * startDistance;
-            float castLength = Mathf.Max(0f, maxDistance - startDistance);
-            Vector2 end = start + facing * castLength;
+            Vector2 start = transform.position;
+            Vector2 end = start + facing * interactRange;
 
-            Vector2 marker = end;
-            bool hitInteractable = false;
-
-            if (Application.isPlaying)
-            {
-                var f = new ContactFilter2D { useTriggers = true };
-                f.SetLayerMask(interactableLayers);
-                int count = Physics2D.CircleCast(start, castRadius, facing, f, hits, castLength);
-                for (int i = 0; i < count; i++)
-                {
-                    RaycastHit2D hit = hits[i];
-                    if (hit.collider == null || hit.collider.transform == transform)
-                        continue;
-                    if (hit.collider.GetComponentInParent<IInteractable>() == null)
-                        continue;
-                    marker = start + facing * hit.distance;
-                    hitInteractable = true;
-                    break;
-                }
-            }
-
-            Gizmos.color = hitInteractable ? Color.green : new Color(1f, 1f, 0f, 0.6f);
+            bool active = Application.isPlaying && !string.IsNullOrEmpty(CurrentVerb);
+            Gizmos.color = active ? Color.green : new Color(1f, 1f, 0f, 0.6f);
             float r = Mathf.Max(0.05f, castRadius);
             Vector2 side = new Vector2(-facing.y, facing.x) * r;
 
@@ -145,8 +115,6 @@ namespace Game
             Gizmos.DrawWireSphere(end, r);
             Gizmos.DrawLine(start + side, end + side);
             Gizmos.DrawLine(start - side, end - side);
-            if (hitInteractable)
-                Gizmos.DrawWireSphere(marker, r);
         }
 #endif
     }

@@ -398,11 +398,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 914078993664735724, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_Size.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 914078993664735724, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1544160350491751843, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_Sprite
@@ -414,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1544160350491751843, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_SortingOrder
-      value: -391
+      value: -147
       objectReference: {fileID: 0}
     - target: {fileID: 1544160350491751843, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -422,11 +422,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.02
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.91
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 2611212168823093054, guid: 58302a2b5f872c14993ed1ac715c0478, type: 3}
       propertyPath: m_LocalPosition.z
@@ -804,7 +804,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1046,6 +1046,18 @@ PrefabInstance:
     - target: {fileID: 3426804198841940271, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751703715797009123, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
+      propertyPath: castRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751703715797009123, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
+      propertyPath: minFacingDot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751703715797009123, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
+      propertyPath: interactRange
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7357251913294822223, guid: 7241cb509cb5f90409f6d5cccbd36fab, type: 3}
       propertyPath: m_SortingOrder
