@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,6 +42,7 @@ namespace Game
         private readonly List<TMP_Text> cells = new List<TMP_Text>();
         private Coroutine showRoutine;
         private Coroutine hideRoutine;
+        private bool pausedDialogue;
 
         private void Awake()
         {
@@ -53,7 +55,12 @@ namespace Game
         }
 
         private void OnEnable() => DiceRoller.Rolled += OnRolled;
-        private void OnDisable() => DiceRoller.Rolled -= OnRolled;
+
+        private void OnDisable()
+        {
+            DiceRoller.Rolled -= OnRolled;
+            ResumeDialogue(); // never leave a conversation paused if the HUD is torn down
+        }
 
         private void OnRolled(DiceRoll roll, string label) => Show(roll, label);
 
@@ -62,6 +69,13 @@ namespace Game
             BuildCells(roll);
             if (labelText != null)
                 labelText.text = string.IsNullOrEmpty(label) ? roll.Total.ToString() : $"{label}: {roll.Total}";
+
+            // Hold the conversation on the current line until the player closes the HUD.
+            if (DialogueManager.isConversationActive && !pausedDialogue)
+            {
+                DialogueManager.Pause();
+                pausedDialogue = true;
+            }
 
             if (hideRoutine != null)
             {
@@ -76,6 +90,8 @@ namespace Game
         // Wired to the close button; also callable from elsewhere.
         public void Hide()
         {
+            ResumeDialogue(); // closing the HUD lets the conversation continue
+
             if (showRoutine != null)
             {
                 StopCoroutine(showRoutine);
@@ -141,6 +157,14 @@ namespace Game
             }
             SetVisible(false);
             hideRoutine = null;
+        }
+
+        private void ResumeDialogue()
+        {
+            if (!pausedDialogue)
+                return;
+            pausedDialogue = false;
+            DialogueManager.Unpause();
         }
 
         private void SetVisible(bool visible)
