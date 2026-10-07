@@ -15,10 +15,32 @@ MonoBehaviour:
   displayName: Overcoat
   description: 
   look:
-    down: {fileID: 21300000, guid: 8e1b42927e7143c408a33031c43bef3e, type: 3}
-    up: {fileID: 21300000, guid: 0acfde572c354d74aafe5f1cab4cfb77, type: 3}
-    left: {fileID: 21300000, guid: a762b64d57cf0ec4b99c7589d44e98fc, type: 3}
-    right: {fileID: 21300000, guid: 7c5a53dae88518641a076b2e4df33aaf, type: 3}
+    down: {fileID: -5467886012910545453, guid: e4f4248ac0f2ebb45a543fb26dcc4a9a, type: 3}
+    up: {fileID: -6299335973327942814, guid: c089a944d57db564bbc811b0b15690bb, type: 3}
+    left: {fileID: 8363959591251127289, guid: 3be1b81d696dd7242812a77fe6d58922, type: 3}
+    right: {fileID: 3186103440384250059, guid: 896f41de933ea434e8c5a77147d3ccf0, type: 3}
+  walk:
+    down:
+    - {fileID: -5467886012910545453, guid: e4f4248ac0f2ebb45a543fb26dcc4a9a, type: 3}
+    - {fileID: 3618982028349851614, guid: e4f4248ac0f2ebb45a543fb26dcc4a9a, type: 3}
+    - {fileID: 7823508837053683393, guid: e4f4248ac0f2ebb45a543fb26dcc4a9a, type: 3}
+    - {fileID: 2919518211478408088, guid: e4f4248ac0f2ebb45a543fb26dcc4a9a, type: 3}
+    up:
+    - {fileID: -6299335973327942814, guid: c089a944d57db564bbc811b0b15690bb, type: 3}
+    - {fileID: -5611043607104687331, guid: c089a944d57db564bbc811b0b15690bb, type: 3}
+    - {fileID: -1964164706776564083, guid: c089a944d57db564bbc811b0b15690bb, type: 3}
+    - {fileID: -6670138807246409591, guid: c089a944d57db564bbc811b0b15690bb, type: 3}
+    left:
+    - {fileID: 8363959591251127289, guid: 3be1b81d696dd7242812a77fe6d58922, type: 3}
+    - {fileID: -9129199619488925308, guid: 3be1b81d696dd7242812a77fe6d58922, type: 3}
+    - {fileID: 2922499174856674429, guid: 3be1b81d696dd7242812a77fe6d58922, type: 3}
+    - {fileID: -9037867830580318391, guid: 3be1b81d696dd7242812a77fe6d58922, type: 3}
+    right:
+    - {fileID: 3186103440384250059, guid: 896f41de933ea434e8c5a77147d3ccf0, type: 3}
+    - {fileID: 8848883878627229800, guid: 896f41de933ea434e8c5a77147d3ccf0, type: 3}
+    - {fileID: -1623049365695032273, guid: 896f41de933ea434e8c5a77147d3ccf0, type: 3}
+    - {fileID: -5238986194887781297, guid: 896f41de933ea434e8c5a77147d3ccf0, type: 3}
+  walkFps: 1
   drive: 0
   willpower: 0
   observation: 0

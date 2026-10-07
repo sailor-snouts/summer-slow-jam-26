@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -20,6 +21,13 @@ namespace Game
 
         [Tooltip("The outfit's worn look, per facing direction. Every character wearing it shows this.")]
         [SerializeField] private DirectionalSprites look;
+
+        [Tooltip("Walk frames per direction. One frame alternates with the standing look; two or more loop as a walk cycle. Empty = that direction just shows the standing look.")]
+        [SerializeField] private DirectionalFrames walk;
+
+        [Tooltip("Walk animation speed in frames per second.")]
+        [FormerlySerializedAs("stepsPerSecond")]
+        [SerializeField, Min(0f)] private float walkFps = 6f;
 
         [SerializeField, Range(MinModifier, MaxModifier)] private int drive;
         [SerializeField, Range(MinModifier, MaxModifier)] private int willpower;
@@ -48,6 +56,10 @@ namespace Game
         public int FeminineModifier => feminine;
 
         public Sprite GetSprite(Facing4 facing) => look.Get(facing);
+
+        public Sprite[] GetWalkFrames(Facing4 facing) => walk.Get(facing);
+
+        public float WalkFps => walkFps;
 
         public int Modifier(Stat stat) => stat switch
         {

@@ -36,6 +36,8 @@ namespace Game
         {
             body = GetComponent<Rigidbody2D>();
             body.bodyType = RigidbodyType2D.Kinematic; // we move it ourselves; no physics push
+            // We move in FixedUpdate but render every frame; interpolate so the sprite doesn't step/stutter.
+            body.interpolation = RigidbodyInterpolation2D.Interpolate;
 
             filter = new ContactFilter2D { useTriggers = false };
             filter.SetLayerMask(blockingLayers);

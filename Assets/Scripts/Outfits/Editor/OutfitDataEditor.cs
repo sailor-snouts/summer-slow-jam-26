@@ -20,6 +20,14 @@ namespace Game
             EditorGUILayout.PropertyField(serializedObject.FindProperty("look.left"), new GUIContent("Left"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("look.right"), new GUIContent("Right"));
 
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Walk frames (by facing, optional)", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("walk.down"), new GUIContent("Down"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("walk.up"), new GUIContent("Up"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("walk.left"), new GUIContent("Left"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("walk.right"), new GUIContent("Right"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("walkFps"), new GUIContent("Walk FPS"));
+
             DrawCategory("Brain", "drive", "willpower", "observation", "empathy");
             DrawCategory("Brawn", "vigor", "endurance", "agility", "technique");
             DrawCategory("Beauty", "charm", "taunt", "bonhomie", "hostility");

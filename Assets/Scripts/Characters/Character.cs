@@ -22,6 +22,9 @@ namespace Game
 
         private Mover mover;
         private Facing4 currentFacing = Facing4.Down;
+        private bool walking;
+        private int walkFrame;
+        private float frameTimer;
 
         public CharacterData Data => data;
 
@@ -39,6 +42,13 @@ namespace Game
                     return null;
                 if (Application.isPlaying)
                 {
+                    if (walking)
+                    {
+                        Sprite frame = CurrentWalkFrame();
+                        if (frame != null)
+                            return frame; // otherwise fall through to the standing sprite
+                    }
+
                     Sprite worn = Outfits.WornSprite(data, currentFacing);
                     if (worn != null)
                         return worn;
@@ -66,21 +76,97 @@ namespace Game
                 ApplyToDialogueActor();
         }
 
+        // The outfit currently on: the equipped one, else the character's default.
+        private OutfitData ActiveOutfit
+        {
+            get
+            {
+                if (data == null)
+                    return null;
+                OutfitData equipped = Outfits.GetEquipped(data);
+                return equipped != null ? equipped : data.DefaultOutfit;
+            }
+        }
+
         protected virtual void Update()
         {
             if (!Application.isPlaying || mover == null)
                 return;
 
             Vector2 move = mover.MoveDirection;
-            if (move.sqrMagnitude < 1e-6f)
-                return;
+            bool nowWalking = move.sqrMagnitude > 1e-6f;
+            bool dirty = false;
 
-            Facing4 next = FromVector(move);
-            if (next != currentFacing)
+            if (nowWalking)
             {
-                currentFacing = next;
-                RefreshSprite();
+                Facing4 next = FromVector(move);
+                if (next != currentFacing)
+                {
+                    currentFacing = next;
+                    ResetWalkCycle(); // a new direction starts its own cycle from the first frame
+                    dirty = true;
+                }
             }
+
+            if (nowWalking != walking)
+            {
+                walking = nowWalking;
+                ResetWalkCycle();
+                dirty = true;
+            }
+
+            if (walking)
+            {
+                OutfitData outfit = ActiveOutfit;
+                int cycle = WalkCycleLength();
+                float fps = outfit != null ? outfit.WalkFps : 0f;
+                if (cycle > 1 && fps > 0f)
+                {
+                    frameTimer += Time.deltaTime;
+                    float frameLength = 1f / fps;
+                    while (frameTimer >= frameLength)
+                    {
+                        frameTimer -= frameLength;
+                        walkFrame = (walkFrame + 1) % cycle;
+                        dirty = true;
+                    }
+                }
+            }
+
+            if (dirty)
+                RefreshSprite();
+        }
+
+        private void ResetWalkCycle()
+        {
+            walkFrame = 0;
+            frameTimer = 0f;
+        }
+
+        private Sprite[] WalkFrames()
+        {
+            OutfitData outfit = ActiveOutfit;
+            return outfit != null ? outfit.GetWalkFrames(currentFacing) : null;
+        }
+
+        // A single walk frame alternates with standing (2 steps); a longer list loops through itself.
+        private int WalkCycleLength()
+        {
+            Sprite[] frames = WalkFrames();
+            if (frames == null || frames.Length == 0)
+                return 0;
+            return frames.Length == 1 ? 2 : frames.Length;
+        }
+
+        // The walk frame to show now, or null to show the standing sprite.
+        private Sprite CurrentWalkFrame()
+        {
+            Sprite[] frames = WalkFrames();
+            if (frames == null || frames.Length == 0)
+                return null;
+            if (frames.Length == 1)
+                return walkFrame % 2 == 0 ? frames[0] : null; // even = step pose, odd = standing
+            return frames[walkFrame % frames.Length];
         }
 
         public void SetFacing(Facing4 facing)
