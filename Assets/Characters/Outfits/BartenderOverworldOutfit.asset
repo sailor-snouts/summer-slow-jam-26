@@ -19,6 +19,12 @@ MonoBehaviour:
     up: {fileID: 21300000, guid: 5e1f41f512436bb438c8ccb78cc1c132, type: 3}
     left: {fileID: 21300000, guid: 5e0b6b0dec1bf7c4a9228047878dd43f, type: 3}
     right: {fileID: 21300000, guid: 5b4d56eac4f5d474a9b43d46fef9db6b, type: 3}
+  walk:
+    down: []
+    up: []
+    left: []
+    right: []
+  walkFps: 12
   drive: 0
   willpower: 0
   observation: 0

@@ -24,7 +24,7 @@ MonoBehaviour:
     up: []
     left: []
     right: []
-  walkFps: 1
+  walkFps: 12
   drive: 0
   willpower: 0
   observation: 0

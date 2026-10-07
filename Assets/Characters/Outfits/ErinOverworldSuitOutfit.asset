@@ -40,7 +40,7 @@ MonoBehaviour:
     - {fileID: 929201426342252723, guid: 1dea7c05bb9f31d4288f712f7c83734d, type: 3}
     - {fileID: 1799821795805293784, guid: 1dea7c05bb9f31d4288f712f7c83734d, type: 3}
     - {fileID: 1873841504252699736, guid: 1dea7c05bb9f31d4288f712f7c83734d, type: 3}
-  walkFps: 1
+  walkFps: 12
   drive: 0
   willpower: 0
   observation: 0

@@ -19,6 +19,12 @@ MonoBehaviour:
     up: {fileID: 0}
     left: {fileID: 0}
     right: {fileID: 0}
+  walk:
+    down: []
+    up: []
+    left: []
+    right: []
+  walkFps: 12
   drive: 0
   willpower: 0
   observation: 0
