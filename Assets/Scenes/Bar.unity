@@ -1736,6 +1736,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: uiVca
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: sfxVca
+      value: vca:/Sfx
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: musicVca
+      value: vca:/Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
+      propertyPath: banks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512907571611408737, guid: 571126c19f51ec64b9580287e026282d, type: 3}
       propertyPath: uiClickEvent.Path
       value: event:/SFX_UI_Select
       objectReference: {fileID: 0}
