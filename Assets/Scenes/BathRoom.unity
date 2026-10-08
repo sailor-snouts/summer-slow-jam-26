@@ -1086,11 +1086,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 74706131305687436, guid: 5b0867cdb46f6bf4d9d88720fb7b28c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.09824
+      value: -7.61824
       objectReference: {fileID: 0}
     - target: {fileID: 74706131305687436, guid: 5b0867cdb46f6bf4d9d88720fb7b28c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.551889
+      value: -7.28189
       objectReference: {fileID: 0}
     - target: {fileID: 2170735349073886118, guid: 5b0867cdb46f6bf4d9d88720fb7b28c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1358,8 +1358,125 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1013559848008511310, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9124936183035110897}
+    - targetCorrespondingSourceObject: {fileID: 7361287694552614588, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9124936183035110896}
+    - targetCorrespondingSourceObject: {fileID: 4898984023432108042, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9124936183035110895}
   m_SourcePrefab: {fileID: 100100000, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+--- !u!1 &9124936183035110892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4898984023432108042, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+  m_PrefabInstance: {fileID: 9124936183035110891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9124936183035110893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7361287694552614588, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+  m_PrefabInstance: {fileID: 9124936183035110891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9124936183035110894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1013559848008511310, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+  m_PrefabInstance: {fileID: 9124936183035110891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9124936183035110895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124936183035110892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &9124936183035110896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124936183035110893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &9124936183035110897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124936183035110894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

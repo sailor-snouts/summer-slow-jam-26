@@ -481,6 +481,8 @@ GameObject:
   - component: {fileID: 1091728047}
   - component: {fileID: 1091728046}
   - component: {fileID: 1091728045}
+  - component: {fileID: 1091728052}
+  - component: {fileID: 1091728051}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -634,6 +636,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091728043}
   m_CullTransparentMesh: 1
+--- !u!114 &1091728051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091728043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1091728052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091728043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -871393208
+      Data2: 1127926951
+      Data3: 396695941
+      Data4: -156503850
+    Path: event:/SFX_UI_Hover
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 18
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &1411862206
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -264,6 +264,8 @@ GameObject:
   - component: {fileID: 88292692}
   - component: {fileID: 88292691}
   - component: {fileID: 88292690}
+  - component: {fileID: 88292696}
+  - component: {fileID: 88292695}
   m_Layer: 5
   m_Name: Settings Button
   m_TagString: Untagged
@@ -321,8 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &88292692
@@ -407,6 +407,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88292688}
   m_CullTransparentMesh: 1
+--- !u!114 &88292695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88292688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -871393208
+      Data2: 1127926951
+      Data3: 396695941
+      Data4: -156503850
+    Path: event:/SFX_UI_Hover
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 18
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &88292696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88292688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &217977396
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +484,8 @@ GameObject:
   - component: {fileID: 217977400}
   - component: {fileID: 217977399}
   - component: {fileID: 217977398}
+  - component: {fileID: 217977405}
+  - component: {fileID: 217977404}
   m_Layer: 5
   m_Name: Resume Button
   m_TagString: Untagged
@@ -491,8 +555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &217977401
@@ -577,6 +639,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217977396}
   m_CullTransparentMesh: 1
+--- !u!114 &217977404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217977396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -871393208
+      Data2: 1127926951
+      Data3: 396695941
+      Data4: -156503850
+    Path: event:/SFX_UI_Hover
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 18
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &217977405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217977396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &723139460
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +715,8 @@ GameObject:
   - component: {fileID: 723139464}
   - component: {fileID: 723139463}
   - component: {fileID: 723139462}
+  - component: {fileID: 723139468}
+  - component: {fileID: 723139467}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -648,8 +774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &723139464
@@ -734,6 +858,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723139460}
   m_CullTransparentMesh: 1
+--- !u!114 &723139467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723139460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -871393208
+      Data2: 1127926951
+      Data3: 396695941
+      Data4: -156503850
+    Path: event:/SFX_UI_Hover
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 18
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &723139468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723139460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1026862283
 GameObject:
   m_ObjectHideFlags: 0

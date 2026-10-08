@@ -357,8 +357,53 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1013559848008511310, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1017419082}
+    - targetCorrespondingSourceObject: {fileID: 7361287694552614588, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1731189746}
+    - targetCorrespondingSourceObject: {fileID: 4898984023432108042, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 525679469}
   m_SourcePrefab: {fileID: 100100000, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+--- !u!1 &525679463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4898984023432108042, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+  m_PrefabInstance: {fileID: 506968277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &525679469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525679463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &584989178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,6 +899,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.SceneEntrance
   id: Bathroom
   facing: 0
+--- !u!1 &1017419076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1013559848008511310, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+  m_PrefabInstance: {fileID: 506968277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1017419082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017419076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1145601501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1093,6 +1174,42 @@ Transform:
   - {fileID: 368076640}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1731189740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7361287694552614588, guid: 411182fec7ab0b24094da0f4935e5099, type: 3}
+  m_PrefabInstance: {fileID: 506968277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1731189746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731189740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1742353977
 GameObject:
   m_ObjectHideFlags: 0

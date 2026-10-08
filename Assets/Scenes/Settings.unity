@@ -5772,6 +5772,8 @@ GameObject:
   - component: {fileID: 579047722}
   - component: {fileID: 579047721}
   - component: {fileID: 579047720}
+  - component: {fileID: 579047726}
+  - component: {fileID: 579047725}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -5823,8 +5825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &579047722
@@ -5867,7 +5867,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 579047723}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -5909,6 +5909,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579047718}
   m_CullTransparentMesh: 1
+--- !u!114 &579047725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579047718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -871393208
+      Data2: 1127926951
+      Data3: 396695941
+      Data4: -156503850
+    Path: event:/SFX_UI_Hover
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 18
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &579047726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579047718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &580622676
 GameObject:
   m_ObjectHideFlags: 0
@@ -9282,6 +9344,8 @@ GameObject:
   - component: {fileID: 1049244510}
   - component: {fileID: 1049244509}
   - component: {fileID: 1049244508}
+  - component: {fileID: 1049244515}
+  - component: {fileID: 1049244514}
   m_Layer: 5
   m_Name: Apply Button
   m_TagString: Untagged
@@ -9346,8 +9410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &1049244511
@@ -9390,7 +9452,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1049244512}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -9432,6 +9494,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049244506}
   m_CullTransparentMesh: 1
+--- !u!114 &1049244514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049244506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -871393208
+      Data2: 1127926951
+      Data3: 396695941
+      Data4: -156503850
+    Path: event:/SFX_UI_Hover
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 18
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1049244515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049244506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1070062199
 GameObject:
   m_ObjectHideFlags: 0
@@ -12800,6 +12924,8 @@ GameObject:
   - component: {fileID: 1564419885}
   - component: {fileID: 1564419884}
   - component: {fileID: 1564419883}
+  - component: {fileID: 1564419889}
+  - component: {fileID: 1564419888}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -12857,8 +12983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &1564419885
@@ -12901,7 +13025,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1564419886}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -12943,6 +13067,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564419881}
   m_CullTransparentMesh: 1
+--- !u!114 &1564419888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564419881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -871393208
+      Data2: 1127926951
+      Data3: 396695941
+      Data4: -156503850
+    Path: event:/SFX_UI_Hover
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 18
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1564419889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564419881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2133218734
+      Data2: 1266167302
+      Data3: -1329359199
+      Data4: 1127064898
+    Path: event:/SFX_UI_Select
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 20
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1575311407
 GameObject:
   m_ObjectHideFlags: 0
@@ -14247,8 +14433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &1726320778
@@ -14590,7 +14774,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1575311408}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5852756
+  m_Size: 0.44777578
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -16036,8 +16220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c5dd4518673c489c3ac8ed685da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButton
-  highlightScale: 1.1
-  scaleDuration: 0.12
   selectSound: {fileID: 0}
   pressSound: {fileID: 0}
 --- !u!114 &2015428650
