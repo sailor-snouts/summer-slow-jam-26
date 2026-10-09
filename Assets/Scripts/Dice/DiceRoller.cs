@@ -3,13 +3,20 @@ using UnityEngine;
 
 namespace Game
 {
+    public enum RollOutcome
+    {
+        None,
+        Pass,
+        Fail,
+    }
+
     [AddComponentMenu("Game/Dice Roller")]
     [DisallowMultipleComponent]
     public class DiceRoller : MonoBehaviour
     {
         public static DiceRoller Instance { get; private set; }
 
-        public static event Action<DiceRoll, string> Rolled;
+        public static event Action<DiceRoll, string, RollOutcome> Rolled;
 
         [Header("Seed")]
         [SerializeField]
@@ -71,9 +78,9 @@ namespace Game
             random = new System.Random(newSeed);
         }
 
-        public void Announce(DiceRoll roll, string label = null)
+        public void Announce(DiceRoll roll, string label = null, RollOutcome outcome = RollOutcome.None)
         {
-            Rolled?.Invoke(roll, label);
+            Rolled?.Invoke(roll, label, outcome);
         }
 
         public DiceRoll RollAndAnnounce(int count, int sides, string label = null)

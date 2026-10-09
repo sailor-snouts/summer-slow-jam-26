@@ -277,6 +277,11 @@ MonoBehaviour:
   settleDuration: 0.4
   fadeDuration: 0.4
   flashInterval: 0.05
+  passColor: {r: 0.45, g: 0.85, b: 0.45, a: 1}
+  failColor: {r: 0.9, g: 0.4, b: 0.4, a: 1}
+  resultColorDuration: 0.25
+  passSound: {fileID: 11400000, guid: bb06cb6a4446cda499858db420955292, type: 2}
+  failSound: {fileID: 11400000, guid: 943db9e9df0cae24ea291f9a09d5327f, type: 2}
 --- !u!1 &3726930812742701067
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +622,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5051268475619646954
 CanvasRenderer:

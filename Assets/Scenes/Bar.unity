@@ -1389,11 +1389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124843884935004494, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.88
+      value: 4.62
       objectReference: {fileID: 0}
     - target: {fileID: 1124843884935004494, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: 2.61
       objectReference: {fileID: 0}
     - target: {fileID: 1124843884935004494, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1469,7 +1469,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 91d2a9da4fcb327439ea3adc725526a4, type: 3}
     - target: {fileID: 7107361273269225988, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_SortingOrder
-      value: 30
+      value: -261
       objectReference: {fileID: 0}
     - target: {fileID: 7107361273269225988, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -1482,38 +1482,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7980294182807469959, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1752561093}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
---- !u!1 &1752561092 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7980294182807469959, guid: d9506be27ec9961449a3f8d65aa9630a, type: 3}
-  m_PrefabInstance: {fileID: 1752561091}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1752561093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752561092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46380f2b9d8f7d0408fa2c4ffca92d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.NpcWalkAfterConversation
-  waypoints:
-  - {fileID: 686965756}
-  - {fileID: 944275493}
-  arriveDistance: 0.15
-  walkSpeed: 3
-  startDelay: 0
-  lockPlayerUntilArrived: 1
-  destroyOnArrive: 0
-  persistDespawn: 0
-  maxWalkSeconds: 5
 --- !u!1001 &1771254886
 PrefabInstance:
   m_ObjectHideFlags: 0
