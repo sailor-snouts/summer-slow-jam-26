@@ -1690,7 +1690,7 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(1, 6, false) >= 6
+      conditionsString: WillpowerCheck(1, 6, false, 6)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2080,7 +2080,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: DriveCheck(2, 6, true) >= 16
+      conditionsString: DriveCheck(2, 6, true, 16)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2364,7 +2364,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: HostilityCheck(1, 6, false) >= 7
+      conditionsString: HostilityCheck(1, 6, false, 7)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2586,7 +2586,7 @@ MonoBehaviour:
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6, false) >= 6
+      conditionsString: ObservationCheck(1, 6, false, 6)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2910,7 +2910,7 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(1, 6, false) >= 3
+      conditionsString: WillpowerCheck(1, 6, false, 3)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3039,7 +3039,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: VigorCheck(2, 6, true) >= 12
+      conditionsString: VigorCheck(2, 6, true, 12)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3106,7 +3106,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: BonhomieCheck(2, 6, true) >= 10
+      conditionsString: BonhomieCheck(2, 6, true, 10)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3173,7 +3173,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: TauntCheck(2, 6, true) >= 11
+      conditionsString: TauntCheck(2, 6, true, 11)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -4016,7 +4016,7 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: EmpathyCheck(1, 6, false) >= 8
+      conditionsString: EmpathyCheck(1, 6, false, 8)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -4133,7 +4133,7 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: EnduranceCheck(1, 6, false) >= 7
+      conditionsString: EnduranceCheck(1, 6, false, 7)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -4249,7 +4249,7 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      conditionsString: CharmCheck(2, 6, true) >= 12
+      conditionsString: CharmCheck(2, 6, true, 12)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -4420,7 +4420,7 @@ MonoBehaviour:
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
-      conditionsString: AgilityCheck(2, 6, true) >= 11
+      conditionsString: AgilityCheck(2, 6, true, 11)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5314,7 +5314,7 @@ MonoBehaviour:
         destinationDialogueID: 30
         isConnector: 0
         priority: 2
-      conditionsString: DriveCheck(1, 6, false) >= 2
+      conditionsString: DriveCheck(1, 6, false, 2)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5590,7 +5590,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: BonhomieCheck(2, 6, true) >= 8
+      conditionsString: BonhomieCheck(2, 6, true, 8)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6069,7 +6069,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: (Variable["ProtostrogenCheck"] == false) and (HostilityCheck(1,
-        6, false) >= 5)
+        6, false, 5))
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6125,7 +6125,7 @@ MonoBehaviour:
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(1, 6, false) >= 4
+      conditionsString: WillpowerCheck(1, 6, false, 4)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6244,7 +6244,7 @@ MonoBehaviour:
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      conditionsString: DriveCheck(1, 6, false) >= 3
+      conditionsString: DriveCheck(1, 6, false, 3)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6305,7 +6305,7 @@ MonoBehaviour:
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      conditionsString: TechniqueCheck(1, 6, false) >= 4
+      conditionsString: TechniqueCheck(1, 6, false, 4)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6361,7 +6361,7 @@ MonoBehaviour:
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      conditionsString: EnduranceCheck(1, 6, false) >= 4
+      conditionsString: EnduranceCheck(1, 6, false, 4)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6828,7 +6828,7 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6, false) >= 4
+      conditionsString: ObservationCheck(1, 6, false, 4)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6883,7 +6883,7 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      conditionsString: TauntCheck(1, 6, false) >= 7
+      conditionsString: TauntCheck(1, 6, false, 7)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7547,6 +7547,12 @@ MonoBehaviour:
         destinationDialogueID: 45
         isConnector: 0
         priority: 2
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -7554,8 +7560,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 308.6667
-        y: 84.66667
+        x: 661.131
+        y: 67.96318
         width: 160
         height: 30
     - id: 1
@@ -7608,15 +7614,16 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: (IsPlayer("Ethan Hermann Jr.")  == true) and (Variable["FemFitNeed"]
+        == false)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 309.33334
-        y: 163.33336
+        x: 197.09708
+        y: 189.49373
         width: 160
         height: 30
     - id: 2
@@ -7669,7 +7676,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6, false) >= 5
+      conditionsString: ObservationCheck(1, 6, false, 5)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7792,14 +7799,15 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: Variable["isErin"] == true and (Variable["isEthan"] == false)
+      conditionsString: Variable["isErin"] == true and Variable["DawnInParty"] ==
+        false
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 742.6668
+        x: 740.979
         y: 330.0001
         width: 160
         height: 30
@@ -8014,7 +8022,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 656.00006
-        y: 403.66663
+        y: 402.82275
         width: 160
         height: 30
     - id: 9
@@ -8171,7 +8179,7 @@ MonoBehaviour:
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      conditionsString: AgilityCheck(1, 6, false) >= 8
+      conditionsString: AgilityCheck(1, 6, false, 8)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8590,7 +8598,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 568.1229
+        x: 571.4985
         y: 975.1167
         width: 160
         height: 30
@@ -8638,7 +8646,7 @@ MonoBehaviour:
         destinationDialogueID: 22
         isConnector: 0
         priority: 2
-      conditionsString: CharmCheck(2, 6, false) >= 12
+      conditionsString: CharmCheck(2, 6, true, 12)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8877,8 +8885,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 683.3333
-        y: 1232.1962
+        x: 692.616
+        y: 1162.9978
         width: 160
         height: 30
     - id: 25
@@ -9158,7 +9166,7 @@ MonoBehaviour:
         destinationDialogueID: 36
         isConnector: 0
         priority: 2
-      conditionsString: CharmCheck(1, 6, false) >= 7
+      conditionsString: CharmCheck(1, 6, false, 7)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9213,14 +9221,14 @@ MonoBehaviour:
         destinationDialogueID: 36
         isConnector: 0
         priority: 2
-      conditionsString: WillpowerCheck(2, 6, false) >= 10
+      conditionsString: WillpowerCheck(2, 6, true, 10)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 608.0053
+        x: 608.8492
         y: 1401.8202
         width: 160
         height: 30
@@ -9438,11 +9446,11 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 34
         destinationConversationID: 5
-        destinationDialogueID: 25
+        destinationDialogueID: 33
         isConnector: 0
         priority: 2
-      conditionsString: (Variable["FemFitNeed"] == true) and (Variable["FemFitFound"]
-        == true) and (Variable["isErin"] == true)
+      conditionsString: (Variable["FemFitNeed"] == true) and (IsPlayer("Erin Quennell") 
+        == true)  and Variable["DawnInParty"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9531,7 +9539,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: So, you wanna join Volo Inanis Liberatio, but first, self-intros.
+        value: So, you wanna join Nullum Genus Fati, but first, self-intros.
         type: 0
         typeString: 
       - title: Sequence
@@ -9559,7 +9567,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 549.69916
+        x: 550.543
         y: 1591.6333
         width: 160
         height: 30
@@ -9676,7 +9684,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 431.71967
-        y: 1719.7319
+        y: 1718.8881
         width: 160
         height: 30
     - id: 39
@@ -9941,8 +9949,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1011.6201
-        y: 218.211
+        x: 1289.0391
+        y: 203.15729
         width: 160
         height: 30
     - id: 44
@@ -9991,8 +9999,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1242.8436
-        y: 219.89876
+        x: 1520.2626
+        y: 205.68892
         width: 160
         height: 30
     - id: 45
@@ -10041,12 +10049,12 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1478.2866
-        y: 214.83537
+        x: 1755.7056
+        y: 199.78166
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 166.24463, y: 0}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.7900002
   - id: 6
     fields:
@@ -10203,8 +10211,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: (Actor["Ethan_Hermann_Jr."].IsPlayer == true) or (Actor["Erin_Quennell"].IsPlayer
-        == true)
+      conditionsString: Variable["ObtainDress"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -10212,7 +10219,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160.57141
-        y: 106.82669
+        y: 106.139404
         width: 160
         height: 30
     - id: 2
@@ -10436,7 +10443,7 @@ MonoBehaviour:
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(2, 6, true) >= 8
+      conditionsString: ObservationCheck(2, 6, true, 8)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -10608,7 +10615,7 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: TechniqueCheck(2, 6, true) >= 9
+      conditionsString: TechniqueCheck(2, 6, true, 9)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -10780,7 +10787,7 @@ MonoBehaviour:
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      conditionsString: ObservationCheck(1, 6, false) >= 9
+      conditionsString: ObservationCheck(1, 6, false, 9)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -11125,7 +11132,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 171.9317
-        y: 887.7203
+        y: 888.40753
         width: 160
         height: 30
     - id: 18
@@ -11234,7 +11241,7 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      conditionsString: EnduranceCheck(2, 6, false) >= 10
+      conditionsString: EnduranceCheck(2, 6, true, 10)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -11409,7 +11416,7 @@ MonoBehaviour:
         destinationDialogueID: 23
         isConnector: 0
         priority: 2
-      conditionsString: VigorCheck(1, 6, false) >= 9
+      conditionsString: VigorCheck(1, 6, false, 9)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -11690,22 +11697,19 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: 'Variable["ObtainDress"] = true;
-
-        Variable["FemFitFound"]
-        = true;'
+      conditionsString: Variable["ObtainDress"] == true
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 537.1571
-        y: 82.749146
+        y: 82.06186
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1.3745728, y: 261.8556}
+    canvasScrollPosition: {x: 8.934692, y: 0}
     canvasZoom: 0.97
   - id: 7
     fields:
@@ -11891,8 +11895,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: (IsPlayer("Ethan Hermann Jr.")  == true) or (IsPlayer("Erin
-        Quennell")  == true)
+      conditionsString: Variable["DawnInParty"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -11900,7 +11903,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 173.80466
-        y: 97.132065
+        y: 96.25488
         width: 160
         height: 30
     - id: 2
@@ -12015,8 +12018,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 335.8388
-        y: 203.72574
+        x: 334.88638
+        y: 204.67813
         width: 160
         height: 30
     - id: 4
@@ -12077,7 +12080,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 635.4377
-        y: 199.67082
+        y: 198.71849
         width: 160
         height: 30
     - id: 5
@@ -12217,7 +12220,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: HostilityCheck(2, 6, false) >= 20
+      conditionsString: HostilityCheck(2, 6, false, 20)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -12382,16 +12385,16 @@ MonoBehaviour:
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      conditionsString: (Feminine() >= 8) and (Actor["Erin_Quennell"].IsPlayer ==
-        true) and (Variable["DawnInParty"] == true) and (Feminine() >= 8)
+      conditionsString: Actor["Erin_Quennell"].IsPlayer == true and Variable["DawnInParty"]
+        == true and Feminine() >= 8
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 993.3128
-        y: 106.415085
+        x: 981.03217
+        y: 130.09926
         width: 160
         height: 30
     - id: 11
@@ -12749,7 +12752,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Sir, please, she's with me. She's wanting to join VIL. Is this really
+        value: Sir, please, she's with me. She's wanting to join NUL. Is this really
           necessary?
         type: 0
         typeString: 
@@ -13005,7 +13008,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 975.132
+        x: 972.5004
         y: 698.23914
         width: 160
         height: 30
@@ -13236,7 +13239,7 @@ MonoBehaviour:
         destinationDialogueID: 31
         isConnector: 0
         priority: 2
-      conditionsString: EmpathyCheck(2, 6, false) >= 9
+      conditionsString: EmpathyCheck(2, 6, true, 9)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -13298,7 +13301,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 931.1069
+        x: 930.2297
         y: 914.9059
         width: 160
         height: 30
@@ -13346,14 +13349,14 @@ MonoBehaviour:
         destinationDialogueID: 31
         isConnector: 0
         priority: 2
-      conditionsString: DriveCheck(2, 6, false) >= 12
+      conditionsString: DriveCheck(2, 6, true, 12)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1121.6726
+        x: 1120.7955
         y: 913.6477
         width: 160
         height: 30
@@ -13465,7 +13468,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1021.04395
-        y: 1034.7173
+        y: 1027.6997
         width: 160
         height: 30
     - id: 32
@@ -13800,55 +13803,6 @@ MonoBehaviour:
         y: 1361.9574
         width: 160
         height: 30
-    - id: 38
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 18
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 20
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: (This concludes this fragment of The Rabbit Hole. Thank you for playing!)
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 7
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1018.8036
-        y: 1480.5111
-        width: 160
-        height: 30
     - id: 39
       fields:
       - title: Title
@@ -13887,13 +13841,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 7
-        originDialogueID: 39
-        destinationConversationID: 7
-        destinationDialogueID: 38
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
       onExecute:
@@ -13999,8 +13947,8 @@ MonoBehaviour:
         destinationDialogueID: 42
         isConnector: 0
         priority: 2
-      conditionsString: (Feminine() >= 8) and (Actor["Erin_Quennell"].IsPlayer ==
-        true) and (Variable["DawnInParty"] == true) and (Feminine() <= 8)
+      conditionsString: Variable["DawnInParty"] == true and IsPlayer("Erin Quennell") 
+        == true and Feminine() < 8
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -14008,7 +13956,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1365.4777
-        y: 102.68042
+        y: 101.80324
         width: 160
         height: 30
     - id: 42
@@ -14104,8 +14052,8 @@ MonoBehaviour:
         destinationDialogueID: 44
         isConnector: 0
         priority: 2
-      conditionsString: Variable["DawnInParty"] == true and (IsPlayer("Ethan Hermann
-        Jr.")  == true) and (Feminine() <= 5)
+      conditionsString: (IsPlayer("Ethan Hermann Jr.")  == true) and (Feminine()
+        < 5) and (Variable["DawnInParty"] == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -14188,7 +14136,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: ...
         type: 0
         typeString: 
       - title: Sequence
@@ -14209,7 +14157,7 @@ MonoBehaviour:
         destinationDialogueID: 46
         isConnector: 0
         priority: 2
-      conditionsString: Variable["DawnInParty"] == true and (IsPlayer("Ethan Hermann
+      conditionsString: (Variable["DawnInParty"] == true) and (IsPlayer("Ethan Hermann
         Jr.")  == true) and (Feminine() >= 5)
       userScript: 
       onExecute:
@@ -14217,8 +14165,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1928.7028
-        y: 101.00456
+        x: 1923.4395
+        y: 98.37297
         width: 160
         height: 30
     - id: 46
@@ -14272,8 +14220,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.6100004
+    canvasScrollPosition: {x: 378.07007, y: 0}
+    canvasZoom: 0.7600002
   syncInfo:
     syncActors: 0
     syncItems: 0
