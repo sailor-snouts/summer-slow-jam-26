@@ -74,6 +74,7 @@ namespace JamTemplate.Audio
 
         // Looping channels held as event instances.
         private EventInstance musicInstance;
+        private AudioEvent currentMusic;
         private EventInstance ambianceInstance;
 
         // Music/ambiance requested before banks finish loading, replayed once ready.
@@ -272,14 +273,29 @@ namespace JamTemplate.Audio
             if (audioEvent == null) { StopMusic(); return; }
             if (!banksReady) { pendingMusic = audioEvent; return; }
 
+            // Same track already playing (e.g. moving between scenes that share it): keep it going
+            // instead of restarting from the top.
+            if (audioEvent == currentMusic && IsPlaying(musicInstance))
+                return;
+
             StopInstance(ref musicInstance);
             musicInstance = StartLooping(audioEvent.fmodEvent, audioEvent.volume);
+            currentMusic = audioEvent;
+        }
+
+        private static bool IsPlaying(EventInstance instance)
+        {
+            if (!instance.isValid())
+                return false;
+            instance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+            return state != FMOD.Studio.PLAYBACK_STATE.STOPPED && state != FMOD.Studio.PLAYBACK_STATE.STOPPING;
         }
 
         /// <summary>Fades out the current music.</summary>
         public void StopMusic()
         {
             pendingMusic = null;
+            currentMusic = null;
             StopInstance(ref musicInstance);
         }
 

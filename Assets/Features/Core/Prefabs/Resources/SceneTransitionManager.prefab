@@ -109,3 +109,4 @@ MonoBehaviour:
   showText: 1
   showBar: 1
   progressColor: {r: 1, g: 1, b: 1, a: 1}
+  fadeAudio: 0
