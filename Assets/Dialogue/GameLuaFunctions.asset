@@ -77,3 +77,6 @@ MonoBehaviour:
   - functionName: Game/NpcWalk
     parameters: 03000000
     returnValue: 0
+  - functionName: Game/ChangeScene
+    parameters: 02000000
+    returnValue: 0

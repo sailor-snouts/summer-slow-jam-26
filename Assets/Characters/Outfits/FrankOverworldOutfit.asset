@@ -26,10 +26,10 @@ MonoBehaviour:
     - {fileID: 3008396671786540733, guid: 00a774ead9fb2de4bb1074f3fa764019, type: 3}
     - {fileID: -8428243637667507997, guid: 00a774ead9fb2de4bb1074f3fa764019, type: 3}
     up:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 416006040268154125, guid: 59e0bbaf93a4b4540a09c7cfa0a6f185, type: 3}
+    - {fileID: 4240005398879965582, guid: 59e0bbaf93a4b4540a09c7cfa0a6f185, type: 3}
+    - {fileID: -480445730861782537, guid: 59e0bbaf93a4b4540a09c7cfa0a6f185, type: 3}
+    - {fileID: 2180694514442581193, guid: 59e0bbaf93a4b4540a09c7cfa0a6f185, type: 3}
     left:
     - {fileID: 7592684396611463985, guid: fccc89bef3e2b9b468573ebf4aad5eed, type: 3}
     - {fileID: -270125064731190997, guid: fccc89bef3e2b9b468573ebf4aad5eed, type: 3}

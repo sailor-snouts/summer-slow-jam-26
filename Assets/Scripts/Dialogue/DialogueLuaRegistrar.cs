@@ -1,3 +1,5 @@
+using System.Collections;
+using JamTemplate.Menus;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
@@ -28,6 +30,7 @@ namespace Game
             Lua.RegisterFunction("SetPlayer", this, GetType().GetMethod(nameof(SetPlayer)));
             Lua.RegisterFunction("UnlockOutfit", this, GetType().GetMethod(nameof(UnlockOutfit)));
             Lua.RegisterFunction("NpcWalk", this, GetType().GetMethod(nameof(NpcWalk)));
+            Lua.RegisterFunction("ChangeScene", this, GetType().GetMethod(nameof(ChangeScene)));
             Lua.RegisterFunction("Masculine", this, GetType().GetMethod(nameof(Masculine)));
             Lua.RegisterFunction("Feminine", this, GetType().GetMethod(nameof(Feminine)));
             foreach (string functionName in CheckFunctions)
@@ -41,6 +44,7 @@ namespace Game
             Lua.UnregisterFunction("SetPlayer");
             Lua.UnregisterFunction("UnlockOutfit");
             Lua.UnregisterFunction("NpcWalk");
+            Lua.UnregisterFunction("ChangeScene");
             Lua.UnregisterFunction("Masculine");
             Lua.UnregisterFunction("Feminine");
             foreach (string functionName in CheckFunctions)
@@ -86,6 +90,25 @@ namespace Game
             }
 
             Outfits.Unlock(character, outfit);
+        }
+
+        // ChangeScene("ThankYou") - loads that scene (with the normal fade) once this conversation closes,
+        // so the line that called it is still shown first.
+        public void ChangeScene(string sceneName)
+        {
+            if (!Application.CanStreamedLevelBeLoaded(sceneName))
+            {
+                Debug.LogWarning($"[DialogueLuaRegistrar] ChangeScene: '{sceneName}' isn't in Build Settings.");
+                return;
+            }
+            StartCoroutine(LoadWhenConversationEnds(sceneName));
+        }
+
+        private IEnumerator LoadWhenConversationEnds(string sceneName)
+        {
+            while (DialogueManager.isConversationActive)
+                yield return null;
+            MenuSceneRouter.Load(sceneName);
         }
 
         // NpcWalk("Bouncer") - arms that NPC's path walk to run once this conversation ends.

@@ -13842,7 +13842,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'ChangeScene("ThankYou");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -14219,8 +14221,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 378.07007, y: 0}
-    canvasZoom: 0.7600002
+    canvasScrollPosition: {x: 710.37726, y: 934.16003}
+    canvasZoom: 1.2099998
   syncInfo:
     syncActors: 0
     syncItems: 0

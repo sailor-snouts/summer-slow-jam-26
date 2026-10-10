@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 782cf036995d1e54bb9765ba944f83b9
+guid: 59e0bbaf93a4b4540a09c7cfa0a6f185
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1687683655400653335
-    second: UI_DialogueBox_0
+      213: 416006040268154125
+    second: Frank_Walking_Back_0
+  - first:
+      213: 4240005398879965582
+    second: Frank_Walking_Back_1
+  - first:
+      213: -480445730861782537
+    second: Frank_Walking_Back_2
+  - first:
+      213: 2180694514442581193
+    second: Frank_Walking_Back_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,40 +118,93 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_DialogueBox_0
+      name: Frank_Walking_Back_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 360
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 101
+        y: 1
+        width: 54
+        height: 181
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7128365c75bdb6710800000000000000
-      internalID: 1687683655400653335
+      spriteID: d05a99e1a43f5c500800000000000000
+      internalID: 416006040268154125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Walking_Back_1
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 0
+        width: 52
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e819afd127687da30800000000000000
+      internalID: 4240005398879965582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Walking_Back_2
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 1
+        width: 54
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f9612e372d1559f0800000000000000
+      internalID: -480445730861782537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Walking_Back_3
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 0
+        width: 52
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c43ef86b12634e10800000000000000
+      internalID: 2180694514442581193
       vertices: []
       indices: 
       edges: []
@@ -151,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 433b3aa7bfe70a14481aae0c08be3431
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      UI_DialogueBox_0: 1687683655400653335
+      Frank_Walking_Back_0: 416006040268154125
+      Frank_Walking_Back_1: 4240005398879965582
+      Frank_Walking_Back_2: -480445730861782537
+      Frank_Walking_Back_3: 2180694514442581193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
