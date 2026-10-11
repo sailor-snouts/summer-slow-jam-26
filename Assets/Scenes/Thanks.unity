@@ -392,7 +392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4be362349617294b913c28271155ffb, type: 2}
   m_sharedMaterial: {fileID: -3734260372388122625, guid: a4be362349617294b913c28271155ffb, type: 2}
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: JamTemplate.Menus::JamTemplate.Menus.MenuButtonAction
   action: 0
-  scene: Thanks
+  scene: Title
   visibleWhen: 0
   onClick:
     m_PersistentCalls:
@@ -1050,7 +1050,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1646950565}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
