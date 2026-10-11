@@ -58,6 +58,7 @@ namespace Game
 
         private readonly List<TMP_Text> cells = new List<TMP_Text>();
         private readonly List<Image> cellImages = new List<Image>();
+        private string checkLabel;
         private Coroutine showRoutine;
         private Coroutine hideRoutine;
         private bool pausedDialogue;
@@ -86,7 +87,15 @@ namespace Game
         {
             BuildCells(roll);
             if (labelText != null)
-                labelText.text = string.IsNullOrEmpty(label) ? roll.Total.ToString() : $"{label}: {roll.Total}";
+            {
+                // Checks with a target reveal Success/Failure when the dice land (ShowResult), so only the
+                // check name shows while rolling. Plain rolls with no target still show the total.
+                checkLabel = label;
+                if (outcome != RollOutcome.None)
+                    labelText.text = label ?? string.Empty;
+                else
+                    labelText.text = string.IsNullOrEmpty(label) ? roll.Total.ToString() : $"{label}: {roll.Total}";
+            }
 
             // Hold the conversation on the current line until the player closes the HUD.
             if (DialogueManager.isConversationActive && !pausedDialogue)
@@ -172,6 +181,13 @@ namespace Game
             AudioEvent sound = passed ? passSound : failSound;
             if (sound != null)
                 GameAudio.Play(sound);
+
+            if (labelText != null)
+            {
+                string hex = ColorUtility.ToHtmlStringRGB(passed ? passColor : failColor);
+                string result = $"<color=#{hex}>{(passed ? "Success" : "Failure")}</color>";
+                labelText.text = string.IsNullOrEmpty(checkLabel) ? result : $"{checkLabel}: {result}";
+            }
 
             Color target = passed ? passColor : failColor;
             var start = new Color[cellImages.Count];
