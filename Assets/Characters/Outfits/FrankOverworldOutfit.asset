@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   look:
     down: {fileID: -1814436762320643282, guid: 00a774ead9fb2de4bb1074f3fa764019, type: 3}
-    up: {fileID: 0}
+    up: {fileID: 416006040268154125, guid: 59e0bbaf93a4b4540a09c7cfa0a6f185, type: 3}
     left: {fileID: 7592684396611463985, guid: fccc89bef3e2b9b468573ebf4aad5eed, type: 3}
     right: {fileID: -1419740088275796843, guid: 92e051631748e454d82cfd92a08932d3, type: 3}
   walk:
