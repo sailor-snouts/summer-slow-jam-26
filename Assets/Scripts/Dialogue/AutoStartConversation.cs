@@ -23,6 +23,8 @@ namespace Game
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetState() => played.Clear();
 
+        public static void ClearPlayed() => played.Clear();
+
         private void Start()
         {
             if (npc == null)

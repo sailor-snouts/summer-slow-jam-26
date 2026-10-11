@@ -15,6 +15,9 @@ namespace Game
 
         public static PlayerCharacter Current { get; private set; }
 
+        // Forget which character was chosen this session (a new game).
+        public static void ClearSession() => sessionCharacter = null;
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetSession()
         {

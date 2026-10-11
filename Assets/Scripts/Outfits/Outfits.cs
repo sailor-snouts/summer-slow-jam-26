@@ -15,9 +15,15 @@ namespace Game
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetState()
         {
+            ClearProgress();
+            Changed = null;
+        }
+
+        // Forget what was equipped and unlocked (a new game). Listeners stay subscribed.
+        public static void ClearProgress()
+        {
             equipped.Clear();
             unlocked.Clear();
-            Changed = null;
         }
 
         // A character's default outfit is always available; everything else must be unlocked by script.

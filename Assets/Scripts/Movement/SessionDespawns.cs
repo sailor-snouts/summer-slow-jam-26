@@ -12,6 +12,8 @@ namespace Game
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetState() => despawned.Clear();
 
+        public static void Clear() => despawned.Clear();
+
         public static bool IsDespawned(string id) => !string.IsNullOrEmpty(id) && despawned.Contains(id);
 
         public static void MarkDespawned(string id)
